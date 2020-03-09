@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_150619) do
+ActiveRecord::Schema.define(version: 2020_03_09_170458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "phone_number"
+    t.string "email"
+    t.boolean "tutoiement", default: false
+    t.string "partner_name"
+    t.text "notes"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
+  create_table "prestations", force: :cascade do |t|
+    t.bigint "client_id"
+    t.string "title"
+    t.string "category"
+    t.string "location"
+    t.text "notes"
+    t.string "status", default: "En cours"
+    t.date "start_time"
+    t.date "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_prestations_on_client_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "prestation_id"
+    t.string "name"
+    t.string "kind"
+    t.text "description"
+    t.boolean "urgent", default: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prestation_id"], name: "index_tasks_on_prestation_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +69,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_150619) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "clients", "users"
+  add_foreign_key "prestations", "clients"
+  add_foreign_key "tasks", "prestations"
 end

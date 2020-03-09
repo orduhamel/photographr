@@ -3,10 +3,12 @@ ruby '2.6.5'
 
 gem 'bootsnap', require: false
 gem 'devise'
+gem 'devise-i18n'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.4.1'
+gem 'rails-i18n'
 gem 'redis'
 
 gem 'autoprefixer-rails'
