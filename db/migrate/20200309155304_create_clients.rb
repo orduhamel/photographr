@@ -6,7 +6,7 @@ class CreateClients < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :phone_number
       t.string :email
-      t.boolean :tutoiement
+      t.boolean :tutoiement, default: false
       t.string :partner_name
       t.text :notes
       t.references :user, foreign_key: true
