@@ -5,7 +5,7 @@ class CreatePrestations < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :category
       t.string :location
-      t.string :notes
+      t.text   :notes
       t.string :status, default: 'En cours'
 
       t.timestamps

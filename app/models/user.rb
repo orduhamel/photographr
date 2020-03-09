@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :clients, dependent: :destroy
-  has_many :prestations, through: :clients, dependent: :destroy
-  has_many :tasks, through: :prestations, dependent: :destroy
+  has_many :prestations, through: :clients
+  has_many :tasks, through: :prestations
 
   has_one_attached :photo
 end
