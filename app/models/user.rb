@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :clients, dependent: :destroy
   has_many :prestations, through: :clients, dependent: :destroy
+  has_many :tasks, through: :prestations, dependent: :destroy
 
   has_one_attached :photo
 end
