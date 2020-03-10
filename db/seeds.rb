@@ -61,10 +61,10 @@ puts "Finished seeding 3 clients..."
 
 puts "Seeding 3 prestations..."
 
-prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont deux enfants", status: "en cours")
+prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont deux enfants", status: "En cours")
 prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant Laurent", category: "Mariage", location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: "En cours")
 prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: "En cours")
-prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille Facq", category: "Famille", location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont un enfant", status: "en cours")
+prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille Facq", category: "Famille", location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont un enfant", status: "En cours")
 prestation_entreprise_lecamion = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", location: "1 Rue Bayard, 44100 Nantes", notes: "événement porte ouverte formation peinture.", status: "En cours")
 
 puts "Finished seeding 3 prestations..."
