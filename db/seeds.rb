@@ -20,7 +20,7 @@ puts "Seeding 1 User..."
 ophelie_image = File.open(Rails.root.join("db/fixtures/ophelie-raymond-duhamel-avatar_niayvv.jpg"))
 ophelie = User.new(email: 'opheduhamel@gmail.com', password: 'secret', first_name: 'Ophélie', last_name: 'Raymond-Duhamel')
 ophelie.photo.attach(io: ophelie_image, filename: "#{ophelie.first_name.downcase}.jpg", content_type: 'image/jpg')
-melanie.save!
+ophelie.save!
 
 puts "Finished seeding 1 user..."
 
