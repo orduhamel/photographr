@@ -39,7 +39,7 @@ marine.user = ophelie
 marine.save!
 
 annaig_image = File.open(Rails.root.join("db/fixtures/was-logo-page-001_dgjnaz.jpg"))
-annaig = Client.new(first_name: "Annaig", last_name: "Billon", address: "10 Place de l'Église Saint-Sébastien-sur-Loire", phone_number: "0643215698", email: "annaigbillon@gmail.com", tutoiement: true, partner_name:, notes: "La cliente m'a fait appel pour photographier l'événement de son entreprise We Are Single")
+annaig = Client.new(first_name: "Annaig", last_name: "Billon", company_name: 'We Are Single', address: "10 Place de l'Église Saint-Sébastien-sur-Loire", phone_number: "0643215698", email: "annaigbillon@gmail.com", tutoiement: true, partner_name:, notes: "La cliente m'a fait appel pour photographier l'événement de son entreprise We Are Single")
 annaig.photo.attach(io: annaig_image, filename: "#{annaig.first_name.downcase}.jpg", content_type: 'image/jpg')
 annaig.user = ophelie
 annaig.save!
@@ -51,9 +51,9 @@ puts "Seeding 3 prestations..."
 
 prestation1 = Prestation.create!(client: marie, title: "Famille Mingant", category: "Famille", location: "9 rue des lilas Nantes", notes: "prestation famille. Ils ont deux enfants", status: "Terminé")
 
-prestation2 = Prestation.create!(client: marine, title: "Mariage Leon Dupont", category: "Mariage", location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: "En cours")
+prestation2 = Prestation.create!(client: marine, title: "Mariage Leon & Dupont", category: "Mariage", location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: "En cours")
 
-prestation3 = Prestation.create!(title: "Entreprise We Are Single", category: "Entreprise", location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: "En cours")
+prestation3 = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: "En cours")
 
 puts "Finished seeding 3 prestations..."
 
@@ -75,25 +75,79 @@ task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urge
 
 #milestones famille
 
-task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , description:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , description:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , description:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , description:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , description:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , description:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , description:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , description:, urgent: false, start_time: , end_time: )
 
-#milestones entreprise
+#milestones entreprise We Are Single
 
-task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task1_entreprise_wearesingle = Task.create!(prestation: prestation3,
+                    name: 'Envoyer contrat',
+                    kind: 'admin',
+                    urgent: false,
+                    start_time: DateTime.new(2020,3,9),
+                    end_time: DateTime.new(2020,3,9))
+
+task2_entreprise_wearesingle = Task.create!(prestation: prestation3,
+                    name: 'Valider réception contrat signé',
+                    kind: 'admin',
+                    description: "Si le document n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_time: DateTime.new(2020,3,12),
+                    end_time: DateTime.new(2020,3,12))
+
+task3_entreprise_wearesingle = Task.create!(prestation: prestation3,
+                    name: 'RDV brief',
+                    kind: 'admin',
+                    description: "Discussion avec le client sur le brief de la prestation",
+                    urgent: false,
+                    start_time: DateTime.new(2020,3,16),
+                    end_time: DateTime.new(2020,3,16))
+
+task4_entreprise_wearesingle = Task.create!(prestation: prestation3,
+                    name: 'Événement',
+                    kind: 'évènement',
+                    description:,
+                    urgent: false,
+                    start_time: DateTime.new(2020,3,23),
+                    end_time: DateTime.new(2020,3,23))
+
+task5_entreprise_wearesingle = Task.create!(prestation: prestation3,
+                    name: 'Post-traitement',
+                    kind: 'créa',
+                    description: "Marge de 7 jours pour traiter les photos",
+                    urgent: false,
+                    start_time: DateTime.new(2020,3,24),
+                    end_time: DateTime.new(2020,3,24))
+
+task6_entreprise_wearesingle = Task.create!(prestation: prestation3,
+                    name: 'Livrer photos + envoyer facture',
+                    kind: 'admin',
+                    description:,
+                    urgent: false,
+                    start_time: DateTime.new(2020,3,30),
+                    end_time: DateTime.new(2020,3,30))
+
+task7_entreprise_wearesingle = Task.create!(prestation: prestation3,
+                    name: 'Relancer paiement',
+                    kind: 'admin',
+                    description:,
+                    urgent: false,
+                    start_time: DateTime.new(2020,3,29),
+                    end_time: DateTime.new(2020,3,29))
+
+task8_entreprise_wearesingle = Task.create!(prestation: prestation3,
+                    name: 'Valider réception solde',
+                    kind: 'admin',
+                    description: "Si le solde n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_time: DateTime.new(2020,3,14),
+                    end_time: DateTime.new(2020,3,14))
 
 
 puts "Finished creating 3 tasks..."
