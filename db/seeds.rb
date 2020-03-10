@@ -49,11 +49,9 @@ puts "Finished seeding 3 clients..."
 
 puts "Seeding 3 prestations..."
 
-prestation1 = Prestation.create!(client: marie, title: "Famille Mingant", category: "Famille", location: "9 rue des lilas Nantes", notes: "prestation famille. Ils ont deux enfants", status: "Terminé")
-
-prestation2 = Prestation.create!(client: marine, title: "Mariage Leon & Dupont", category: "Mariage", location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: "En cours")
-
-prestation3 = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: "En cours")
+prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont deux enfants", status: "Terminé")
+prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant Laurent", category: "Mariage", location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: "En cours")
+prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: "En cours")
 
 puts "Finished seeding 3 prestations..."
 
@@ -62,128 +60,126 @@ puts "Creating 3 tasks..."
 
 #milestones mariage
 
-task = Task.create!(prestation: prestation1, name: "Envoyer contrat & facture 1er acompte" , kind: "admin", descriptions:, urgent: false, start_time: DateTime.new(2020,4,5) , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Envoyer contrat & facture 1er acompte",
+                        kind: "admin",
+                        description:,
+                        urgent: false,
+                        start_time: DateTime.new(2019,8,10),
+                        end_time: DateTime.new(2019,8,10))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Valider réception contrat & 1er acompte",
+                        kind: "admin", description: "Si les documents et l'acompte n'ont pas été reçus : relancer le client",
+                        urgent: false,
+                        start_time: DateTime.new(2019,8,17),
+                        end_time: DateTime.new(2019,8,17))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Fixer le 1er rendez-vous",
+                        kind: "admin",
+                        description: "A faire si je n'ai pas déjà rencontré les clients",
+                        urgent: false, start_time: DateTime.new(2019,10,27),
+                        end_time: DateTime.new(2019,10,27))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Envoyer facture 2e acompte",
+                        kind: "admin", description:,
+                        urgent: false,
+                        start_time: DateTime.new(2020,3,10),
+                        end_time: DateTime.new(2020,3,10))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Valider réception 2e acompte",
+                        kind: "admin",
+                        description: "Si l'acompte n'a pas été reçu : relancer le client",
+                        urgent: false,
+                        start_time: DateTime.new(2020,3,20),
+                        end_time: DateTime.new(2020,3,20))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "1er rendez-vous",
+                        kind: "rendez-vous", description: "Définition des attentes du client + apprendre à les connaître. A faire si je n'ai pas déjà rencontré les clients. Définir si c'est un RDV physique ou un appel téléphone.",
+                        urgent: false,
+                        start_time: DateTime.new(2020,7,8),
+                        end_time: DateTime.new(2020,3,20))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Réserver logement & transport",
+                        kind: "admin",
+                        description:,"- Echanges de mails pour prendre billets train/avion + location voiture + hébergement.- Demande de remboursement avance des frais (tant que je suis autoentrepreneur)."
+                        urgent: false,
+                        start_time: DateTime.new(2020,7,8),
+                        end_time: DateTime.new(2020,7,8))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "2e rendez-vous (appel)",
+                        kind: "rendez-vous",
+                        description: "Ne pas oublier de demander : - Le trombinoscope - Des précisions quant au planning du jour J",
+                        urgent: false,
+                        start_time: DateTime.new(2020,3,10),
+                        end_time: DateTime.new(2020,3,10))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Envoyer facture solde",
+                        kind: "admin",
+                        description:"Facture du solde à payer au plus tard 7 jours avant le jour J",
+                        urgent: false,
+                        start_time: DateTime.new(2020,8,22),
+                        end_time: DateTime.new(2020,8,22))
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Valider réception solde",
+                        kind: "admin",
+                        description: "Si le solde n'a pas été reçu : relancer le client",
+                        urgent: false,
+                        start_time: DateTime.new(2020,8,31),
+                        end_time: DateTime.new(2020,8,31))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Évènement",
+                        kind: "évènement",
+                        description:,
+                        urgent: false,
+                        start_time: DateTime.new(2020,9,6),
+                        end_time: DateTime.new(2020,9,7))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Post-traitement des photos",
+                        kind: "créa",
+                        description: "Marge de 28 jours max pour traiter les photos",
+                        urgent: false,
+                        start_time: DateTime.new(2020,9,9),
+                        end_time: DateTime.new(2020,9,14))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Envoyer galerie photos",
+                        kind: "admin",
+                        description: "Envoyer la galerie en ligne par mail (avec les codes d’accès et le fonctionnement de leur accès privé)",
+                        urgent: false,
+                        start_time: DateTime.new(2020,10,7),
+                        end_time: DateTime.new(2020,10,7))
+
+task_mariage_mingant = Task.create!(
+                        prestation: prestation_mariage_mingant,
+                        name: "Envoyer support(s) photos",
+                        kind: "admin",
+                        description: "Par courrier",
+                        urgent: false,
+                        start_time: DateTime.new(2020,9,17),
+                        end_time: DateTime.new(2020,9,17))
 
 
 #milestones famille leon
