@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'prestations/index'
   devise_for :users
-  root to: 'tasks#index'
+  root to: 'pages#home'
 
   resources :prestations, except: :destroy
 
