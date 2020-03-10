@@ -18,7 +18,7 @@ puts "Implementing the Seeds..."
 puts "Seeding 1 User..."
 
 ophelie_image = File.open(Rails.root.join("db/fixtures/ophelie-raymond-duhamel-avatar.jpg"))
-ophelie = User.new(email: 'opheduhamel@gmail.com', password: 'secret', first_name: 'Ophélie', last_name: 'Raymond-Duhamel')
+ophelie = User.new(email: 'opheduhamel@gmail.com', password: 'secret', first_name: 'Ophelie', last_name: 'Raymond-Duhamel')
 ophelie.photo.attach(io: ophelie_image, filename: "#{ophelie.first_name.downcase}.jpg", content_type: 'image/jpg')
 ophelie.save!
 
@@ -28,7 +28,7 @@ puts "Seeding 3 clients..."
 
 marie_image = File.open(Rails.root.join("db/fixtures/famille.jpg"))
 marie = Client.new(first_name: "Marie", last_name: "Mingant", address: "9 rue des lilas Nantes", phone_number: "0789042364", email: "mariemingant@gmail.com", tutoiement: true, partner_name: "Nicolas Laurent", notes: "clients rencontrés dans le cadre d'une prestation famille")
-marie.photo.attach(io: ophelie_image, filename: "#{marie_image.first_name.downcase}.jpg", content_type: 'image/jpg')
+marie.photo.attach(io: marie_image, filename: "#{marie.first_name.downcase}.jpg", content_type: 'image/jpg')
 marie.user = ophelie
 marie.save!
 
