@@ -1,14 +1,16 @@
 require "open-uri"
 
-puts "Deleting all Users..."
-Users.destroy_all
-puts "Done deleting all Users"
-puts "Deleting all Clients..."
-Clients.destroy_all
-puts "Done deleting all Clients"
+puts "Deleting all Tasks..."
+Task.destroy_all
 puts "Deleting all prestations..."
-Prestations.destroy_all
+Prestation.destroy_all
 puts "Done deleting all Prestations"
+puts "Deleting all Clients..."
+Client.destroy_all
+puts "Done deleting all Clients"
+puts "Deleting all Users..."
+User.destroy_all
+puts "Done deleting all Users"
 
 puts "Implementing the Seeds..."
 
@@ -47,24 +49,51 @@ puts "Finished seeding 3 clients..."
 
 puts "Seeding 3 prestations..."
 
-prestation1 = Prestation.new(title: "Famille Mingant", category: "Famille", location: "9 rue des lilas Nantes", notes: "prestation famille. Ils ont deux enfants", status: "En cours")
-prestation1.client = marie
-prestation1.save!
+prestation1 = Prestation.create!(client: marie, title: "Famille Mingant", category: "Famille", location: "9 rue des lilas Nantes", notes: "prestation famille. Ils ont deux enfants", status: "Terminé")
 
-prestation2 = Prestation.new(title: "Mariage Leon Dupont", category: "Mariage", location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: "Terminé")
-prestation2.client = marine
-prestation2.save!
+prestation2 = Prestation.create!(client: marine, title: "Mariage Leon Dupont", category: "Mariage", location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: "En cours")
 
-prestation3 = Prestation.new(title: "Entreprise We Are Single", category: "Entreprise", location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: "En cours")
-prestation3.client = annaig
-prestation3.save!
-
+prestation3 = Prestation.create!(title: "Entreprise We Are Single", category: "Entreprise", location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: "En cours")
 
 puts "Finished seeding 3 prestations..."
 
 
 puts "Creating 3 tasks..."
 
+#milestones mariage
+
+task = Task.create!(prestation: prestation1, name: "Envoyer contrat & facture 1er acompte" , kind: "admin", descriptions:, urgent: false, start_time: DateTime.new(2020,4,5) , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation1, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+
+#milestones famille
+
+task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation2, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+
+#milestones entreprise
+
+task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
+task = Task.create!(prestation: prestation3, name: , kind: , descriptions:, urgent: false, start_time: , end_time: )
 
 
 puts "Finished creating 3 tasks..."
