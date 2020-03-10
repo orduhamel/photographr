@@ -17,8 +17,8 @@ puts "Implementing the Seeds..."
 # owners
 puts "Seeding 1 User..."
 
-ophelie_image = File.open(Rails.root.join("db/fixtures/ophelie-raymond-duhamel-avatar_niayvv.jpg"))
-ophelie = User.new(email: 'opheduhamel@gmail.com', password: 'secret', first_name: 'Ophélie', last_name: 'Raymond-Duhamel')
+ophelie_image = File.open(Rails.root.join("db/fixtures/ophelie-raymond-duhamel-avatar.jpg"))
+ophelie = User.new(email: 'opheduhamel@gmail.com', password: 'secret', first_name: 'Ophelie', last_name: 'Raymond-Duhamel')
 ophelie.photo.attach(io: ophelie_image, filename: "#{ophelie.first_name.downcase}.jpg", content_type: 'image/jpg')
 ophelie.save!
 
@@ -26,20 +26,20 @@ puts "Finished seeding 1 user..."
 
 puts "Seeding 3 clients..."
 
-marie_image = File.open(Rails.root.join("db/fixtures/famille_meenww.jpg"))
+marie_image = File.open(Rails.root.join("db/fixtures/famille.jpg"))
 marie = Client.new(first_name: "Marie", last_name: "Mingant", address: "9 rue des lilas Nantes", phone_number: "0789042364", email: "mariemingant@gmail.com", tutoiement: true, partner_name: "Nicolas Laurent", notes: "clients rencontrés dans le cadre d'une prestation famille")
-marie.photo.attach(io: ophelie_image, filename: "#{marie_image.first_name.downcase}.jpg", content_type: 'image/jpg')
+marie.photo.attach(io: marie_image, filename: "#{marie.first_name.downcase}.jpg", content_type: 'image/jpg')
 marie.user = ophelie
 marie.save!
 
-marine_image = File.open(Rails.root.join("db/fixtures/photo-couple_gpf4zr.jpg"))
+marine_image = File.open(Rails.root.join("db/fixtures/photo-couple.jpg"))
 marine = Client.new(first_name: "Marine", last_name: "Leon", address: "12 rue commandant Groix Nantes", phone_number: "0743890152", email: "marineleon@gmail.com", tutoiement: false, partner_name: "Martin Dupont", notes: "clients rencontrés dans le cadre de leur mariage")
 marine.photo.attach(io: marine_image, filename: "#{marine.first_name.downcase}.jpg", content_type: 'image/jpg')
 marine.user = ophelie
 marine.save!
 
-annaig_image = File.open(Rails.root.join("db/fixtures/was-logo-page-001_dgjnaz.jpg"))
-annaig = Client.new(first_name: "Annaig", last_name: "Billon", company_name: 'We Are Single', address: "10 Place de l'Église Saint-Sébastien-sur-Loire", phone_number: "0643215698", email: "annaigbillon@gmail.com", tutoiement: true, partner_name:, notes: "La cliente m'a fait appel pour photographier l'événement de son entreprise We Are Single")
+annaig_image = File.open(Rails.root.join("db/fixtures/was-logo-page-001.jpg"))
+annaig = Client.new(first_name: "Annaig", last_name: "Billon", company_name: 'We Are Single', address: "10 Place de l'Église Saint-Sébastien-sur-Loire", phone_number: "0643215698", email: "annaigbillon@gmail.com", tutoiement: true, notes: "La cliente m'a fait appel pour photographier l'événement de son entreprise We Are Single")
 annaig.photo.attach(io: annaig_image, filename: "#{annaig.first_name.downcase}.jpg", content_type: 'image/jpg')
 annaig.user = ophelie
 annaig.save!
@@ -56,7 +56,7 @@ prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "E
 puts "Finished seeding 3 prestations..."
 
 
-puts "Creating 3 tasks..."
+puts "Creating 3 group of tasks..."
 
 #milestones mariage
 
@@ -64,7 +64,6 @@ task_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
                         name: "Envoyer contrat & facture 1er acompte",
                         kind: "admin",
-                        description:,
                         urgent: false,
                         start_time: DateTime.new(2019,8,10),
                         end_time: DateTime.new(2019,8,10))
@@ -88,7 +87,7 @@ task_mariage_mingant = Task.create!(
 task_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
                         name: "Envoyer facture 2e acompte",
-                        kind: "admin", description:,
+                        kind: "admin",
                         urgent: false,
                         start_time: DateTime.new(2020,3,10),
                         end_time: DateTime.new(2020,3,10))
@@ -114,7 +113,7 @@ task_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
                         name: "Réserver logement & transport",
                         kind: "admin",
-                        description:,"- Echanges de mails pour prendre billets train/avion + location voiture + hébergement.- Demande de remboursement avance des frais (tant que je suis autoentrepreneur)."
+                        description: "- Echanges de mails pour prendre billets train/avion + location voiture + hébergement.- Demande de remboursement avance des frais (tant que je suis autoentrepreneur).",
                         urgent: false,
                         start_time: DateTime.new(2020,7,8),
                         end_time: DateTime.new(2020,7,8))
@@ -149,7 +148,6 @@ task_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
                         name: "Évènement",
                         kind: "évènement",
-                        description:,
                         urgent: false,
                         start_time: DateTime.new(2020,9,6),
                         end_time: DateTime.new(2020,9,7))
@@ -188,7 +186,6 @@ task1_famille_leon = Task.create!(
                     prestation: prestation_famille_leon,
                     name: "Envoyer contrat & facture",
                     kind: 'admin',
-                    description:,
                     urgent: false,
                     start_time: DateTime.new(2020,2,28),
                     end_time: DateTime.new(2020,2,28))
@@ -212,7 +209,6 @@ task4_famille_leon = Task.create!(
                     prestation: prestation_famille_leon,
                     name: "Évènement",
                     kind: 'évènement',
-                    description:,
                     urgent: false,
                     start_time: DateTime.new(2020,3,20),
                     end_time: DateTime.new(2020,3,20))
@@ -226,7 +222,7 @@ task5_famille_leon = Task.create!(
                     end_time: DateTime.new(2020,3,20))
 task6_famille_leon = Task.create!(
                     prestation: prestation_famille_leon,
-                    name: "Post-traitement des photos",
+                    name: "Post-traitement",
                     kind: 'créa',
                     description: "Marge de 30 jours max pour traiter les photos",
                     urgent: false,
@@ -272,8 +268,8 @@ task2_entreprise_wearesingle = Task.create!(
 
 task3_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
-                    name: 'RDV brief',
-                    kind: 'admin',
+                    name: 'Brief',
+                    kind: 'rendez-vous',
                     description: "Discussion avec le client sur le brief de la prestation",
                     urgent: false,
                     start_time: DateTime.new(2020,3,16),
@@ -283,7 +279,6 @@ task4_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
                     name: 'Évènement',
                     kind: 'évènement',
-                    description:,
                     urgent: false,
                     start_time: DateTime.new(2020,3,23),
                     end_time: DateTime.new(2020,3,23))
@@ -301,7 +296,6 @@ task6_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
                     name: 'Livrer photos + envoyer facture',
                     kind: 'admin',
-                    description:,
                     urgent: false,
                     start_time: DateTime.new(2020,3,30),
                     end_time: DateTime.new(2020,3,30))
@@ -310,7 +304,6 @@ task7_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
                     name: 'Relancer paiement',
                     kind: 'admin',
-                    description:,
                     urgent: false,
                     start_time: DateTime.new(2020,4,29),
                     end_time: DateTime.new(2020,4,29))
@@ -325,7 +318,7 @@ task8_entreprise_wearesingle = Task.create!(
                     end_time: DateTime.new(2020,5,14))
 
 
-puts "Finished creating 3 tasks..."
+puts "Finished creating 3 group of tasks..."
 
 puts "__________________________________________________________"
 puts "Finished Seeding!"
