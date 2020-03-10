@@ -1,0 +1,18 @@
+<h1>Tâches</h1>
+<ul>
+  <% @todo.each do |task| %>
+  <li><%= task.name %> - <%= task.prestation.title %></li>
+  <% end %>
+</ul>
+<h1>Evenements</h1>
+<ul>
+  <% @evenement.each do |task| %>
+  <li><%= task.prestation.category %> <%= task.prestation.client.last_name %></li>
+  <% end %>
+</ul>
+<h1>RDV</h1>
+<ul>
+  <% @rdv.each do |task| %>
+  <li><%= task.name %> - <%= task.prestation.category %> <%= task.prestation.client.last_name %></li>
+  <% end %>
+</ul>
