@@ -28,7 +28,7 @@ puts "Seeding 3 clients..."
 
 marie_image = File.open(Rails.root.join("db/fixtures/famille.jpg"))
 marie = Client.new(first_name: "Marie", last_name: "Mingant", address: "9 rue des lilas Nantes", phone_number: "0789042364", email: "mariemingant@gmail.com", tutoiement: true, partner_name: "Nicolas Laurent", notes: "clients rencontrés dans le cadre d'une prestation famille")
-marie.photo.attach(io: ophelie_image, filename: "#{marie_image.first_name.downcase}.jpg", content_type: 'image/jpg')
+marie.photo.attach(io: marie_image, filename: "#{marie.first_name.downcase}.jpg", content_type: 'image/jpg')
 marie.user = ophelie
 marie.save!
 
@@ -70,7 +70,7 @@ prestation_entreprise_lecamion = Prestation.create!(client: camille, title: "Ent
 puts "Finished seeding 3 prestations..."
 
 
-puts "Creating 3 tasks..."
+puts "Creating 3 group of tasks..."
 
 #milestones mariage
 
@@ -78,7 +78,6 @@ task1_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
                         name: "Envoyer contrat & facture 1er acompte",
                         kind: "admin",
-                        description:,
                         urgent: false,
                         start_time: DateTime.new(2019,8,10),
                         end_time: DateTime.new(2019,8,10))
@@ -238,7 +237,7 @@ task5_famille_leon = Task.create!(
                     end_time: DateTime.new(2020,3,20))
 task6_famille_leon = Task.create!(
                     prestation: prestation_famille_leon,
-                    name: "Post-traitement des photos",
+                    name: "Post-traitement",
                     kind: 'créa',
                     description: "Marge de 30 jours max pour traiter les photos",
                     urgent: false,
@@ -284,8 +283,8 @@ task2_entreprise_wearesingle = Task.create!(
 
 task3_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
-                    name: 'RDV brief',
-                    kind: 'admin',
+                    name: 'Brief',
+                    kind: 'rendez-vous',
                     description: "Discussion avec le client sur le brief de la prestation",
                     urgent: false,
                     start_time: DateTime.new(2020,3,16),
@@ -471,7 +470,7 @@ task8_entreprise_lecamion = Task.create!(
                     end_time: DateTime.new(2020,5,16))
 
 
-puts "Finished creating 3 tasks..."
+puts "Finished creating 3 group of tasks..."
 
 puts "__________________________________________________________"
 puts "Finished Seeding!"
