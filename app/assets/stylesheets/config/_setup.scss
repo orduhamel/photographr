@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
 }
@@ -12,33 +16,50 @@ a:hover {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 h1, h2, h3 {
-  font-weight: 900;
-  line-height: 130%;
-  letter-spacing: -0,05em;
+  font-weight: 900 !important;
+  line-height: 130% !important;
+  letter-spacing: -0,05em !important;
 }
 
 h1 {
-  font-size: 3.5rem;
-  color: $blue;
+  font-size: 3.5rem !important;
+  color: $black;
 }
 
 h2 {
-  font-size: 2,5rem;
-  color: #5A5A5A;
+  font-size: 2.5rem !important;
+  color: $dark-gray;
 }
 
 h3 {
-  font-size: 1,8rem;
-  color: #BDBDBD;
+  font-size: 1.8rem !important;
+  color: $medium-gray;
+  font-variant: small-caps;
+  text-transform: uppercase;
 }
 
 h4 {
-  font-size: 1,25rem;
-  color: #5ABCB9;
+  font-size: 1.25rem !important;
+  color: $green;
 }
 
 p {
-  font-size: 1rem;
-  color: #1B1B1E;
+  font-size: 1rem !important;
+  color: $black;
+}
+
+.green-point {
+  color: $green;
+  font-size: 3.5rem;
+}
+
+.pho-wrapper {
+  height: 100%;
+  margin: 50px 50px 50px 100px;
+  border: 1px solid $black;
 }

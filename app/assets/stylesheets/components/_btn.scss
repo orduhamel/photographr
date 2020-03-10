@@ -1,0 +1,17 @@
+.pho-btn {
+  background-color: $green;
+  border-radius: 20px;
+  padding: 8px 20px;
+  color: white !important;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pho-btn:hover {
+  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid $green;
+  border-radius: 20px;
+  padding: 8px 20px;
+  color: $green !important;
+}
