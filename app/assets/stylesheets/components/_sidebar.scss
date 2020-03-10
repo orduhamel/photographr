@@ -1,0 +1,41 @@
+.pho-sidebar {
+  background-color: $green;
+  width: 150px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.pho-menu {
+  margin: 50px;
+  color: white;
+  font-size: 30px;
+}
+
+.pho-menu li {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+#logo {
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  font-family: Montserrat;
+  font-weight: 900;
+  color: $black;
+  background-color: white;
+  border-radius: 50%;
+  text-align: center;
+  letter-spacing: -0.15em;
+  margin-bottom: 30px;
+}
+
+#logo-point {
+  color: $green;
+  font-size: 40px;
+}
+
+.user-picture {
+  position: flex-end;
+}
