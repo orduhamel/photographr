@@ -1,18 +1,33 @@
-<h1>Tâches</h1>
-<ul>
-  <% @todo.each do |task| %>
-  <li><%= task.name %> - <%= task.prestation.title %></li>
-  <% end %>
-</ul>
-<h1>Evenements</h1>
-<ul>
-  <% @evenement.each do |task| %>
-  <li><%= task.prestation.category %> <%= task.prestation.client.last_name %></li>
-  <% end %>
-</ul>
-<h1>RDV</h1>
-<ul>
-  <% @rdv.each do |task| %>
-  <li><%= task.name %> - <%= task.prestation.category %> <%= task.prestation.client.last_name %></li>
-  <% end %>
-</ul>
+<div class="d-flex">
+  <div class="dashboard-todo">
+    <div class="mt-5 ml-5">
+      <h1 class="mb-4">Tâches</h1>
+      <div class="day-tasks mb-3">
+        <ul>
+          <% @todo.each do |task| %>
+          <li><%= task.name %> - <%= task.prestation.title %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-interactions">
+    <div class="dashboard-evenements">
+      <h1>Evenements</h1>
+      <ul>
+        <% @evenement.each do |task| %>
+        <li><%= task.prestation.category %> <%= task.prestation.client.last_name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="dashboard-rdv">
+      <h1>RDV</h1>
+      <ul>
+        <% @rdv.each do |task| %>
+        <li><%= task.name %> - <%= task.prestation.category %> <%= task.prestation.client.last_name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
