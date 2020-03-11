@@ -8,11 +8,13 @@
   font-size: 18px !important;
   font-weight: 400;
   padding-left: 30px;
+  font-weight: 400;
 }
 
 .task-name-show-prestation {
   font-family: "Open Sans";
   font-size: 16px !important;
+  font-weight: 600;
 
 }
 
@@ -43,11 +45,8 @@
 }
 
 .event-location-show-prestation {
-  text-align: center;
-}
-
-.text-envent-location-show-prestation {
-    padding-top: 50px !important;
+  align-items: center;
+  justify-content: center !important;
 }
 
 .email-client-show-prestation {
@@ -69,4 +68,27 @@ object-fit: cover;
 .photo-client-show-prestation {
   align-items: center;
   justify-content: center !important;
+}
+
+.partner-name {
+font-weight: bold;
+font-size: 18px !important;
+}
+
+.tutoiement-square {
+  font-size: 16px !important;
+  font-family: "Open sans";
+}
+
+.phone-number-client-show-prestation {
+  font-size: 18px !important;
+}
+
+.notes-show-prestation {
+  align-items: center;
+}
+
+.comment_input {
+  border-radius: 10px;
+  border: 1px solid $medium-gray;
 }
