@@ -2,9 +2,15 @@ class PrestationsController < ApplicationController
 
   def index
     @prestations = current_user.prestations
-    @tasks = @prestations.tasks
-    # Parmi toutes les tasks de la prestation, afficher la start-time de la task dont kind = evenement
-    @task = Task.joins(:prestation).where(kind: 'évènement')
   end
+
+  def show
+    @prestation = Prestation.find(params[:id])
+  end
+
+  # def create
+  #   @prestation = Prestation.new(prestation_params)
+  #   @prestation.client = Client.find(params[:id])
+  # end
 
 end
