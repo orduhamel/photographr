@@ -24,6 +24,8 @@ h1, h2, h3 {
   font-weight: 900 !important;
   line-height: 130% !important;
   letter-spacing: -0,05em !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 h1 {
@@ -58,8 +60,7 @@ p {
   font-size: 3.5rem;
 }
 
-// .pho-wrapper {
-//   height: 100%;
-//   margin: 50px 50px 50px 100px;
-//   // border: 1px solid $black;
-// }
+.p-gray {
+  color: #999999;
+}
+

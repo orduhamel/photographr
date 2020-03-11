@@ -1,6 +1,6 @@
 class Prestation < ApplicationRecord
   CATEGORIES = ['Mariage', 'Famille', 'Entreprise']
-  STATUS = ['En cours', 'Terminé']
+  STATUS = ['progress', 'finish']
 
   belongs_to :client
   has_many :tasks

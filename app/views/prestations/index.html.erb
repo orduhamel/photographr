@@ -1,14 +1,17 @@
-<h1>Liste des prestations.</h1>
 
-<div class="container-index-prestation bg-white p-4">
-  <div class="list-index-prestations">
-    <% @prestations.each do |prestation| %>
-      <div class="list-index-prestation d-flex">
-        <div class="prestation-items pr-5"><p><%= prestation.title %></p></div>
-        <div class="prestation-items pr-5"><p><%= task.start_time %></p></div>
-        <div class="prestation-items pr-5"><p><%= prestation.location %></p></div>
-        <div class="prestation-items prestation-status pr-5"><p><%= prestation.status %></p></div>
-      </div>
-    <% end %>
+<h1 class="mt-5 ml-5">Liste des prestations<span class="green-point">.</span></h1>
+
+  <div class="container-index-prestation mx-5">
+    <div class="list-index-prestations">
+      <% @prestations.each do |prestation| %>
+        <div class="row list-index-prestation d-flex bg-white p-4">
+          <div class="col-sm-3 prestation-items title-prestation"><p><%= prestation.title %></p></div>
+          <div class="col-sm-3 prestation-items"><p><%= l(prestation.start_date, format: '%d %B %Y') %></p></div>
+          <div class="col-sm-4 prestation-items"><p><%= prestation.location %></p></div>
+          <div class="col-sm-2 prestation-items <%= prestation.status %> mt-4"><p><%= t(prestation.status) %></p></div>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+
+

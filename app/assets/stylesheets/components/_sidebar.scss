@@ -1,6 +1,6 @@
 .pho-sidebar {
   background-color: $green;
-  width: 150px;
+  width: 80px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -10,6 +10,7 @@
   margin: 50px;
   color: white;
   font-size: 30px;
+  position: relative;
 }
 
 .pho-menu li {
@@ -28,7 +29,7 @@
   border-radius: 50%;
   text-align: center;
   letter-spacing: -0.15em;
-  margin-bottom: 30px;
+  margin-bottom: 100px;
 }
 
 #logo-point {
@@ -37,5 +38,19 @@
 }
 
 .user-picture {
-  position: flex-end;
+  position: absolute;
+  bottom: 50px;
+}
+
+.toggle-button {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
 }
