@@ -27,16 +27,21 @@
     </ul>
 
     <div class="user-picture">
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "current-user-picture" %>
-      <% else %>
-        <%= image_tag "icon-avatar.jpg", class: "avatar" %>
-      <% end %>
+      <ul>
+        <li class="nav-item dropdown">
+            <% if current_user.photo.attached? %>
+              <%= link_to (cl_image_tag current_user.photo.key, class: "avatar"), destroy_user_session_path, method: :delete %>
+            <% else %>
+            <%= image_tag "icon-avatar.jpg", class: "avatar" %>
+            <% end %>
+          </li>
+        </ul>
     </div>
 
     <div id="toggle-button">
      <i class="fas fa-chevron-right"></i>
     </div>
+
   </div>
 
   <div class="sidebar-toggle hide-sidebar">
@@ -57,6 +62,9 @@
         <li><p><%= link_to 'Prestations', prestations_path, class: 'text-links' %></p></li>
       </div>
     </ul>
+    <div id="deconnexion">
+       <p>Déconnexion</P>
+    </div>
   </div>
 
 </div>
