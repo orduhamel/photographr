@@ -5,7 +5,7 @@
     <% @prestations.each do |prestation| %>
       <div class="list-index-prestation d-flex">
         <div class="prestation-items pr-5"><p><%= prestation.title %></p></div>
-        <div class="prestation-items pr-5"><p><%= task.start_time %></p></div>
+        <div class="prestation-items pr-5"><p><%= prestation.start_date%></p></div>
         <div class="prestation-items pr-5"><p><%= prestation.location %></p></div>
         <div class="prestation-items prestation-status pr-5"><p><%= prestation.status %></p></div>
       </div>
