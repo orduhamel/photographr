@@ -7,11 +7,66 @@
   font-family: "Montserrat";
   font-size: 18px !important;
   font-weight: 400;
+  padding-left: 30px;
 }
 
 .task-name-show-prestation {
   font-family: "Open Sans";
   font-size: 16px !important;
-  font-weight: 700;
+
 }
 
+.task-details-show-prestation {
+  border-radius: 10px;
+}
+
+.task-show-prestation {
+  border-radius: 10px;
+}
+
+.evenement-show-prestation {
+  border-radius: 10px;
+}
+
+.client-show-prestation {
+  border-radius: 10px;
+}
+
+.notes-show-prestation {
+  border-radius: 10px;
+}
+
+.event-date-show-prestation {
+  color: $green;
+  font-weight: bold;
+  font-size: 20px !important;
+}
+
+.event-location-show-prestation {
+  text-align: center;
+}
+
+.text-envent-location-show-prestation {
+    padding-top: 50px !important;
+}
+
+.email-client-show-prestation {
+  color: $green;
+  font-size: 20px !important;
+  font-weight: bolder !important;
+}
+
+.name-email-client-show-prestation {
+  border-bottom: 1px solid $light-gray;
+}
+
+.photo-client {
+border-radius: 50%;
+object-fit: cover;
+
+}
+
+.photo-client-show-prestation {
+  align-items: center;
+  justify-content: center !important;
+}

@@ -1,24 +1,49 @@
 <div class="principale-show-prestation w-100">
+
   <div class="title-button-show-prestation">
-    <h1 class="mt-5 ml-5"> <%= @prestation.title %><span class="green-point">.</span></h1>
+    <h1 class="mt-5 ml-5 mb-4"> <%= @prestation.title %><span class="green-point">.</span></h1>
   </div>
+
   <div class="contenu-show-prestation row d-flex pl-5 pt-2 w-100">
-    <div class="task-show-prestation col-md-4 bg-white">
+    <div class="task-show-prestation col-md-5 bg-white mb-5">
       <h2 class="task-title-show-prestation p-2"> Tâches </h2>
       <% @prestation.tasks.each do |task| %>
-      <div class="task-details-show-prestation row d-flex">
-        <p class="task-date-show-prestation col text-left"> <%= l(task.start_date, format: '%d %B') %></p>
-        <p class="task-name-show-prestation col text-left"> <%= task.name %></p>
-      </div>
+        <div class="task-details-show-prestation row d-flex pl-5 py-2">
+          <p class="task-date-show-prestation col-md-4 text-left"> <%= l(task.start_date, format: '%d %B') %></p>
+          <p class="task-name-show-prestation col-md-8 text-left"> <%= task.name %></p>
+        </div>
       <% end %>
     </div>
-    <div class="evenement-client-notes-show-prestation col-md-8">
-      <div class="evenement-show-prestation bg-white">
-      <h2 class="event-title-show-prestation p-2 m-4"> Évènement </h2>
+
+    <div class="evenement-client-notes-show-prestation col-md-7">
+      <div class="evenement-show-prestation bg-white d-flex">
+        <div class="event-title-date-show-prestation col-md-6">
+          <h2 class="event-title-show-prestation pt-2 pl-4 mb-4"> Évènement </h2>
+          <p class="event-date-show-prestation pb-4 pl-4"> <%= l(@prestation.start_date, format: '%d %B') %> - <%= l(@prestation.start_date, format: '%d %B') %> </p>
+        </div>
+        <div class="event-location-show-prestation col-md-6">
+          <p class="text-envent-location-show-prestation"><%= @prestation.location %></p>
+        </div>
       </div>
-      <div class="client-show-prestation bg-white">
-        <h2 class="client-name-title-show-prestation p-2 m-4"> Name of the client </h2>
+
+      <div class="client-show-prestation bg-white d-flex mt-4">
+        <div class="info-client-show-prestation">
+          <div class="name-email-client-show-prestation">
+            <h2 class="client-name-title-show-prestation pl-3 pt-4 mt-4 ml-4 mb-2"> <%= @prestation.client.first_name %> <%= @prestation.client.last_name %> </h2>
+            <p class="email-client-show-prestation pl-3 ml-4 pb-4"> <%= @prestation.client.email %></p>
+          </div>
+          <div class="contact-info-client-show-prestation col-md-6 pl-5">
+            <p class="py-2"> <i class="fas fa-phone"></i> <%= @prestation.client.phone_number %> </p>
+            <p class="py-2"> <i class="fas fa-home"></i> <%= @prestation.client.address  %> </p>
+            <p class="py-2"> <i class="fas fa-plus-circle"></i> <%= @prestation.client.partner_name %> </p>
+            <p class="py-2 pb-4"> <i class="far fa-check-square"></i> <%= @prestation.client.tutoiement %> </p>
+          </div>
+        </div>
+        <div class="photo-client-show-prestation d-flex col-md-6">
+          <%= cl_image_tag @prestation.client.photo.key, crop: :fill, width: 270, height: 270, class: "photo-client" %>
+        </div>
       </div>
+
       <div class="notes-show-prestation bg-white">
         <h2 class="notes-title-show-prestation p-2 m-4"> Notes </h2>
       </div>
