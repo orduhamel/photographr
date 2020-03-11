@@ -17,16 +17,22 @@
   font-family: "Montserrat";
 }
 
+.link-text-index:hover{
+  text-decoration: none !important;
+}
+
 .index-location-prestation {
   color: $medium-gray;
   font-size: 16px !important;
   font-family: "Montserrat";
+  text-decoration: none;
 }
 
 .index-date-prestation {
   font-size: 16px !important;
   font-family: "Montserrat";
   color: #767676;
+  text-decoration: none;
 }
 
 .progress {

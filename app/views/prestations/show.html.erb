@@ -1,1 +1,27 @@
-show.html.erb
+<div class="principale-show-prestation w-100">
+  <div class="title-button-show-prestation">
+    <h1 class="mt-5 ml-5"> <%= @prestation.title %><span class="green-point">.</span></h1>
+  </div>
+  <div class="contenu-show-prestation row d-flex pl-5 pt-2 w-100">
+    <div class="task-show-prestation col-md-4 bg-white">
+      <h2 class="task-title-show-prestation p-2"> Tâches </h2>
+      <% @prestation.tasks.each do |task| %>
+      <div class="task-details-show-prestation row d-flex">
+        <p class="task-date-show-prestation col text-left"> <%= l(task.start_date, format: '%d %B') %></p>
+        <p class="task-name-show-prestation col text-left"> <%= task.name %></p>
+      </div>
+      <% end %>
+    </div>
+    <div class="evenement-client-notes-show-prestation col-md-8">
+      <div class="evenement-show-prestation bg-white">
+      <h2 class="event-title-show-prestation p-2 m-4"> Évènement </h2>
+      </div>
+      <div class="client-show-prestation bg-white">
+        <h2 class="client-name-title-show-prestation p-2 m-4"> Name of the client </h2>
+      </div>
+      <div class="notes-show-prestation bg-white">
+        <h2 class="notes-title-show-prestation p-2 m-4"> Notes </h2>
+      </div>
+    </div>
+  </div>
+</div>
