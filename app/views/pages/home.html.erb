@@ -1,6 +1,8 @@
-<div class="home-container">
+<div class="home-container text-center">
   <div id="home-content">
-    <h1>Photographer<span class="green-point">.</span></h1>
-    <%= link_to 'Se Connecter', user_session_path, class: 'pho-btn' %>
+    <h1 class="home-h1 mb-5">Photograph<span class="green-point">R.</span></h1>
+    <p class="home-p">Et si vous aviez plus de temps pour photographier ?</p>
   </div>
+    <%= link_to 'Se Connecter', user_session_path, class: 'btn-connect' %>
+    <%= link_to 'Faire un essai', new_user_registration_path, class: 'btn-tester' %>
 </div>

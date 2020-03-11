@@ -1,5 +1,6 @@
 .pho-btn {
   background-color: $green;
+  border: 2px solid $green;
   border-radius: 20px;
   padding: 8px 20px;
   color: white !important;
@@ -14,6 +15,8 @@
   border-radius: 20px;
   padding: 8px 20px;
   color: $green !important;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .urgent {

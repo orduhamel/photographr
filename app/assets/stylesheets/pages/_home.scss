@@ -1,10 +1,50 @@
 .home-container {
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url('home-1.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.2)), asset-url('home-4.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
 #home-content {
-  margin-top: 120px;
-  margin-left: 200px;
+  margin-top: 220px;
+  margin-bottom: 80px;
+//  margin-left: 200px;
+//  margin-bottom: 50px;
+}
+
+.home-h1 {
+  font-size: 70px !important;
+  color: white;
+}
+
+.home-p {
+  color: white;
+  font-size: 24px !important;
+}
+
+.btn-tester:hover, .btn-connect {
+  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid $pink;
+  border-radius: 20px;
+  padding: 8px 20px;
+  color: $pink !important;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.btn-tester, .btn-connect:hover {
+  text-decoration: none;
+  background-color: $pink;
+  border: 2px solid $pink;
+  border-radius: 20px;
+  padding: 8px 20px;
+  color: white !important;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.btn-connect {
+  margin-right: 50px;
 }
