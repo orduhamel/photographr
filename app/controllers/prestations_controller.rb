@@ -5,7 +5,7 @@ class PrestationsController < ApplicationController
   end
 
   def show
-    @prestation = Prestation.find(params[:id])
+    @prestation = current_user.prestations.find(params[:id])
   end
 
   # def create
