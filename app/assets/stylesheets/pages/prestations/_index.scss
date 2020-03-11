@@ -1,19 +1,30 @@
-.container-index-prestation{
-  position: absolute;
-  width: 1230px;
-  height: 671px;
-  top: 202px;
-  margin: 30px;
-  background: #FFFFFF;
-  border-radius: 5px;
+.progress {
+  height: 30px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: $light-pink;
+  color: $dark-pink;
+  text-align: center;
+  align-item: center;
+}
+
+.finish {
+  height: 30px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: $light-purple;
+  color: $dark-purple;
+  text-align: center;
 }
 
 .list-index-prestation {
-  border-bottom: 5px, black, solid;
+  border-bottom: 1px solid $light-gray;
+  padding-bottom: 30px;
 }
 
-.prestation-items {
-  padding: 30px;
+.title-prestation {
+  color: $medium-gray;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Montserrat";
 }
-
-
