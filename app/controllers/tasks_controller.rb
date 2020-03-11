@@ -9,6 +9,8 @@ class TasksController < ApplicationController
       where('tasks.start_date BETWEEN ? AND ?', today, (today + 7.days)).
       order("tasks.start_date")
 
+    @todo_by_day = @todo.group_by(&:start_date)
+
     # Afficher les 6 prochains Tasks dont kind = 'évènement'
     @evenement = tasks.
       where(kind: 'évènement').
