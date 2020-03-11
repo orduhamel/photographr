@@ -1,1 +1,10 @@
-// Specific CSS for your home-page
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url('home-1.jpg');
+}
+
+#home-content {
+  margin-top: 120px;
+  margin-left: 200px;
+}

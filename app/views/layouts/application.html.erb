@@ -11,9 +11,9 @@
   </head>
   <body>
     <div class="d-flex">
-      <div class="pho-sidebar">
-        <%= render 'shared/sidebar' %>
-      </div>
+      <div class="pho-sidebar d-none">
+        <%= render 'shared/sidebar', except: :root %>
+    </div>
       <%= render 'shared/flashes' %>
         <%= yield %>
     </div>

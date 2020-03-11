@@ -6,6 +6,7 @@
   justify-content: center;
   position: sticky;
   top: 0;
+  transition: 100s;
 }
 
 .hide-sidebar {
@@ -13,9 +14,11 @@
 }
 
 .sidebar-toggle {
-  margin-top: 170px;
-  transition: all 100ms linear;
-  transition-delay: 300ms;
+  margin-top: 110px;
+  color: white;
+  font-size: 30px;
+  position: relative;
+  transition: 100s
 }
 
 .sidebar-toggle li {
@@ -104,4 +107,18 @@
   background-color: white;
   border-radius: 50%;
   padding: 5px 10px;
+}
+
+.menu-item-box {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-user-picture {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  crop: fill;
 }

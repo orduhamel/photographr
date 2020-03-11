@@ -3,19 +3,35 @@
   <div class="sidebar-menu">
 
     <ul>
-      <a href='/' id="logo-link"><li id="logo">P<span id="logo-point">.</span></li></a>
-      <li><i class="fas fa-search"></i></li>
-      <li><i class="fas fa-plus-circle"></i></li>
-      <li><i class="fas fa-clipboard-list"></i></li>
-      <li><i class="fas fa-users"></i></li>
-      <li><%= link_to(prestations_path, class: 'i-links') do %>
-            <i class="fas fa-camera"></i>
-          <% end %>
-      </li>
+      <div class="menu-item-box">
+        <a href='/tasks' id="logo-link"><li id="logo">P<span id="logo-point">.</span></li></a>
+      </div>
+      <div class="menu-item-box">
+        <li><i class="fas fa-search"></i></li>
+      </div>
+      <div class="menu-item-box">
+       <li><i class="fas fa-plus-circle"></i></li>
+      </div>
+      <div class="menu-item-box">
+        <li><i class="fas fa-clipboard-list"></i></li>
+      </div>
+      <div class="menu-item-box">
+        <li><i class="fas fa-users"></i></li>
+      </div>
+      <div class="menu-item-box">
+        <li><%= link_to(prestations_path, class: 'i-links') do %>
+              <i class="fas fa-camera"></i>
+            <% end %>
+        </li>
+      </div>
     </ul>
 
     <div class="user-picture">
-      <%= image_tag "icon-avatar.jpg", class: "avatar" %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "current-user-picture" %>
+      <% else %>
+        <%= image_tag "icon-avatar.jpg", class: "avatar" %>
+      <% end %>
     </div>
 
     <div id="toggle-button">
@@ -25,11 +41,21 @@
 
   <div class="sidebar-toggle hide-sidebar">
     <ul>
-      <li><p>Chercher</p></li>
-      <li><p>Ajouter</p></li>
-      <li><p>Tâches</p></li>
-      <li><p>Clients</p></li>
-      <li><p><%= link_to 'Prestations', prestations_path, class: 'text-links' %></p></li>
+      <div class="menu-item-box">
+        <li><p>Chercher</p></li>
+      </div>
+      <div class="menu-item-box">
+        <li><p>Ajouter</p></li>
+      </div>
+      <div class="menu-item-box">
+        <li><p>Tâches</p></li>
+      </div>
+      <div class="menu-item-box">
+        <li><p>Clients</p></li>
+      </div>
+      <div class="menu-item-box">
+        <li><p><%= link_to 'Prestations', prestations_path, class: 'text-links' %></p></li>
+      </div>
     </ul>
   </div>
 
