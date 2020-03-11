@@ -1,24 +1,37 @@
-<div class="pho-menu">
+<div class="sidebar-container">
 
-  <ul>
-    <li id="logo">P<span id="logo-point">.</span></li>
-    <li><i class="fas fa-search"></i></li>
-    <li><i class="fas fa-plus-circle"></i></li>
-    <li><i class="fas fa-clipboard-list"></i></li>
-    <li><i class="fas fa-users"></i></li>
-    <li><i class="fas fa-camera"></i></li>
-  </ul>
+  <div class="sidebar-menu">
 
-  <div class="user-picture">
     <ul>
-      <li>
-        <%= image_tag "icon-avatar.jpg", class: "avatar" %>
+      <a href='/' id="logo-link"><li id="logo">P<span id="logo-point">.</span></li></a>
+      <li><i class="fas fa-search"></i></li>
+      <li><i class="fas fa-plus-circle"></i></li>
+      <li><i class="fas fa-clipboard-list"></i></li>
+      <li><i class="fas fa-users"></i></li>
+      <li><%= link_to(prestations_path, class: 'i-links') do %>
+            <i class="fas fa-camera"></i>
+          <% end %>
       </li>
+    </ul>
+
+    <div class="user-picture">
+      <%= image_tag "icon-avatar.jpg", class: "avatar" %>
+    </div>
+
+    <div id="toggle-button">
+     <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+
+  <div class="sidebar-toggle hide-sidebar">
+    <ul>
+      <li><p>Chercher</p></li>
+      <li><p>Ajouter</p></li>
+      <li><p>Tâches</p></li>
+      <li><p>Clients</p></li>
+      <li><p><%= link_to 'Prestations', prestations_path, class: 'text-links' %></p></li>
     </ul>
   </div>
 
-  <div class="toggle-button">
-    <i class="fas fa-chevron-right"></i>
-  </div>
-
 </div>
+

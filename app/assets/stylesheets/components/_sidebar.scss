@@ -1,19 +1,45 @@
-.pho-sidebar {
+.sidebar-container {
   background-color: $green;
-  width: 80px;
+  min-width: 80px;
   height: 100vh;
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
 }
 
-.pho-menu {
-  margin: 50px;
+.hide-sidebar {
+  display: none;
+}
+
+.sidebar-toggle {
+  margin-top: 170px;
+  transition: all 100ms linear;
+  transition-delay: 300ms;
+}
+
+.sidebar-toggle li {
+  padding-bottom: 35px;
+  text-align: center;
+  color: white;
+  padding-right: 20px;
+}
+
+.sidebar-toggle p {
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+}
+
+.sidebar-menu {
+  margin: 40px 20px;
   color: white;
   font-size: 30px;
   position: relative;
 }
 
-.pho-menu li {
+.sidebar-menu li {
   padding-bottom: 30px;
   text-align: center;
 }
@@ -29,7 +55,11 @@
   border-radius: 50%;
   text-align: center;
   letter-spacing: -0.15em;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+}
+
+#logo-link {
+  text-decoration: none;
 }
 
 #logo-point {
@@ -39,12 +69,12 @@
 
 .user-picture {
   position: absolute;
-  bottom: 50px;
+  bottom: 60px;
 }
 
-.toggle-button {
+#toggle-button {
   position: absolute;
-  bottom: 20px;
+  bottom: 5px;
   left: 20px;
 }
 
@@ -53,4 +83,25 @@
   width: 60px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.i-links {
+  color: white;
+}
+
+.text-links {
+  color: white;
+  text-decoration: none;
+}
+
+.text-links:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.i-links:hover {
+  color: $green;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
 }
