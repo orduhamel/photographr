@@ -10,6 +10,11 @@ class PrestationsController < ApplicationController
 
   def new
     @prestation = Prestation.new
+    @display_client_names = Client.order(:last_name).map do |client|
+      client_company = client.company_name.nil? ? "" : " (Entreprise: '#{client.company_name}')"
+      client_name = client.first_name + " " + client.last_name += client_company
+      [client_name, client.id]
+    end
   end
 
   def create
