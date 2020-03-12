@@ -1,7 +1,14 @@
 .dashboard-todo {
   background-color: white;
+  flex-grow: 1;
 }
 
 .dashboard-rdv {
   background-color: $lm-gray;
+}
+
+.dashboard-interactions {
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }

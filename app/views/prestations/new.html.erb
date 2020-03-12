@@ -23,9 +23,10 @@
           <%= f.input :category,
                       as: :select,
                       collection: Prestation::CATEGORIES,
-                      class: 'select2',
+                      input_html: {class: "select2"},
                       label: 'Catégorie',
                       placeholder: 'Sélectionner le type de la prestation' %>
+
 
           <%= f.input :location,
                       as: :string,
@@ -33,12 +34,9 @@
                       placeholder: "Indiquer l'adresse de la prestation" %>
 
           <%= f.association :client,
-                      label_method: :last_name,
-                      value_method: :id,
-                      class: 'select2',
+                      input_html: {class: "select2"},
                       label: 'Client',
-                      collection: Client.order(:last_name) %>
-
+                      collection: @display_client_names %>
 
           <%= f.input :notes,
                       as: :text,
