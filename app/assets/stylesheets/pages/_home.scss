@@ -1,37 +1,47 @@
 .home-container {
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.2)), asset-url('home-4.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)), asset-url('home-4.jpg');
   background-position: center;
   background-size: cover;
 }
 
 #home-content {
-  margin-top: 220px;
+  margin-top: 150px;
   margin-bottom: 80px;
+  text-align: center;
 //  margin-left: 200px;
 //  margin-bottom: 50px;
 }
 
+#home-title {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
 .home-h1 {
-  font-size: 70px !important;
+  font-size: 40px !important;
   color: white;
 }
 
-.home-p {
+.home-h2 {
   color: white;
-  font-size: 24px !important;
+  font-size: 40px !important;
+  font-weight: 400 !important;
 }
 
-.btn-tester:hover, .btn-connect {
+#home-links {
+  margin-top: 100px;
+}
+
+.btn-tester:hover {
   text-decoration: none;
-  background-color: transparent;
   border: 2px solid $pink;
   border-radius: 20px;
-  padding: 8px 20px;
-  color: $pink !important;
+  padding: 12px 24px;
   font-size: 18px;
   font-weight: 700;
+  margin-left: 42px;
 }
 
 .btn-tester, .btn-connect:hover {
@@ -45,6 +55,17 @@
   font-weight: 700;
 }
 
+.btn-tester {
+  margin-left: 50px;
+}
+
 .btn-connect {
-  margin-right: 50px;
+  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 8px 20px;
+  color: $white !important;
+  font-size: 18px;
+  font-weight: 700;
 }
