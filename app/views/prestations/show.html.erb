@@ -1,9 +1,12 @@
 <div class="principale-show-prestation w-100">
-
-  <div class="title-button-show-prestation">
+  <div class="title-button d-flex">
+  <div class="title-button-show-prestation col-md-6">
     <h1 class="mt-5 ml-5 mb-4"> <%= @prestation.title %><span class="green-point">.</span></h1>
   </div>
-
+  <div class="button-modifier">
+   <p class="pho-btn px-3 py-2">Modifier</p>
+  </div>
+</div>
   <div class="contenu-show-prestation row d-flex pl-5 pt-2 w-100">
     <div class="task-show-prestation col-md-5 bg-white mb-5">
       <h2 class="task-title-show-prestation pl-3 pt-4 mt-2 ml-4 mb-2"> Tâches </h2>
@@ -16,6 +19,7 @@
     </div>
 
     <div class="evenement-client-notes-show-prestation col-md-7">
+
       <div class="evenement-show-prestation bg-white d-flex">
         <div class="event-title-date-show-prestation col-md-6">
           <h2 class="event-title-show-prestation pl-3 pt-4 mt-2 ml-4 mb-2"> Évènement </h2>
@@ -32,7 +36,7 @@
             <h2 class="client-name-title-show-prestation pl-3 pt-4 mt-2 ml-4 mb-2"> <%= @prestation.client.first_name %> <%= @prestation.client.last_name %> </h2>
             <p class="email-client-show-prestation pl-3 ml-4 pb-3"> <%= @prestation.client.email %></p>
           </div>
-          <div class="contact-info-client-show-prestation px-5">
+          <div class="contact-info-client-show-prestation pl-5">
             <p class="pb-2 pt-4 phone-number-client-show-prestation"> <i class="fas fa-phone"></i> <%= @prestation.client.phone_number %> </p>
             <p class="py-2 "> <i class="fas fa-home"></i> <%= @prestation.client.address  %> </p>
             <p class="py-2 partner-name"> <i class="fas fa-plus-circle"></i> <%= @prestation.client.partner_name %> </p>
@@ -51,7 +55,7 @@
       <div class="notes-show-prestation bg-white mb-4">
         <h2 class="notes-title-show-prestation pl-3 pt-4 mt-4 ml-4 mb-2"> Notes </h2>
         <div class="notes-show-prestation d-flex pl-5">
-        <textarea class="comment_input col-md-10 mb-3" id="comment" name="comment"></textarea>
+          <textarea class="comment_input col-md-10 mb-3" id="comment" name="comment"></textarea>
         </div>
       </div>
     </div>
