@@ -2,70 +2,73 @@
 
   <div class="sidebar-menu">
 
-    <ul>
-      <div class="menu-item-box">
-        <a href='/tasks' id="logo-link"><li id="logo">P<span id="logo-point">.</span></li></a>
-      </div>
-      <div class="menu-item-box">
-        <li><i class="fas fa-search"></i></li>
-      </div>
-      <div class="menu-item-box">
-       <li><i class="fas fa-plus-circle"></i></li>
-      </div>
-      <div class="menu-item-box">
-        <li><i class="fas fa-clipboard-list"></i></li>
-      </div>
-      <div class="menu-item-box">
-        <li><i class="fas fa-users"></i></li>
-      </div>
-      <div class="menu-item-box">
-        <li><%= link_to(prestations_path, class: 'i-links') do %>
-              <i class="fas fa-camera"></i>
-            <% end %>
-        </li>
-      </div>
-    </ul>
-
-    <div class="user-picture">
+    <div>
       <ul>
-        <li class="nav-item dropdown">
-            <% if current_user.photo.attached? %>
-              <%= link_to (cl_image_tag current_user.photo.key, class: "avatar"), destroy_user_session_path, method: :delete %>
-            <% else %>
-            <%= image_tag "icon-avatar.jpg", class: "avatar" %>
-            <% end %>
+        <div class="menu-item-box">
+          <a href='/tasks' id="logo-link"><li id="logo">P<span id="logo-point">.</span></li></a>
+        </div>
+        <div class="menu-item-box">
+          <li><i class="fas fa-search"></i></li>
+        </div>
+        <div class="menu-item-box">
+         <li><i class="fas fa-plus-circle"></i></li>
+        </div>
+        <div class="menu-item-box">
+          <li><i class="fas fa-clipboard-list"></i></li>
+        </div>
+        <div class="menu-item-box">
+          <li><i class="fas fa-users"></i></li>
+        </div>
+        <div class="menu-item-box">
+          <li><%= link_to(prestations_path, class: 'i-links') do %>
+                <i class="fas fa-camera"></i>
+              <% end %>
           </li>
-        </ul>
+        </div>
+      </ul>
     </div>
 
-    <div id="toggle-button">
-     <i class="fas fa-chevron-right"></i>
+    <div>
+      <div class="user-picture">
+          <% if current_user.photo.attached? %>
+            <%= link_to (cl_image_tag current_user.photo.key, class: "avatar"), destroy_user_session_path, method: :delete %>
+          <% else %>
+          <%= image_tag "icon-avatar.jpg", class: "avatar" %>
+          <% end %>
+      </div>
+
+      <div id="toggle-button">
+        <i class="fas fa-chevron-right"></i>
+      </div>
     </div>
 
   </div>
 
   <div class="sidebar-toggle hide-sidebar">
-    <ul>
-      <div class="menu-item-box">
-        <li><p>Chercher</p></li>
+    <div class='d-flex flex-column justify-content-between'>
+      <div>
+        <ul>
+          <div class="menu-item-box">
+            <li><p>Chercher</p></li>
+          </div>
+          <div class="menu-item-box">
+            <li><p>Ajouter</p></li>
+          </div>
+          <div class="menu-item-box">
+            <li><p>Tâches</p></li>
+          </div>
+          <div class="menu-item-box">
+            <li><p>Clients</p></li>
+          </div>
+          <div class="menu-item-box">
+            <li><p><%= link_to 'Prestations', prestations_path, class: 'text-links' %></p></li>
+          </div>
+        </ul>
       </div>
-      <div class="menu-item-box">
-        <li><p>Ajouter</p></li>
+      <div id="deconnexion">
+         <p>Déconnexion</P>
       </div>
-      <div class="menu-item-box">
-        <li><p>Tâches</p></li>
-      </div>
-      <div class="menu-item-box">
-        <li><p>Clients</p></li>
-      </div>
-      <div class="menu-item-box">
-        <li><p><%= link_to 'Prestations', prestations_path, class: 'text-links' %></p></li>
-      </div>
-    </ul>
-    <div id="deconnexion">
-       <p>Déconnexion</P>
     </div>
   </div>
-
 </div>
 

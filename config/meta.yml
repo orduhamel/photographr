@@ -1,0 +1,5 @@
+meta_product_name: "PhotographR."
+meta_title: "PhotographR. Et si vous aviez plus de temps pour photographier ?"
+meta_description: "PhotographR vous guide dans la gestion de vos prestations."
+meta_image: "photographr.jpg" # should exist in `app/assets/images/`
+twitter_account: "@Lewagonparis"   # required for Twitter Cards
