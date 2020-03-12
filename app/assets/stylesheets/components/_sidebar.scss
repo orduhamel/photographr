@@ -1,10 +1,8 @@
 .sidebar-container {
   background-color: $green;
-  min-width: 80px;
+  min-width: 90px;
   height: 100vh;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   position: sticky;
   top: 0;
 }
@@ -17,10 +15,7 @@
   margin-top: 110px;
   color: white;
   font-size: 30px;
-  position: relative;
-}
-
-.hide-sidebar {
+  // position: relative;
 }
 
 .sidebar-toggle li {
@@ -32,7 +27,7 @@
 
 .sidebar-toggle p {
   font-family: Montserrat;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: white;
 }
@@ -42,6 +37,9 @@
   color: white;
   font-size: 30px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .sidebar-menu li {
@@ -72,15 +70,15 @@
   font-size: 40px;
 }
 
-.user-picture {
-  position: absolute;
-  bottom: 60px;
-}
+// .user-picture {
+//   position: absolute;
+//   bottom: 60px;
+// }
 
 #toggle-button {
-  position: absolute;
-  bottom: 5px;
-  left: 20px;
+  // position: absolute;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .avatar {
@@ -126,5 +124,5 @@
 }
 #deconnexion {
   position: absolute;
-  bottom: 160px;
+  bottom: 110px;
 }
