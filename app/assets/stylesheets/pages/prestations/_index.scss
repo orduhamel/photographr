@@ -2,8 +2,13 @@
   text-align: left;
 }
 
+.list-index-prestations {
+  border-radius: 10px;
+}
+
 .list-index-prestation {
   border-bottom: 1px solid $light-gray;
+
 }
 
 .list-index-prestation:hover {
@@ -33,6 +38,10 @@
   font-family: "Montserrat";
   color: #767676;
   text-decoration: none;
+}
+
+.list-index-prestation {
+  align-items: left;
 }
 
 .progress {
