@@ -23,23 +23,25 @@
                 <% end %>
                 <ul class="container-fluid">
                   <% tasks.each do |task| %>
-                    <li class="card-task row align-items-center py-2 pr-2">
-                      <% if task.kind == 'admin' %>
-                        <% if task.urgent == true %>
-                          <div class="urgent col-1 px-0"><i class="fas fa-thumbtack"></i></div>
+                    <%= link_to prestation_path(task.prestation), class: "card-task-link" do %>
+                      <li class="card-task row align-items-center py-2 pr-2">
+                        <% if task.kind == 'admin' %>
+                          <% if task.urgent == true %>
+                            <div class="urgent col-1 px-0"><i class="fas fa-thumbtack"></i></div>
+                          <% else %>
+                            <div class="p-gray col-1 px-0"><i class="fas fa-thumbtack"></i></div>
+                          <% end %>
                         <% else %>
-                          <div class="p-gray col-1 px-0"><i class="fas fa-thumbtack"></i></div>
+                          <% if task.urgent == true %>
+                            <div class="urgent col-1 px-0"><i class="fas fa-paint-brush"></i></div>
+                          <% else %>
+                            <div class="p-gray col-1 px-0"><i class="fas fa-paint-brush"></i></div>
+                          <% end %>
                         <% end %>
-                      <% else %>
-                        <% if task.urgent == true %>
-                          <div class="urgent col-1 px-0"><i class="fas fa-paint-brush"></i></div>
-                        <% else %>
-                          <div class="p-gray col-1 px-0"><i class="fas fa-paint-brush"></i></div>
-                        <% end %>
-                      <% end %>
-                      <p class="col-7 px-0"><%= task.name %></p>
-                      <p class="text-right p-gray col-4 px-0"><%= task.prestation.title %></p>
-                    </li>
+                        <p class="col-7 px-0"><%= task.name %></p>
+                        <p class="text-right p-gray col-4 px-0"><%= task.prestation.title %></p>
+                      </li>
+                    <% end %>
                   <% end %>
                 </ul>
               </div>
@@ -48,20 +50,22 @@
           </ul>
       </div>
     </div>
-    <div class="col-5 px-0 sticky-top">
-      <div class="dashboard-interactions h-100">
+    <div class="col-5 px-0">
+      <div class="dashboard-interactions">
         <div class="dashboard-evenements pt-5 px-5 p-4 h-50">
           <h1 class="mb-5">Évènements<span class="green-point">.</span></h1>
           <ul class="container-fluid">
             <% @evenement.each do |task| %>
-            <li class="card-date-task row align-items-center my-1">
-              <% if task.start_date != task.end_date %>
-                <p class="col-3 green-point"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b') %></p>
-              <% else %>
-                <p class="col-3 green-point"><%= l(task.start_date, format: '%d %b') %></p>
+              <%= link_to prestation_path(task.prestation), class: "card-task-link" do %>
+                <li class="card-date-task row align-items-center my-1">
+                  <% if task.start_date != task.end_date %>
+                    <p class="col-3 green-point"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b') %></p>
+                  <% else %>
+                    <p class="col-3 green-point"><%= l(task.start_date, format: '%d %b') %></p>
+                  <% end %>
+                  <p class="col-9 pl-3"><%= task.prestation.category %> <%= task.prestation.client.last_name %></p>
+                </li>
               <% end %>
-              <p class="col-9 pl-3"><%= task.prestation.category %> <%= task.prestation.client.last_name %></p>
-            </li>
             <% end %>
           </ul>
         </div>
@@ -69,17 +73,19 @@
           <h1 class="mb-4">RDV<span class="green-point">.</span></h1>
           <ul class="container-fluid">
             <% @rdv.each do |task| %>
-            <li class="card-date-task row align-items-top mb-2">
-              <% if task.start_date != task.end_date %>
-                <p class="col-3 green-point"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b') %></p>
-              <% else %>
-                <p class="col-3 green-point"><%= l(task.start_date, format: '%d %b') %></p>
+              <%= link_to prestation_path(task.prestation), class: "card-task-link" do %>
+                <li class="card-date-task row align-items-top mb-2">
+                  <% if task.start_date != task.end_date %>
+                    <p class="col-3 green-point"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b') %></p>
+                  <% else %>
+                    <p class="col-3 green-point"><%= l(task.start_date, format: '%d %b') %></p>
+                  <% end %>
+                  <div class="col-9 pl-3">
+                    <p><%= task.name %></p>
+                    <p class="p-gray"><%= task.prestation.category %> <%= task.prestation.client.last_name %></p>
+                  </div>
+                </li>
               <% end %>
-              <div class="col-9 pl-3">
-                <p><%= task.name %></p>
-                <p class="p-gray"><%= task.prestation.category %> <%= task.prestation.client.last_name %></p>
-              </div>
-            </li>
             <% end %>
           </ul>
         </div>
