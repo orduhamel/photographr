@@ -65,7 +65,9 @@
           <div class="contact-info-client-show-prestation pl-5">
             <p class="pb-2 pt-4 phone-number-client-show-prestation p-gray"> <i class="fas fa-phone"></i> <%= @prestation.client.phone_number %> </p>
             <p class="py-2 p-gray"> <i class="fas fa-home"></i> <%= @prestation.client.address  %> </p>
-            <p class="py-2 partner-name p-gray"> <i class="fas fa-plus-circle"></i> <%= @prestation.client.partner_name %> </p>
+            <% if @prestation.client.partner_name.nil? == false %>
+              <p class="py-2 partner-name p-gray"> <i class="fas fa-plus-circle"></i> <%= @prestation.client.partner_name %> </p>
+            <% end %>
             <%if @prestation.client.tutoiement == true %>
               <p class="py-2 pb-4 tutoiement-square p-gray"><i class="fas fa-comment"></i> On se tutoie </i></p>
             <% else %>
