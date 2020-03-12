@@ -3,13 +3,14 @@
 }
 
 .card-task:hover {
+  background-color: $light-gray;
   * {
-    color: #ED6A5A;
+    color: $pink;
   }
 }
 
 .card-date-task:hover {
   * {
-    color: #ED6A5A;
+    color: $pink;
   }
 }
