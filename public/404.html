@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Vous vous etes perdus jusqu'a la page 404?</title>
+  <meta name=“viewport” content=“width=device-width,initial-scale=1">
+  <style>
+  .rails-default-error-page {
+    background-color: white;
+    text-align: center;
+    font-family: arial, sans-serif;
+  }
+
+  .rails-default-error-page h1 {
+    margin-top: 80px;
+    margin-bottom: 50px;
+  }
+
+  .rails-default-error-page a {
+    text-decoration: none;
+    background-color: #EF767A;
+    border: 2px solid #EF767A;
+    border-radius: 20px;
+    padding: 8px 20px;
+    color: white !important;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .dialog {
+    margin-bottom: 50px;
+  }
+
+  .margin-top {
+    margin-top: 50px;
+  }
+  </style>
+</head>
 <body class="rails-default-error-page">
   <div class="dialog">
     <div>
-      <center><h1>Erreur 404</h1></center>
+      <h1>Oups, Page introuvable</h1>
     </div>
-    <center><p>Nous sommes désolé mais quelque chose n'a pas bien fonctionné.</p></center>
+    <p>Nous n'avons pas trouve la page que vous recherchiez.</p>
+    <p>Rendez-vous sur la page d'accueil pour poursuivre votre visite.</p>
+    <div class="margin-top">
+      <a href="photographr.site">Retour a la page d'accueil</a>
+    </div>
   </div>
-  <center><img src="404-500-corrige.jpg" alt=""></center>
+  <img src="404-500-corrige.jpg" alt="page 404">
 </body>
 </html>
+
+
+
+
 
 
