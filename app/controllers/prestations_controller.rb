@@ -210,7 +210,8 @@ class PrestationsController < ApplicationController
                         name: "Fixer le 1er rendez-vous",
                         kind: "admin",
                         description: "A faire si je n'ai pas déjà rencontré les clients",
-                        urgent: false, start_date: event_start_date - 200.days,
+                        urgent: false,
+                        start_date: event_start_date - 200.days,
                         end_date: event_start_date - 200.days)
 
     task4_mariage = Task.create!(
