@@ -45,7 +45,8 @@
 .button-modifier-show-prestation {
   margin-top: 50px;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
+  padding-left: 120px;
 }
 .task-details-show-prestation {
   border-radius: 10px;
@@ -136,8 +137,8 @@ font-size: 18px !important;
 
 .prestation-status-show-prestation {
   align-items: center;
- justify-content: center;
- margin-top: 65px;
+  justify-content: right !important;
+  margin-top: 50px;
 }
 
 #edit_prestation_51 {
@@ -145,4 +146,26 @@ font-size: 18px !important;
   text-decoration: none !important;
   border: 1px solid $light-gray;
   border-decoration: none !important;
+}
+
+.button-finish-show-prestation {
+  height: 30px;
+  width: 150px;
+  border-radius: 50px;
+  background-color: #fafaf6;
+  color: $medium-gray;
+  align-items: center;
+  justify-content: center;
+  padding-right: 100px;
+}
+
+.button-finish-show-prestation:hover {
+  height: 30px;
+  width: 150px;
+  border-radius: 50px;
+  background-color: $light-purple;
+  color: $dark-purple;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
 }

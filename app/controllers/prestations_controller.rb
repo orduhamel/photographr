@@ -36,6 +36,12 @@ class PrestationsController < ApplicationController
     end
   end
 
+  def finish
+    @prestation = current_user.prestations.find(params[:id])
+    @prestation.update(status: "finish")
+    redirect_to prestation_path
+  end
+
   private
 
   def prestation_params
