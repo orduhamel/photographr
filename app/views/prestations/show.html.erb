@@ -25,7 +25,7 @@
       <h2 class="task-title-show-prestation pl-3 pt-4 mt-2 ml-4 mb-2 pb-2"> Tâches </h2>
       <% @prestation.tasks.each do |task| %>
         <div class="task-details-show-prestation row d-flex pl-4 ml-4 pb-4">
-          <% if task.end_date <= Date.today %>
+          <% if task.end_date < Date.today %>
              <p class="task-date-show-prestation past-date text-muted col-md-3 text-left"> <%= l(task.start_date, format: '%d %b') %></p>
              <p class="task-name-show-prestation past-date col-md-9 text-left"> <%= task.name %></p>
           <% elsif task.kind =='évènement' %>
