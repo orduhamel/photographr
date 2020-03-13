@@ -85,6 +85,7 @@ prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille 
 
 prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", start_date: '2020-03-23', end_date: '2020-03-23', location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: 'progress')
 prestation_entreprise_lecamion = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-04-01', end_date: '2020-04-01', location: "1 Rue Bayard, 44100 Nantes", notes: "événement porte ouverte formation peinture.", status: 'progress')
+prestation_entreprise_thetribe = Prestation.create!(client: gaspard, title: "Entreprise The Tribe", category: "Entreprise", start_date: '2020-04-22', end_date: '2020-04-24', location: "223 rue du chef de l'île Fédrun, 44720 Saint Joachim", notes: "Seminaire d'entreprise sur 2 jours : photos d'équipe, des activités, des repas (hors dîners).", status: 'progress')
 
 prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant", category: "Mariage", start_date: '2020-09-06', end_date: '2020-09-07', location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: 'finish')
 prestation_mariage_reynaud = Prestation.create!(client: gaspard, title: "Mariage Reynaud", category: "Mariage", start_date: '2020-03-27', end_date: '2020-03-28', location: "Domaine du montmarin, Lieu dit le Montmarin, 35730 Pleurtuit", notes: "Les parents de Gaspard habitent à Saint Malo. 320 personnes invitées, mariage élégant et assez mondain. Cocktail à l'extérieur et à l'intérieur, dîner dans L'Orangerie. Contacter la témoin Fanny (0612321187) pour les détails du jour J.", status: 'progress')
@@ -314,7 +315,7 @@ task11_mariage_reynaud = Task.create!(
                     kind: "évènement",
                     urgent: false,
                     start_date: Date.new(2020,3,27),
-                    end_date: Date.new(2020,3,27))
+                    end_date: Date.new(2020,3,28))
 
 task12_mariage_reynaud = Task.create!(
                     prestation: prestation_mariage_reynaud,
@@ -322,8 +323,8 @@ task12_mariage_reynaud = Task.create!(
                     kind: "créa",
                     description: "Marge de 28 jours max pour traiter les photos",
                     urgent: false,
-                    start_date: Date.new(2020,3,27) + 2.days,
-                    end_date: Date.new(2020,3,27) + 5.days)
+                    start_date: Date.new(2020,3,28) + 2.days,
+                    end_date: Date.new(2020,3,28) + 5.days)
 
 task13_mariage_reynaud = Task.create!(
                     prestation: prestation_mariage_reynaud,
@@ -331,8 +332,8 @@ task13_mariage_reynaud = Task.create!(
                     kind: "admin",
                     description: "Envoyer la galerie en ligne par mail (avec les codes d’accès et le fonctionnement de leur accès privé)",
                     urgent: false,
-                    start_date: Date.new(2020,3,27) + 30.days,
-                    end_date: Date.new(2020,3,27) + 30.days)
+                    start_date: Date.new(2020,3,28) + 30.days,
+                    end_date: Date.new(2020,3,28) + 30.days)
 
 task14_mariage_reynaud = Task.create!(
                     prestation: prestation_mariage_reynaud,
@@ -340,8 +341,8 @@ task14_mariage_reynaud = Task.create!(
                     kind: "admin",
                     description: "Par courrier",
                     urgent: false,
-                    start_date: Date.new(2020,3,27) + 40.days,
-                    end_date: Date.new(2020,3,27) + 40.days)
+                    start_date: Date.new(2020,3,28) + 40.days,
+                    end_date: Date.new(2020,3,28) + 40.days)
 
 #milestones mariage Campredon
 
@@ -863,6 +864,76 @@ task8_entreprise_lecamion = Task.create!(
                     start_date: Date.new(2020,5,16),
                     end_date: Date.new(2020,5,16))
 
+
+# Milestones entreprise The Tribe
+
+task1_entreprise_thetribe = Task.create!(
+                    prestation: prestation_entreprise_thetribe,
+                    name: 'Envoyer contrat',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.today,
+                    end_date: Date.today)
+
+task2_entreprise_thetribe = Task.create!(
+                    prestation: prestation_entreprise_thetribe,
+                    name: 'Valider réception contrat signé',
+                    kind: 'admin',
+                    description: "Si le document n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.today + 3.days,
+                    end_date: Date.today + 3.days)
+
+task3_entreprise_thetribe = Task.create!(
+                    prestation: prestation_entreprise_thetribe,
+                    name: 'Brief',
+                    kind: 'rendez-vous',
+                    description: "Discussion avec le client sur le brief de la prestation",
+                    urgent: false,
+                    start_date: Date.new(2020,4,22) - 7.days,
+                    end_date: Date.new(2020,4,22) - 7.days)
+
+task4_entreprise_thetribe = Task.create!(
+                    prestation: prestation_entreprise_thetribe,
+                    name: 'Évènement',
+                    kind: 'évènement',
+                    urgent: false,
+                    start_date: Date.new(2020,4,22),
+                    end_date: Date.new(2020,4,24))
+
+task5_entreprise_thetribe = Task.create!(
+                    prestation: prestation_entreprise_thetribe,
+                    name: 'Post-traitement',
+                    kind: 'créa',
+                    description: "Marge de 7 jours pour traiter les photos",
+                    urgent: false,
+                    start_date: Date.new(2020,4,24) + 1.day,
+                    end_date: Date.new(2020,4,24) + 1.day)
+
+task6_entreprise_thetribe = Task.create!(
+                    prestation: prestation_entreprise_thetribe,
+                    name: 'Livrer photos + envoyer facture',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2020,4,24) + 7.days,
+                    end_date: Date.new(2020,4,24) + 7.days)
+
+task7_entreprise_thetribe = Task.create!(
+                    prestation: prestation_entreprise_thetribe,
+                    name: 'Relancer paiement',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2020,4,24) + 30.days,
+                    end_date: Date.new(2020,4,24) + 30.days)
+
+task8_entreprise_thetribe = Task.create!(
+                    prestation: prestation_entreprise_thetribe,
+                    name: 'Valider réception solde',
+                    kind: 'admin',
+                    description: "Si le solde n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,4,24) + 45.days,
+                    end_date: Date.new(2020,4,24) + 45.days)
 
 puts "Finished creating 8 group of tasks..."
 

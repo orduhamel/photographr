@@ -16,7 +16,7 @@ class TasksController < ApplicationController
       where(kind: 'évènement').
       where('tasks.start_date >= ?', today).
       order("tasks.start_date").
-      first(6)
+      first(5)
 
     # Afficher les 3 prochains Tasks dont kind = 'rendez-vous'
     @rdv = tasks.
