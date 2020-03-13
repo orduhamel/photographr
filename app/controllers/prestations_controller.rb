@@ -2,6 +2,7 @@ class PrestationsController < ApplicationController
 
   def index
     @prestations = current_user.prestations
+    @prestations.order(:start_date)
   end
 
   def show
