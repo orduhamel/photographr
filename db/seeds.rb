@@ -24,7 +24,7 @@ ophelie.save!
 
 puts "Finished seeding 1 user..."
 
-puts "Seeding 3 clients..."
+puts "Seeding 5 clients..."
 
 marie_image = File.open(Rails.root.join("db/fixtures/famille.jpg"))
 marie = Client.new(first_name: "Marie", last_name: "Mingant", address: "9 rue des lilas Nantes", phone_number: "0789042364", email: "mariemingant@gmail.com", tutoiement: true, partner_name: "Nicolas Laurent", notes: "clients rencontrés dans le cadre d'une prestation famille")
@@ -56,20 +56,41 @@ camille.photo.attach(io: camille_image, filename: "#{camille.first_name.downcase
 camille.user = ophelie
 camille.save!
 
-puts "Finished seeding 3 clients..."
+gaspard_image = File.open(Rails.root.join("db/fixtures/gaspard-reynaud-emilie-lebec.jpg"))
+gaspard = Client.new(first_name: "Gaspard", last_name: "Reynaud", company_name: 'The Tribe', address: "6 rue Victor le Gorgeu, 35000 Rennes", phone_number: "0790328912", email: "gaspardreynaud@gmail.com", tutoiement: true, partner_name: "Emilie Lebec", notes: "Rencontre avec Gaspard le 16 octobre 2019, autour d'une table ronde sur le Web. J'ai rencontré sa fiancée Emilie à un apéro avec Marie Leveque en décembre 2019.")
+gaspard.photo.attach(io: gaspard_image, filename: "#{gaspard.first_name.downcase}.jpg", content_type: 'image/jpg')
+gaspard.user = ophelie
+gaspard.save!
+
+georges_image = File.open(Rails.root.join("db/fixtures/georges-campredon-leonor-desbois.jpg"))
+georges = Client.new(first_name: "Georges", last_name: "Campredon", address: "1 rue du Gargot, 47000 Orvault", phone_number: "0732516741", email: "georgescampredon@gmail.com", tutoiement: false, partner_name: "Leonor Desbois", notes: "Georges m'a contacté via Instragram. Il a eu un coup de coeur pour mon style photo. Avec sa fiancée Leonor, ils sont souvent en déplacement et préfèrent les RDV par téléphone. Léonor est une blogueuse beauté et pourrait être intéréssée par une prestation (photos produits).")
+georges.photo.attach(io: georges_image, filename: "#{georges.first_name.downcase}.jpg", content_type: 'image/jpg')
+georges.user = ophelie
+georges.save!
+
+raphaelle_image = File.open(Rails.root.join("db/fixtures/raphaelle-sachot-gregoire-orsoni.jpg"))
+raphaelle = Client.new(first_name: "Raphaelle", last_name: "Sachot", address: "33 Rue Nicolas Appert, 44100 Nantes", phone_number: "0634670099", email: "raphaellesachot@gmail.com", tutoiement: false, partner_name: "Grégoire Orsoni", notes: "Maman travaille avec la mère de Raphaëlle, c'est via elle que Raphaelle m'a contacté. Raphaëlle et Grégoire sont ensemble depuis le lycée, ils sont tous les 2 médecins et terminent leurs études l'année prochaine. Très bon premier contact.")
+raphaelle.photo.attach(io: raphaelle_image, filename: "#{raphaelle.first_name.downcase}.jpg", content_type: 'image/jpg')
+raphaelle.user = ophelie
+raphaelle.save!
+
+puts "Finished seeding 8 clients..."
 
 
-puts "Seeding 3 prestations..."
+puts "Seeding 8 prestations..."
 
 
 prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", start_date: '2020-03-20', end_date: '2020-03-20', location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont deux enfants", status: 'progress')
-prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant Laurent", category: "Mariage", start_date: '2020-09-06', end_date: '2020-09-07', location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: 'finish')
+prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant", category: "Mariage", start_date: '2020-09-06', end_date: '2020-09-07', location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: 'finish')
 prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", start_date: '2020-03-23', end_date: '2020-03-23', location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: 'progress')
 prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille Facq", category: "Famille", start_date: '2020-04-15', end_date: '2020-04-15', location: "265 rue des mouettes Nantes", notes: "prestation famille. Ils ont un enfant", status: 'progress')
 prestation_entreprise_lecamion = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-04-01', end_date: '2020-04-01', location: "1 Rue Bayard, 44100 Nantes", notes: "événement porte ouverte formation peinture.", status: 'progress')
+prestation_mariage_reynaud = Prestation.create!(client: gaspard, title: "Mariage Reynaud", category: "Mariage", start_date: '2020-03-27', end_date: '2020-03-28', location: "Domaine du montmarin, Lieu dit le Montmarin, 35730 Pleurtuit", notes: "Les parents de Gaspard habitent à Saint Malo. 320 personnes invitées, mariage élégant et assez mondain. Cocktail à l'extérieur et à l'intérieur, dîner dans L'Orangerie. Contacter la témoin Fanny (0612321187) pour les détails du jour J.", status: 'progress')
+prestation_mariage_campredon = Prestation.create!(client: georges, title: "Mariage Campredon", category: "Mariage", start_date: '2020-04-17', end_date: '2020-04-17', location: "Domaine de la Pinelais, La Pinelais, 44320 Saint-Père-en-Retz", notes: "80 personnes invitées, mariage champêtre avec une cérémonie laïque à 15h dans le jardin du domaine. Cocktail extérieur et dîner à l'intérieur. Porter une attention particulière aux détails, à la décoration, aux fleurs. La fille est très proche de sa soeur aînée, Margaux, qui est sa seule témoin.", status: 'progress')
+prestation_mariage_sachot = Prestation.create!(client: raphaelle, title: "Mariage Sachot", category: "Mariage", start_date: '2020-05-16', end_date: '2020-05-17', location: "Château de Trédion, 1 Rue du Château, 56250 Trédion", notes: "130 personnes invitées. Mariage franco-canadien, la famille de Grégoire habite au Canada, ils sont aussi originaires de Corse. Cérémonie à l'église à 15h30, cocktail dans le domaine. Prendre pas mal de photos de petits groupes (copains et famille). Dîner sous forme de buffet à l'extérieur. Déco et fleurs +++", status: 'progress')
 
 
-puts "Finished seeding 3 prestations..."
+puts "Finished seeding 8 prestations..."
 
 
 puts "Creating 3 group of tasks..."
