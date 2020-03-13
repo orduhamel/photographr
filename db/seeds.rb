@@ -77,14 +77,15 @@ raphaelle.save!
 puts "Finished seeding 8 clients..."
 
 
-puts "Seeding 8 prestations..."
+puts "Seeding 10 prestations..."
 
 
 prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", start_date: '2020-03-20', end_date: '2020-03-20', location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont deux enfants", status: 'progress')
 prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille Facq", category: "Famille", start_date: '2020-04-15', end_date: '2020-04-15', location: "265 rue des mouettes Nantes", notes: "prestation famille. Ils ont un enfant", status: 'progress')
 
+prestation_entreprise_lecamion1 = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-01-22', end_date: '2020-01-22', location: "1 Rue Bayard, 44100 Nantes", notes: "shooting photos des salariés dans le jardin des bureaux de l'entreprise", status: 'progress')
 prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", start_date: '2020-03-23', end_date: '2020-03-23', location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: 'progress')
-prestation_entreprise_lecamion = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-04-01', end_date: '2020-04-01', location: "1 Rue Bayard, 44100 Nantes", notes: "événement porte ouverte formation peinture.", status: 'progress')
+prestation_entreprise_lecamion2 = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-04-01', end_date: '2020-04-01', location: "1 Rue Bayard, 44100 Nantes", notes: "événement porte ouverte formation peinture.", status: 'progress')
 prestation_entreprise_thetribe = Prestation.create!(client: gaspard, title: "Entreprise The Tribe", category: "Entreprise", start_date: '2020-04-22', end_date: '2020-04-24', location: "223 rue du chef de l'île Fédrun, 44720 Saint Joachim", notes: "Seminaire d'entreprise sur 2 jours : photos d'équipe, des activités, des repas (hors dîners).", status: 'progress')
 
 prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant", category: "Mariage", start_date: '2020-09-06', end_date: '2020-09-07', location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: 'finish')
@@ -93,10 +94,10 @@ prestation_mariage_campredon = Prestation.create!(client: georges, title: "Maria
 prestation_mariage_sachot = Prestation.create!(client: raphaelle, title: "Mariage Sachot", category: "Mariage", start_date: '2020-05-16', end_date: '2020-05-17', location: "Château de Trédion, 1 Rue du Château, 56250 Trédion", notes: "130 personnes invitées. Mariage franco-canadien, la famille de Grégoire habite au Canada, ils sont aussi originaires de Corse. Cérémonie à l'église à 15h30, cocktail dans le domaine. Prendre pas mal de photos de petits groupes (copains et famille). Dîner sous forme de buffet à l'extérieur. Déco et fleurs +++", status: 'progress')
 
 
-puts "Finished seeding 8 prestations..."
+puts "Finished seeding 10 prestations..."
 
 
-puts "Creating 8 groups of tasks..."
+puts "Creating 10 groups of tasks..."
 
 #milestones mariage Mingant
 
@@ -657,6 +658,214 @@ task8_famille_leon = Task.create!(
 
 
 
+#milestones famille Facq
+
+task1_famille_facq = Task.create!(
+                    prestation: prestation_famille_facq,
+                    name: "Envoyer contrat & facture",
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2020,3,14),
+                    end_date: Date.new(2020,3,14))
+task2_famille_facq = Task.create!(
+                    prestation: prestation_famille_facq,
+                    name: "Valider réception contrat signé",
+                    kind: 'admin',
+                    description: "Si le document n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,3,21),
+                    end_date: Date.new(2020,3,21))
+task3_famille_facq = Task.create!(
+                    prestation: prestation_famille_facq,
+                    name: "Confirmer date & lieu",
+                    kind: 'admin',
+                    description: "Contacter la famille",
+                    urgent: false,
+                    start_date: Date.new(2020,4,8),
+                    end_date: Date.new(2020,4,8))
+task4_famille_facq = Task.create!(
+                    prestation: prestation_famille_facq,
+                    name: "Évènement",
+                    kind: 'évènement',
+                    urgent: false,
+                    start_date: Date.new(2020,4,15),
+                    end_date: Date.new(2020,4,15))
+task5_famille_facq = Task.create!(
+                    prestation: prestation_famille_facq,
+                    name: "Recevoir solde total",
+                    kind: 'admin',
+                    description: "A recevoir au moment de la prestation",
+                    urgent: false,
+                    start_date: Date.new(2020,4,15),
+                    end_date: Date.new(2020,4,15))
+task6_famille_facq = Task.create!(
+                    prestation: prestation_famille_facq,
+                    name: "Post-traitement des photos",
+                    kind: 'créa',
+                    description: "Marge de 30 jours max pour traiter les photos",
+                    urgent: false,
+                    start_date: Date.new(2020,4,16),
+                    end_date: Date.new(2020,4,16))
+task7_famille_facq = Task.create!(
+                    prestation: prestation_famille_facq,
+                    name: "Envoyer galerie photos",
+                    kind: 'admin',
+                    description: "Envoyer la galerie en ligne par mail (avec les codes d’accès et le fonctionnement de leur accès privé) ",
+                    urgent: false,
+                    start_date: Date.new(2020,5,15),
+                    end_date: Date.new(2020,5,15))
+task8_famille_facq = Task.create!(
+                    prestation: prestation_famille_facq,
+                    name: "Envoyer support(s) photo",
+                    kind: 'admin',
+                    description: "Par courrier",
+                    urgent: false,
+                    start_date: Date.new(2020,5,25),
+                    end_date: Date.new(2020,5,25))
+
+
+# Milestones entreprise Le Camion 1
+
+task1_entreprise_lecamion1 = Task.create!(
+                    prestation: prestation_entreprise_lecamion1,
+                    name: 'Envoyer contrat',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2019,12,10),
+                    end_date: Date.new(2019,12,10))
+
+task2_entreprise_lecamion1 = Task.create!(
+                    prestation: prestation_entreprise_lecamion1,
+                    name: 'Valider réception contrat signé',
+                    kind: 'admin',
+                    description: "Si le document n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2019,12,10) + 3.days,
+                    end_date: Date.new(2019,12,10) + 3.days)
+
+task3_entreprise_lecamion1 = Task.create!(
+                    prestation: prestation_entreprise_lecamion1,
+                    name: 'Brief',
+                    kind: 'rendez-vous',
+                    description: "Discussion avec le client sur le brief de la prestation",
+                    urgent: false,
+                    start_date: Date.new(2020,1,22) - 7.days,
+                    end_date: Date.new(2020,1,22) - 7.days)
+
+task4_entreprise_lecamion1 = Task.create!(
+                    prestation: prestation_entreprise_lecamion1,
+                    name: 'Évènement',
+                    kind: 'évènement',
+                    urgent: false,
+                    start_date: Date.new(2020,1,22),
+                    end_date: Date.new(2020,1,22))
+
+task5_entreprise_lecamion1 = Task.create!(
+                    prestation: prestation_entreprise_lecamion1,
+                    name: 'Post-traitement',
+                    kind: 'créa',
+                    description: "Marge de 7 jours pour traiter les photos",
+                    urgent: false,
+                    start_date: Date.new(2020,1,22) + 1.day,
+                    end_date: Date.new(2020,1,22) + 1.day)
+
+task6_entreprise_lecamion1 = Task.create!(
+                    prestation: prestation_entreprise_lecamion1,
+                    name: 'Livrer photos + envoyer facture',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2020,1,22) + 7.days,
+                    end_date: Date.new(2020,1,22) + 7.days)
+
+task7_entreprise_lecamion1 = Task.create!(
+                    prestation: prestation_entreprise_lecamion1,
+                    name: 'Relancer paiement',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2020,1,22) + 30.days,
+                    end_date: Date.new(2020,1,22) + 30.days)
+
+task8_entreprise_lecamion1 = Task.create!(
+                    prestation: prestation_entreprise_lecamion1,
+                    name: 'Valider réception solde',
+                    kind: 'admin',
+                    description: "Si le solde n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,1,22) + 45.days,
+                    end_date: Date.new(2020,1,22) + 45.days)
+
+
+#milestones entreprise Le Camion 2
+
+task1_entreprise_lecamion2 = Task.create!(
+                    prestation: prestation_entreprise_lecamion2,
+                    name: 'Envoyer contrat',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2020,3,10),
+                    end_date: Date.new(2020,3,10))
+
+task2_entreprise_lecamion2 = Task.create!(
+                    prestation: prestation_entreprise_lecamion2,
+                    name: 'Valider réception contrat signé',
+                    kind: 'admin',
+                    description: "Si le document n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,3,13),
+                    end_date: Date.new(2020,3,13))
+
+task3_entreprise_lecamion2 = Task.create!(
+                    prestation: prestation_entreprise_lecamion2,
+                    name: 'RDV brief',
+                    kind: 'admin',
+                    description: "Discussion avec le client sur le brief de la prestation",
+                    urgent: false,
+                    start_date: Date.new(2020,3,26),
+                    end_date: Date.new(2020,3,26))
+
+task4_entreprise_lecamion2 = Task.create!(
+                    prestation: prestation_entreprise_lecamion2,
+                    name: 'Évènement',
+                    kind: 'évènement',
+                    urgent: false,
+                    start_date: Date.new(2020,4,1),
+                    end_date: Date.new(2020,4,1))
+
+task5_entreprise_lecamion2 = Task.create!(
+                    prestation: prestation_entreprise_lecamion2,
+                    name: 'Post-traitement',
+                    kind: 'créa',
+                    description: "Marge de 7 jours pour traiter les photos",
+                    urgent: false,
+                    start_date: Date.new(2020,4,2),
+                    end_date: Date.new(2020,4,2))
+
+task6_entreprise_lecamion2 = Task.create!(
+                    prestation: prestation_entreprise_lecamion2,
+                    name: 'Livrer photos + envoyer facture',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2020,4,8),
+                    end_date: Date.new(2020,4,8))
+
+task7_entreprise_lecamion2 = Task.create!(
+                    prestation: prestation_entreprise_lecamion2,
+                    name: 'Relancer paiement',
+                    kind: 'admin',
+                    urgent: false,
+                    start_date: Date.new(2020,5,1),
+                    end_date: Date.new(2020,5,1))
+
+task8_entreprise_lecamion2 = Task.create!(
+                    prestation: prestation_entreprise_lecamion2,
+                    name: 'Valider réception solde',
+                    kind: 'admin',
+                    description: "Si le solde n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16),
+                    end_date: Date.new(2020,5,16))
+
+
 #milestones entreprise We Are Single
 
 task1_entreprise_wearesingle = Task.create!(
@@ -727,142 +936,6 @@ task8_entreprise_wearesingle = Task.create!(
                     start_date: Date.new(2020,5,14),
                     end_date: Date.new(2020,5,14))
 
-#milestones famille leon
-
-task1_famille_facq = Task.create!(
-                    prestation: prestation_famille_facq,
-                    name: "Envoyer contrat & facture",
-                    kind: 'admin',
-                    urgent: false,
-                    start_date: Date.new(2020,3,14),
-                    end_date: Date.new(2020,3,14))
-task2_famille_facq = Task.create!(
-                    prestation: prestation_famille_facq,
-                    name: "Valider réception contrat signé",
-                    kind: 'admin',
-                    description: "Si le document n'a pas été reçu : relancer le client",
-                    urgent: false,
-                    start_date: Date.new(2020,3,21),
-                    end_date: Date.new(2020,3,21))
-task3_famille_facq = Task.create!(
-                    prestation: prestation_famille_facq,
-                    name: "Confirmer date & lieu",
-                    kind: 'admin',
-                    description: "Contacter la famille",
-                    urgent: false,
-                    start_date: Date.new(2020,4,8),
-                    end_date: Date.new(2020,4,8))
-task4_famille_facq = Task.create!(
-                    prestation: prestation_famille_facq,
-                    name: "Évènement",
-                    kind: 'évènement',
-                    urgent: false,
-                    start_date: Date.new(2020,4,15),
-                    end_date: Date.new(2020,4,15))
-task5_famille_facq = Task.create!(
-                    prestation: prestation_famille_facq,
-                    name: "Recevoir solde total",
-                    kind: 'admin',
-                    description: "A recevoir au moment de la prestation",
-                    urgent: false,
-                    start_date: Date.new(2020,4,15),
-                    end_date: Date.new(2020,4,15))
-task6_famille_facq = Task.create!(
-                    prestation: prestation_famille_facq,
-                    name: "Post-traitement des photos",
-                    kind: 'créa',
-                    description: "Marge de 30 jours max pour traiter les photos",
-                    urgent: false,
-                    start_date: Date.new(2020,4,16),
-                    end_date: Date.new(2020,4,16))
-task7_famille_facq = Task.create!(
-                    prestation: prestation_famille_facq,
-                    name: "Envoyer galerie photos",
-                    kind: 'admin',
-                    description: "Envoyer la galerie en ligne par mail (avec les codes d’accès et le fonctionnement de leur accès privé) ",
-                    urgent: false,
-                    start_date: Date.new(2020,5,15),
-                    end_date: Date.new(2020,5,15))
-task8_famille_facq = Task.create!(
-                    prestation: prestation_famille_facq,
-                    name: "Envoyer support(s) photo",
-                    kind: 'admin',
-                    description: "Par courrier",
-                    urgent: false,
-                    start_date: Date.new(2020,5,25),
-                    end_date: Date.new(2020,5,25))
-
-
-
-#milestones entreprise Le Camion
-
-task1_entreprise_lecamion = Task.create!(
-                    prestation: prestation_entreprise_lecamion,
-                    name: 'Envoyer contrat',
-                    kind: 'admin',
-                    urgent: false,
-                    start_date: Date.new(2020,3,10),
-                    end_date: Date.new(2020,3,10))
-
-task2_entreprise_lecamion = Task.create!(
-                    prestation: prestation_entreprise_lecamion,
-                    name: 'Valider réception contrat signé',
-                    kind: 'admin',
-                    description: "Si le document n'a pas été reçu : relancer le client",
-                    urgent: false,
-                    start_date: Date.new(2020,3,13),
-                    end_date: Date.new(2020,3,13))
-
-task3_entreprise_lecamion = Task.create!(
-                    prestation: prestation_entreprise_lecamion,
-                    name: 'RDV brief',
-                    kind: 'admin',
-                    description: "Discussion avec le client sur le brief de la prestation",
-                    urgent: false,
-                    start_date: Date.new(2020,3,26),
-                    end_date: Date.new(2020,3,26))
-
-task4_entreprise_lecamion = Task.create!(
-                    prestation: prestation_entreprise_lecamion,
-                    name: 'Évènement',
-                    kind: 'évènement',
-                    urgent: false,
-                    start_date: Date.new(2020,4,1),
-                    end_date: Date.new(2020,4,1))
-
-task5_entreprise_lecamion = Task.create!(
-                    prestation: prestation_entreprise_lecamion,
-                    name: 'Post-traitement',
-                    kind: 'créa',
-                    description: "Marge de 7 jours pour traiter les photos",
-                    urgent: false,
-                    start_date: Date.new(2020,4,2),
-                    end_date: Date.new(2020,4,2))
-
-task6_entreprise_lecamion = Task.create!(
-                    prestation: prestation_entreprise_lecamion,
-                    name: 'Livrer photos + envoyer facture',
-                    kind: 'admin',
-                    urgent: false,
-                    start_date: Date.new(2020,4,8),
-                    end_date: Date.new(2020,4,8))
-
-task7_entreprise_lecamion = Task.create!(
-                    prestation: prestation_entreprise_lecamion,
-                    name: 'Relancer paiement',
-                    kind: 'admin',
-                    urgent: false,
-                    start_date: Date.new(2020,5,1),
-                    end_date: Date.new(2020,5,1))
-
-task8_entreprise_lecamion = Task.create!(
-                    prestation: prestation_entreprise_lecamion,
-                    name: 'Valider réception solde',
-                    kind: 'admin',
-                    description: "Si le solde n'a pas été reçu : relancer le client",
-                    urgent: false,
-                    start_date: Date.new(2020,5,16),
-                    end_date: Date.new(2020,5,16))
 
 
 # Milestones entreprise The Tribe
@@ -935,7 +1008,7 @@ task8_entreprise_thetribe = Task.create!(
                     start_date: Date.new(2020,4,24) + 45.days,
                     end_date: Date.new(2020,4,24) + 45.days)
 
-puts "Finished creating 8 group of tasks..."
+puts "Finished creating 10 group of tasks..."
 
 puts "__________________________________________________________"
 puts "Finished Seeding!"

@@ -63,7 +63,7 @@
                   <% else %>
                     <p class="col-3 green-point"><%= l(task.start_date, format: '%d %b') %></p>
                   <% end %>
-                  <p class="col-9 pl-3"><%= task.prestation.category %> <%= task.prestation.client.last_name %></p>
+                  <p class="col-9 pl-3"><%= task.prestation.title %></p>
                 </li>
               <% end %>
             <% end %>
@@ -82,7 +82,7 @@
                   <% end %>
                   <div class="col-9 pl-3">
                     <p><%= task.name %></p>
-                    <p class="p-gray"><%= task.prestation.category %> <%= task.prestation.client.last_name %></p>
+                    <p class="p-gray"><%= task.prestation.title %></p>
                   </div>
                 </li>
               <% end %>
