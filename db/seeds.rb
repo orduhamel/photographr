@@ -80,13 +80,13 @@ puts "Finished seeding 8 clients..."
 puts "Seeding 10 prestations..."
 
 
-prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", start_date: '2020-03-20', end_date: '2020-03-20', location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont deux enfants", status: 'progress')
-prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille Facq", category: "Famille", start_date: '2020-04-15', end_date: '2020-04-15', location: "265 rue des mouettes Nantes", notes: "prestation famille. Ils ont un enfant", status: 'progress')
+prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", start_date: '2020-03-20', end_date: '2020-03-20', location: "12 rue commandant Groix Nantes", notes: "Shooting photo des parents et de leurs 2 enfants chez eux, le temps d'un goûter. Faire attention aux détails de décoration. Les grands-parents seront peut-être présents.", status: 'progress')
+prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille Facq", category: "Famille", start_date: '2020-04-15', end_date: '2020-04-15', location: "265 rue des mouettes Nantes", notes: "Shooting photo des parents et de leur nouveau-né, dans leur jardin et dans la chambre de l'enfant (pièce assez sombre).", status: 'progress')
 
-prestation_entreprise_lecamion1 = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-01-22', end_date: '2020-01-22', location: "1 Rue Bayard, 44100 Nantes", notes: "shooting photos des salariés dans le jardin des bureaux de l'entreprise", status: 'finish')
-prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", start_date: '2020-03-23', end_date: '2020-03-23', location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: 'progress')
-prestation_entreprise_lecamion2 = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-04-01', end_date: '2020-04-01', location: "1 Rue Bayard, 44100 Nantes", notes: "événement porte ouverte formation peinture.", status: 'progress')
-prestation_entreprise_thetribe = Prestation.create!(client: gaspard, title: "Entreprise The Tribe", category: "Entreprise", start_date: '2020-04-22', end_date: '2020-04-24', location: "223 rue du chef de l'île Fédrun, 44720 Saint Joachim", notes: "Seminaire d'entreprise sur 2 jours : photos d'équipe, des activités, des repas (hors dîners).", status: 'progress')
+prestation_entreprise_lecamion1 = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-01-22', end_date: '2020-01-22', location: "1 Rue Bayard, 44100 Nantes", notes: "Shooting photo des salariés dans le jardin des bureaux de l'entreprise", status: 'finish')
+prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", start_date: '2020-03-13', end_date: '2020-03-13', location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "Evénement de rencontre pour célibataires.", status: 'progress')
+prestation_entreprise_lecamion2 = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-04-01', end_date: '2020-04-01', location: "1 Rue Bayard, 44100 Nantes", notes: "Evénement porte-ouverte pour une formation de peinture. Se déroule dans une salle de cours, avec les profs et les potentiels étudiants. Démonstration de peinture. Prendre des photos des groupes de discussion et des démos de peinture.", status: 'progress')
+prestation_entreprise_thetribe = Prestation.create!(client: gaspard, title: "Entreprise The Tribe", category: "Entreprise", start_date: '2020-04-22', end_date: '2020-04-24', location: "223 rue du chef de l'île Fédrun, 44720 Saint Joachim", notes: "Seminaire d'entreprise sur 2 jours : photos d'équipe, des activités, des repas (hors dîners). Déplacement et hébergement pris en charge par l'entreprise (Airbnb réservé par l'entreprise, en attente de l'adresse et des détails).", status: 'progress')
 
 prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant", category: "Mariage", start_date: '2020-09-06', end_date: '2020-09-07', location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: 'progress')
 prestation_mariage_reynaud = Prestation.create!(client: gaspard, title: "Mariage Reynaud", category: "Mariage", start_date: '2020-03-27', end_date: '2020-03-28', location: "Domaine du montmarin, Lieu dit le Montmarin, 35730 Pleurtuit", notes: "Les parents de Gaspard habitent à Saint Malo. 320 personnes invitées, mariage élégant et assez mondain. Cocktail à l'extérieur et à l'intérieur, dîner dans L'Orangerie. Contacter la témoin Fanny (0612321187) pour les détails du jour J.", status: 'progress')
@@ -873,8 +873,8 @@ task1_entreprise_wearesingle = Task.create!(
                     name: 'Envoyer contrat',
                     kind: 'admin',
                     urgent: false,
-                    start_date: Date.new(2020,3,9),
-                    end_date: Date.new(2020,3,9))
+                    start_date: Date.new(2020,2,26),
+                    end_date: Date.new(2020,2,26))
 
 task2_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
@@ -882,8 +882,8 @@ task2_entreprise_wearesingle = Task.create!(
                     kind: 'admin',
                     description: "Si le document n'a pas été reçu : relancer le client",
                     urgent: false,
-                    start_date: Date.new(2020,3,12),
-                    end_date: Date.new(2020,3,12))
+                    start_date: Date.new(2020,2,29),
+                    end_date: Date.new(2020,2,29))
 
 task3_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
@@ -891,16 +891,16 @@ task3_entreprise_wearesingle = Task.create!(
                     kind: 'rendez-vous',
                     description: "Discussion avec le client sur le brief de la prestation",
                     urgent: false,
-                    start_date: Date.new(2020,3,16),
-                    end_date: Date.new(2020,3,16))
+                    start_date: Date.new(2020,3,6),
+                    end_date: Date.new(2020,3,6))
 
 task4_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
                     name: 'Évènement',
                     kind: 'évènement',
                     urgent: false,
-                    start_date: Date.new(2020,3,23),
-                    end_date: Date.new(2020,3,23))
+                    start_date: Date.new(2020,3,13),
+                    end_date: Date.new(2020,3,13))
 
 task5_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
@@ -908,24 +908,24 @@ task5_entreprise_wearesingle = Task.create!(
                     kind: 'créa',
                     description: "Marge de 7 jours pour traiter les photos",
                     urgent: false,
-                    start_date: Date.new(2020,3,24),
-                    end_date: Date.new(2020,3,24))
+                    start_date: Date.new(2020,3,14),
+                    end_date: Date.new(2020,3,14))
 
 task6_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
                     name: 'Livrer photos + envoyer facture',
                     kind: 'admin',
                     urgent: false,
-                    start_date: Date.new(2020,3,30),
-                    end_date: Date.new(2020,3,30))
+                    start_date: Date.new(2020,3,21),
+                    end_date: Date.new(2020,3,21))
 
 task7_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
                     name: 'Relancer paiement',
                     kind: 'admin',
                     urgent: false,
-                    start_date: Date.new(2020,4,29),
-                    end_date: Date.new(2020,4,29))
+                    start_date: Date.new(2020,4,20),
+                    end_date: Date.new(2020,4,20))
 
 task8_entreprise_wearesingle = Task.create!(
                     prestation: prestation_entreprise_wearesingle,
@@ -933,8 +933,8 @@ task8_entreprise_wearesingle = Task.create!(
                     kind: 'admin',
                     description: "Si le solde n'a pas été reçu : relancer le client",
                     urgent: false,
-                    start_date: Date.new(2020,5,14),
-                    end_date: Date.new(2020,5,14))
+                    start_date: Date.new(2020,5,3),
+                    end_date: Date.new(2020,5,3))
 
 
 
