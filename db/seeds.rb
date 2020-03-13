@@ -24,7 +24,7 @@ ophelie.save!
 
 puts "Finished seeding 1 user..."
 
-puts "Seeding 5 clients..."
+puts "Seeding 8 clients..."
 
 marie_image = File.open(Rails.root.join("db/fixtures/famille.jpg"))
 marie = Client.new(first_name: "Marie", last_name: "Mingant", address: "9 rue des lilas Nantes", phone_number: "0789042364", email: "mariemingant@gmail.com", tutoiement: true, partner_name: "Nicolas Laurent", notes: "clients rencontrés dans le cadre d'une prestation famille")
@@ -81,10 +81,12 @@ puts "Seeding 8 prestations..."
 
 
 prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", start_date: '2020-03-20', end_date: '2020-03-20', location: "12 rue commandant Groix Nantes", notes: "prestation famille. Ils ont deux enfants", status: 'progress')
-prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant", category: "Mariage", start_date: '2020-09-06', end_date: '2020-09-07', location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: 'finish')
-prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", start_date: '2020-03-23', end_date: '2020-03-23', location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: 'progress')
 prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille Facq", category: "Famille", start_date: '2020-04-15', end_date: '2020-04-15', location: "265 rue des mouettes Nantes", notes: "prestation famille. Ils ont un enfant", status: 'progress')
+
+prestation_entreprise_wearesingle = Prestation.create!(client: annaig, title: "Entreprise We Are Single", category: "Entreprise", start_date: '2020-03-23', end_date: '2020-03-23', location: "24 Rue de la Noé Cottee Saint-Sébastien-sur-Loire", notes: "événement de rencontre pour célibataires.", status: 'progress')
 prestation_entreprise_lecamion = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-04-01', end_date: '2020-04-01', location: "1 Rue Bayard, 44100 Nantes", notes: "événement porte ouverte formation peinture.", status: 'progress')
+
+prestation_mariage_mingant = Prestation.create!(client: marie, title: "Mariage Mingant", category: "Mariage", start_date: '2020-09-06', end_date: '2020-09-07', location: "29 Rue de Strasbourg Nantes", notes: "mariage à la mairie de Nantes", status: 'finish')
 prestation_mariage_reynaud = Prestation.create!(client: gaspard, title: "Mariage Reynaud", category: "Mariage", start_date: '2020-03-27', end_date: '2020-03-28', location: "Domaine du montmarin, Lieu dit le Montmarin, 35730 Pleurtuit", notes: "Les parents de Gaspard habitent à Saint Malo. 320 personnes invitées, mariage élégant et assez mondain. Cocktail à l'extérieur et à l'intérieur, dîner dans L'Orangerie. Contacter la témoin Fanny (0612321187) pour les détails du jour J.", status: 'progress')
 prestation_mariage_campredon = Prestation.create!(client: georges, title: "Mariage Campredon", category: "Mariage", start_date: '2020-04-17', end_date: '2020-04-17', location: "Domaine de la Pinelais, La Pinelais, 44320 Saint-Père-en-Retz", notes: "80 personnes invitées, mariage champêtre avec une cérémonie laïque à 15h dans le jardin du domaine. Cocktail extérieur et dîner à l'intérieur. Porter une attention particulière aux détails, à la décoration, aux fleurs. La fille est très proche de sa soeur aînée, Margaux, qui est sa seule témoin.", status: 'progress')
 prestation_mariage_sachot = Prestation.create!(client: raphaelle, title: "Mariage Sachot", category: "Mariage", start_date: '2020-05-16', end_date: '2020-05-17', location: "Château de Trédion, 1 Rue du Château, 56250 Trédion", notes: "130 personnes invitées. Mariage franco-canadien, la famille de Grégoire habite au Canada, ils sont aussi originaires de Corse. Cérémonie à l'église à 15h30, cocktail dans le domaine. Prendre pas mal de photos de petits groupes (copains et famille). Dîner sous forme de buffet à l'extérieur. Déco et fleurs +++", status: 'progress')
@@ -93,9 +95,9 @@ prestation_mariage_sachot = Prestation.create!(client: raphaelle, title: "Mariag
 puts "Finished seeding 8 prestations..."
 
 
-puts "Creating 3 group of tasks..."
+puts "Creating 8 groups of tasks..."
 
-#milestones mariage
+#milestones mariage Mingant
 
 task1_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
@@ -217,6 +219,375 @@ task14_mariage_mingant = Task.create!(
                         start_date: Date.new(2020,9,17),
                         end_date: Date.new(2020,9,17))
 
+
+#milestones mariage Reyanud
+
+task1_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Envoyer contrat & facture 1er acompte",
+                    kind: "admin",
+                    urgent: false,
+                    start_date: Date.new(2019,4,27),
+                    end_date: Date.new(2019,4,27))
+
+task2_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Valider réception contrat & 1er acompte",
+                    kind: "admin", description: "Si les documents et l'acompte n'ont pas été reçus : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2019,4,27) + 7.days,
+                    end_date: Date.new(2019,4,27) + 7.days)
+
+task3_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Fixer le 1er rendez-vous",
+                    kind: "admin",
+                    description: "A faire si je n'ai pas déjà rencontré les clients",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) - 200.days,
+                    end_date: Date.new(2020,3,27) - 200.days)
+
+task4_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Envoyer facture 2e acompte",
+                    kind: "admin",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) - 180.days,
+                    end_date: Date.new(2020,3,27) - 180.days)
+
+task5_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Valider réception 2e acompte",
+                    kind: "admin",
+                    description: "Si l'acompte n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) - 170.days,
+                    end_date: Date.new(2020,3,27) - 170.days)
+
+task6_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "1ere rencontre",
+                    kind: "rendez-vous",
+                    description: "Définition des attentes du client + apprendre à les connaître. A faire si je n'ai pas déjà rencontré les clients. Définir si c'est un RDV physique ou un appel téléphone.",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) - 170.days,
+                    end_date: Date.new(2020,3,27) - 170.days)
+
+task7_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Réserver logement & transport",
+                    kind: "admin",
+                    description: "- Echanges de mails pour prendre billets train/avion + location voiture + hébergement.- Demande de remboursement avance des frais (tant que je suis autoentrepreneur).",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) - 60.days,
+                    end_date: Date.new(2020,3,27) - 60.days)
+
+task8_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "2e rencontre",
+                    kind: "rendez-vous",
+                    description: "Ne pas oublier de demander : - Le trombinoscope - Des précisions quant au planning du jour J",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) - 30.days,
+                    end_date: Date.new(2020,3,27) - 30.days)
+
+task9_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Envoyer facture solde",
+                    kind: "admin",
+                    description: "Facture du solde à payer au plus tard 7 jours avant le jour J",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) - 15.days,
+                    end_date: Date.new(2020,3,27) - 15.days)
+task10_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Valider réception solde",
+                    kind: "admin",
+                    description: "Si le solde n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) - 7.days,
+                    end_date: Date.new(2020,3,27) - 7.days)
+
+task11_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Évènement",
+                    kind: "évènement",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27),
+                    end_date: Date.new(2020,3,27))
+
+task12_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Post-traitement des photos",
+                    kind: "créa",
+                    description: "Marge de 28 jours max pour traiter les photos",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) + 2.days,
+                    end_date: Date.new(2020,3,27) + 5.days)
+
+task13_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Envoyer galerie photos",
+                    kind: "admin",
+                    description: "Envoyer la galerie en ligne par mail (avec les codes d’accès et le fonctionnement de leur accès privé)",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) + 30.days,
+                    end_date: Date.new(2020,3,27) + 30.days)
+
+task14_mariage_reynaud = Task.create!(
+                    prestation: prestation_mariage_reynaud,
+                    name: "Envoyer support(s) photos",
+                    kind: "admin",
+                    description: "Par courrier",
+                    urgent: false,
+                    start_date: Date.new(2020,3,27) + 40.days,
+                    end_date: Date.new(2020,3,27) + 40.days)
+
+#milestones mariage Campredon
+
+task1_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Envoyer contrat & facture 1er acompte",
+                    kind: "admin",
+                    urgent: false,
+                    start_date: Date.new(2019,5,12),
+                    end_date: Date.new(2019,5,12))
+
+task2_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Valider réception contrat & 1er acompte",
+                    kind: "admin", description: "Si les documents et l'acompte n'ont pas été reçus : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2019,5,12) + 7.days,
+                    end_date: Date.new(2019,5,12) + 7.days)
+
+task3_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Fixer le 1er rendez-vous",
+                    kind: "admin",
+                    description: "A faire si je n'ai pas déjà rencontré les clients",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17) - 200.days,
+                    end_date: Date.new(2020,4,17) - 200.days)
+
+task4_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Envoyer facture 2e acompte",
+                    kind: "admin",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17) - 180.days,
+                    end_date: Date.new(2020,4,17) - 180.days)
+
+task5_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Valider réception 2e acompte",
+                    kind: "admin",
+                    description: "Si l'acompte n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17) - 170.days,
+                    end_date: Date.new(2020,4,17) - 170.days)
+
+task6_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "1ere rencontre",
+                    kind: "rendez-vous",
+                    description: "Définition des attentes du client + apprendre à les connaître. A faire si je n'ai pas déjà rencontré les clients. Définir si c'est un RDV physique ou un appel téléphone.",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17) - 170.days,
+                    end_date: Date.new(2020,4,17) - 170.days)
+
+task7_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Réserver logement & transport",
+                    kind: "admin",
+                    description: "- Echanges de mails pour prendre billets train/avion + location voiture + hébergement.- Demande de remboursement avance des frais (tant que je suis autoentrepreneur).",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17) - 60.days,
+                    end_date: Date.new(2020,4,17) - 60.days)
+
+task8_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "2e rencontre",
+                    kind: "rendez-vous",
+                    description: "Ne pas oublier de demander : - Le trombinoscope - Des précisions quant au planning du jour J",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17) - 30.days,
+                    end_date: Date.new(2020,4,17) - 30.days)
+
+task9_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Envoyer facture solde",
+                    kind: "admin",
+                    description: "Facture du solde à payer au plus tard 7 jours avant le jour J",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17) - 15.days,
+                    end_date: Date.new(2020,4,17) - 15.days)
+task10_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Valider réception solde",
+                    kind: "admin",
+                    description: "Si le solde n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17) - 7.days,
+                    end_date: Date.new(2020,4,17) - 7.days)
+
+task11_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Évènement",
+                    kind: "évènement",
+                    urgent: false,
+                    start_date: Date.new(2020,4,17),
+                    end_date: Date.new(2020,4,17))
+
+task12_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Post-traitement des photos",
+                    kind: "créa",
+                    description: "Marge de 28 jours max pour traiter les photos",
+                    urgent: false,
+                    start_date: Date.new(2020,3,28) + 2.days,
+                    end_date: Date.new(2020,3,28) + 5.days)
+
+task13_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Envoyer galerie photos",
+                    kind: "admin",
+                    description: "Envoyer la galerie en ligne par mail (avec les codes d’accès et le fonctionnement de leur accès privé)",
+                    urgent: false,
+                    start_date: Date.new(2020,3,28) + 30.days,
+                    end_date: Date.new(2020,3,28) + 30.days)
+
+task14_mariage_campredon = Task.create!(
+                    prestation: prestation_mariage_campredon,
+                    name: "Envoyer support(s) photos",
+                    kind: "admin",
+                    description: "Par courrier",
+                    urgent: false,
+                    start_date: Date.new(2020,3,28) + 40.days,
+                    end_date: Date.new(2020,3,28) + 40.days)
+
+#milestones mariage Sachot
+
+task1_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Envoyer contrat & facture 1er acompte",
+                    kind: "admin",
+                    urgent: false,
+                    start_date: Date.new(2019,5,27),
+                    end_date: Date.new(2019,5,27))
+
+task2_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Valider réception contrat & 1er acompte",
+                    kind: "admin", description: "Si les documents et l'acompte n'ont pas été reçus : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2019,5,27) + 7.days,
+                    end_date: Date.new(2019,5,27) + 7.days)
+
+task3_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Fixer le 1er rendez-vous",
+                    kind: "admin",
+                    description: "A faire si je n'ai pas déjà rencontré les clients",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16) - 200.days,
+                    end_date: Date.new(2020,5,16) - 200.days)
+
+task4_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Envoyer facture 2e acompte",
+                    kind: "admin",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16) - 180.days,
+                    end_date: Date.new(2020,5,16) - 180.days)
+
+task5_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Valider réception 2e acompte",
+                    kind: "admin",
+                    description: "Si l'acompte n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16) - 170.days,
+                    end_date: Date.new(2020,5,16) - 170.days)
+
+task6_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "1ere rencontre",
+                    kind: "rendez-vous",
+                    description: "Définition des attentes du client + apprendre à les connaître. A faire si je n'ai pas déjà rencontré les clients. Définir si c'est un RDV physique ou un appel téléphone.",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16) - 170.days,
+                    end_date: Date.new(2020,5,16) - 170.days)
+
+task7_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Réserver logement & transport",
+                    kind: "admin",
+                    description: "- Echanges de mails pour prendre billets train/avion + location voiture + hébergement.- Demande de remboursement avance des frais (tant que je suis autoentrepreneur).",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16) - 60.days,
+                    end_date: Date.new(2020,5,16) - 60.days)
+
+task8_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "2e rencontre",
+                    kind: "rendez-vous",
+                    description: "Ne pas oublier de demander : - Le trombinoscope - Des précisions quant au planning du jour J",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16) - 30.days,
+                    end_date: Date.new(2020,5,16) - 30.days)
+
+task9_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Envoyer facture solde",
+                    kind: "admin",
+                    description: "Facture du solde à payer au plus tard 7 jours avant le jour J",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16) - 15.days,
+                    end_date: Date.new(2020,5,16) - 15.days)
+task10_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Valider réception solde",
+                    kind: "admin",
+                    description: "Si le solde n'a pas été reçu : relancer le client",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16) - 7.days,
+                    end_date: Date.new(2020,5,16) - 7.days)
+
+task11_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Évènement",
+                    kind: "évènement",
+                    urgent: false,
+                    start_date: Date.new(2020,5,16),
+                    end_date: Date.new(2020,5,17))
+
+task12_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Post-traitement des photos",
+                    kind: "créa",
+                    description: "Marge de 28 jours max pour traiter les photos",
+                    urgent: false,
+                    start_date: Date.new(2020,5,17) + 2.days,
+                    end_date: Date.new(2020,5,17) + 5.days)
+
+task13_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Envoyer galerie photos",
+                    kind: "admin",
+                    description: "Envoyer la galerie en ligne par mail (avec les codes d’accès et le fonctionnement de leur accès privé)",
+                    urgent: false,
+                    start_date: Date.new(2020,5,17) + 30.days,
+                    end_date: Date.new(2020,5,17) + 30.days)
+
+task14_mariage_sachot = Task.create!(
+                    prestation: prestation_mariage_sachot,
+                    name: "Envoyer support(s) photos",
+                    kind: "admin",
+                    description: "Par courrier",
+                    urgent: false,
+                    start_date: Date.new(2020,5,17) + 40.days,
+                    end_date: Date.new(2020,5,17) + 40.days)
 
 #milestones famille leon
 
@@ -493,7 +864,7 @@ task8_entreprise_lecamion = Task.create!(
                     end_date: Date.new(2020,5,16))
 
 
-puts "Finished creating 3 group of tasks..."
+puts "Finished creating 8 group of tasks..."
 
 puts "__________________________________________________________"
 puts "Finished Seeding!"
