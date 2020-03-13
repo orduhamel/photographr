@@ -1,5 +1,4 @@
 class PrestationsController < ApplicationController
-
   def index
     @prestations = current_user.prestations
   end
@@ -15,6 +14,7 @@ class PrestationsController < ApplicationController
       client_name = client.first_name + " " + client.last_name += client_company
       [client_name, client.id]
     end
+    @prestation.build_client
   end
 
   def create
@@ -26,15 +26,18 @@ class PrestationsController < ApplicationController
       @prestation.title = "#{@prestation.category} #{@prestation.client.last_name}"
     end
 
-    if @prestation.category == 'Mariage'
-      create_mariage_tasks(@prestation, @prestation.start_date, @prestation.end_date)
-    elsif @prestation.category == 'Entreprise'
-      create_entreprise_tasks(@prestation, @prestation.start_date, @prestation.end_date)
-    elsif @prestation.category == 'Famille'
-      create_famille_tasks(@prestation, @prestation.start_date, @prestation.end_date)
-    end
+    @prestation.client.user = current_user
 
     if @prestation.save
+
+      if @prestation.category == 'Mariage'
+        create_mariage_tasks(@prestation, @prestation.start_date, @prestation.end_date)
+      elsif @prestation.category == 'Entreprise'
+        create_entreprise_tasks(@prestation, @prestation.start_date, @prestation.end_date)
+      elsif @prestation.category == 'Famille'
+        create_famille_tasks(@prestation, @prestation.start_date, @prestation.end_date)
+      end
+
       redirect_to prestation_path(@prestation)
     else
       render :new
@@ -50,7 +53,7 @@ class PrestationsController < ApplicationController
   private
 
   def prestation_params
-    params.require(:prestation).permit(:category, :location, :notes, :start_date, :end_date, :client_id)
+    params.require(:prestation).permit(:category, :location, :notes, :start_date, :end_date, :client_id, client_attributes: [:id, :first_name, :last_name, :address, :phone_number, :email, :tutoiement, :partner_name, :notes, :photo])
   end
 
   def create_famille_tasks(prestation, event_start_date, event_end_date)

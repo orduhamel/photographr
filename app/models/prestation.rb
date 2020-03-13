@@ -5,6 +5,8 @@ class Prestation < ApplicationRecord
   belongs_to :client
   has_many :tasks
 
+  accepts_nested_attributes_for :client
+
   validates :title, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
   validates :location, presence: true
