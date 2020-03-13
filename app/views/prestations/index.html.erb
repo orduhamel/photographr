@@ -3,27 +3,60 @@
 <h1 class="mt-5 ml-5">Liste des prestations<span class="green-point">.</span></h1>
 
   <div class="container-index-prestation m-5">
-    <div class="list-index-prestations bg-white col-md-12">
-      <% @prestations.each do |prestation| %>
-        <%= link_to prestation_path(prestation), class: "link-text-index" do  %>
-          <div class="row list-index-prestation d-flex py-4 align-items-center">
-            <div class="col-xl-4 index-prestations my-2">
-              <p class="index-title-prestation"><%= prestation.title %></p>
+    <h3 class="mb-4">En cours</h3>
+    <% @prestations.each do |prestation| %>
+      <% if prestation.status == 'progress' %>
+        <div class="list-index-prestations bg-white col-md-12">
+          <%= link_to prestation_path(prestation), class: "link-text-index" do  %>
+            <div class="row list-index-prestation d-flex py-4 align-items-center">
+              <div class="col-xl-4 index-prestations my-2">
+                <p class="index-title-prestation"><%= prestation.title %></p>
+              </div>
+              <div class="col-xl-3 index-prestations my-2">
+                <% if prestation.start_date != prestation.end_date %>
+                  <p class="index-date-prestation"><%= l(prestation.start_date, format: '%d') %> - <%= l(prestation.end_date, format: '%d %B %Y') %></p>
+                <% else %>
+                  <p class="index-date-prestation"><%= l(prestation.start_date, format: '%d %B %Y') %></p>
+                <% end %>
+              </div>
+              <div class="col-xl-4 index-prestations my-2">
+                <p class="index-location-prestation"><%= prestation.location %></p>
+              </div>
+              <div class="col-xl-1 index-prestations my-2 d-flex">
+                <p class="<%= prestation.status %> d-flex"><%= t(prestation.status) %></p>
+              </div>
             </div>
-            <div class="col-xl-3 index-prestations my-2">
-              <p class="index-date-prestation"><%= l(prestation.start_date, format: '%d %B %Y') %></p>
-            </div>
-            <div class="col-xl-4 index-prestations my-2">
-              <p class="index-location-prestation"><%= prestation.location %></p>
-            </div>
-            <div class="col-xl-1 index-prestations my-2 d-flex">
-              <p class="<%= prestation.status %> d-flex"><%= t(prestation.status) %></p>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
+    <h3 class="mt-5 mb-4 pt-3">Terminées</h3>
+    <% @prestations.each do |prestation| %>
+      <% if prestation.status == 'finish' %>
+        <div class="list-index-prestations bg-white col-md-12">
+          <%= link_to prestation_path(prestation), class: "link-text-index" do  %>
+            <div class="row list-index-prestation d-flex py-4 align-items-center">
+              <div class="col-xl-4 index-prestations my-2">
+                <p class="index-title-prestation"><%= prestation.title %></p>
+              </div>
+              <div class="col-xl-3 index-prestations my-2">
+                <% if prestation.start_date != prestation.end_date %>
+                  <p class="index-date-prestation"><%= l(prestation.start_date, format: '%d') %> - <%= l(prestation.end_date, format: '%d %B %Y') %></p>
+                <% else %>
+                  <p class="index-date-prestation"><%= l(prestation.start_date, format: '%d %B %Y') %></p>
+                <% end %>
+              </div>
+              <div class="col-xl-4 index-prestations my-2">
+                <p class="index-location-prestation"><%= prestation.location %></p>
+              </div>
+              <div class="col-xl-1 index-prestations my-2 d-flex">
+                <p class="<%= prestation.status %> d-flex"><%= t(prestation.status) %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-
 </div>
 

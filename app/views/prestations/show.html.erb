@@ -14,7 +14,7 @@
          <p class="pho-btn d-flex px-2">Passer en terminé</p>
          <% end %>
         <% else %>
-          <p class="pho-btn d-flex px-2">Terminé </p>
+          <p class="d-flex align-tiems-center px-2 ">Terminé</p><i class="far fa-calendar-check"></i>
         <% end %>
     </div>
   </div>
@@ -30,7 +30,7 @@
              <p class="task-name-show-prestation past-date col-md-9 text-left"> <%= task.name %></p>
           <% elsif task.kind =='évènement' %>
             <p class="task-date-show-prestation date-event-task-show col-md-3 text-left"> <%= l(task.start_date, format: '%d %b') %></p>
-            <p class="task-name-show-prestation date-event-task-show col-md-9 text-left"> <%= task.name %></p>
+            <p class="task-name-show-prestation date-event-task-show col-md-9 text-left"> <i class="fas fa-camera"></i> <%= task.name %></p>
           <% else %>
             <p class="task-date-show-prestation col-md-3 text-left"> <%= l(task.start_date, format: '%d %b') %></p>
             <p class="task-name-show-prestation col-md-9 text-left"> <%= task.name %></p>

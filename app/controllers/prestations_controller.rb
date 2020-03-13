@@ -1,7 +1,8 @@
 class PrestationsController < ApplicationController
 
   def index
-    @prestations = current_user.prestations
+    # @prestations = current_user.prestations
+    @prestations = Prestation.joins(:client).where(clients: { user_id: current_user.id }).order(status: :desc).order(:start_date)
   end
 
   def show
