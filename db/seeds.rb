@@ -801,8 +801,8 @@ task1_entreprise_lecamion = Task.create!(
                     name: 'Envoyer contrat',
                     kind: 'admin',
                     urgent: false,
-                    start_date: Date.new(2020,3,19),
-                    end_date: Date.new(2020,3,19))
+                    start_date: Date.new(2020,3,10),
+                    end_date: Date.new(2020,3,10))
 
 task2_entreprise_lecamion = Task.create!(
                     prestation: prestation_entreprise_lecamion,
@@ -810,8 +810,8 @@ task2_entreprise_lecamion = Task.create!(
                     kind: 'admin',
                     description: "Si le document n'a pas été reçu : relancer le client",
                     urgent: false,
-                    start_date: Date.new(2020,3,22),
-                    end_date: Date.new(2020,3,22))
+                    start_date: Date.new(2020,3,13),
+                    end_date: Date.new(2020,3,13))
 
 task3_entreprise_lecamion = Task.create!(
                     prestation: prestation_entreprise_lecamion,
