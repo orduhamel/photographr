@@ -69,7 +69,7 @@
         </ul>
       </div>
       <div id="deconnexion">
-         <p><%= link_to 'Déconnexion', destroy_user_session_path, class: 'text-links' %></P>
+         <p><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'text-links' %></P>
       </div>
     </div>
   </div>
