@@ -1,0 +1,23 @@
+.calendar-day-view {
+width: 70px;
+height: 70px;
+align-items: center;
+justify-content: center;
+
+}
+.week-day {
+  border: 1px solid black;
+  width: 69px;
+}
+
+.day {
+  text-align: right;
+}
+
+.calendar{
+  background-color: white;
+  text-align: right;
+  border-radius: 10px;
+  margin-left: 70px;
+  margin-top: 70px;
+}
