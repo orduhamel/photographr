@@ -1,0 +1,15 @@
+<div class="principale-calendar-task">
+  <h1>Le calendrier<span class="green-point">.</span></h1>
+  <div class="calendar">
+
+    <% @all_days.in_groups_of(7) do |week| %>
+      <div class="calendar-week-view d-flex">
+        <% week.each do |day| %>
+          <div class="calendar-day-view d-flex">
+              <p class="day"><%= l(day, format: '%d') %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
