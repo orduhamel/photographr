@@ -1,12 +1,18 @@
 <div class="principale-calendar-task">
-  <h1>Le calendrier<span class="green-point">.</span></h1>
+  <h1 class="calendar-title">Le calendrier<span class="green-point">.</span></h1>
   <div class="calendar">
 
     <% @all_days.in_groups_of(7) do |week| %>
       <div class="calendar-week-view d-flex">
         <% week.each do |day| %>
           <div class="calendar-day-view d-flex">
-              <p class="day"><%= l(day, format: '%d') %></p>
+            <% if @days_current_month.find {|d| day == d } %>
+              <% if @tasks_by_day.keys.find {|td| day == td } %>
+                <p class="day-task"><%= l(day, format: '%d') %></p>
+                <% else %>
+                <p class="day"><%= l(day, format: '%d') %></p>
+              <% end %>
+            <% end %>
           </div>
         <% end %>
       </div>
