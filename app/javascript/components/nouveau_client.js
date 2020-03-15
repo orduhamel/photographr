@@ -5,7 +5,7 @@ const existingClient = document.querySelector(".existing-client");
 const newClient = document.querySelector(".new-client");
 
 checkNewClient.addEventListener("click", (event) => {
-  existingClient.classList.add("d-none");
-  newClient.classList.remove("d-none");
+  existingClient.classList.toggle("d-none");
+  newClient.classList.toggle("d-none");
 });
 

@@ -14,14 +14,14 @@
             </div>
           <% end %>
           <div class="row">
-            <div class="col">
+            <div class="start-date col">
               <%= f.input :start_date,
                           as: :string,
                           required: false,
                           input_html: {id: "datepicker"},
-                          label: 'Date de début' %>
+                          label: 'Dates' %>
             </div>
-            <div class="col">
+            <div class="col d-none">
               <%= f.input :end_date,
                           as: :string,
                           required: false,
@@ -29,41 +29,51 @@
                           label: 'Date de fin' %>
             </div>
           </div>
-          <%= f.input :category,
-                      as: :select,
-                      collection: Prestation::CATEGORIES,
-                      input_html: {class: "select2"},
-                      label: 'Catégorie',
-                      placeholder: 'Sélectionner le type de la prestation' %>
-
-
-          <%= f.input :location,
-                      as: :string,
-                      label: 'Lieu',
-                      placeholder: "Indiquer l'adresse de la prestation" %>
-
-          <%= f.input :notes,
-                      as: :text,
-                      label: 'Notes',
-                      placeholder: "Ajouter des informations sur la prestation" %>
-
-          <label>Nouveau client ?</label>
-            <input type="checkbox" id="check-new-client">
-
-          <div class="existing-client">
-          <%= f.association :client,
-                      required: false,
-                      input_html: {class: "select2"},
-                      label: 'Client',
-                      collection: @display_client_names %>
+          <div class='dates-div d-none'>
+            <label>Dates</label>
+              <input type="text" id="range-dates">
           </div>
+            <%= f.input :category,
+                        as: :select,
+                        collection: Prestation::CATEGORIES,
+                        input_html: {class: "select2"},
+                        label: 'Catégorie',
+                        placeholder: 'Sélectionner le type de la prestation' %>
+
+
+            <%= f.input :location,
+                        as: :string,
+                        input_html: {id: "autocomplete-location-1"},
+                        label: 'Lieu',
+                        placeholder: "Indiquer l'adresse de la prestation" %>
+
+            <%= f.input :notes,
+                        as: :text,
+                        label: 'Notes',
+                        placeholder: "Ajouter des informations sur la prestation" %>
+
+            <label>Nouveau client ?</label>
+              <input type="checkbox" id="check-new-client">
+
+            <div class="existing-client">
+              <%= f.association :client,
+                          required: false,
+                          input_html: {class: "select2"},
+                          label: 'Client',
+                          collection: @display_client_names %>
+              <div class="d-flex flex-row-reverse mt-4">
+                <%= f.submit "Créer", class: 'pho-btn' %>
+              </div>
+            </div>
 
           <div class="new-client d-none">
             <h2>Nouveau client</h2>
+            <div class="row">
+            <div class="col">
             <%= f.simple_fields_for :client do |c| %>
                       <%= c.input :first_name, as: :string, label: 'Prénom', placeholder: "Prénom" %>
                       <%= c.input :last_name, as: :string, label: 'Nom', placeholder: 'Nom' %>
-                      <%= c.input :address, as: :string, label: "Indiquer l'adresse du client", placeholder: 'Adresse' %>
+                      <%= c.input :address, as: :string, input_html: {id: "autocomplete-location-2"}, label: "Indiquer l'adresse du client", placeholder: 'Adresse' %>
                       <%= c.input :phone_number, as: :string, label: 'Téléphone', placeholder: '0625252525' %>
                       <%= c.input :email, as: :string, label: 'Email', placeholder: 'photographe@example.com' %>
                       <%= c.input :partner_name, as: :string, label: 'Nom du partenaire', placeholder: 'Indiquer le prénom et nom du partenaire' %>
@@ -71,12 +81,11 @@
                       <%= c.input :notes, as: :text, label: 'Notes', placeholder: 'Ajouter des informations sur le client' %>
                       <%= c.input :photo, as: :file %>
                       <% end %>
+            </div>
           </div>
-
-
-          <div class="d-flex flex-row-reverse mt-4">
-            <%= f.submit "Créer", class: 'pho-btn' %>
-          </div>
+            <div class="d-flex flex-row-reverse mt-4">
+              <%= f.submit "Créer", class: 'pho-btn' %>
+            </div>
         <% end %>
       </div>
     </div>
