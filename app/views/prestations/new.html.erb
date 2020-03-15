@@ -39,6 +39,7 @@
 
           <%= f.input :location,
                       as: :string,
+                      input_html: {id: "autocomplete-location-1"},
                       label: 'Lieu',
                       placeholder: "Indiquer l'adresse de la prestation" %>
 
@@ -63,7 +64,7 @@
             <%= f.simple_fields_for :client do |c| %>
                       <%= c.input :first_name, as: :string, label: 'Prénom', placeholder: "Prénom" %>
                       <%= c.input :last_name, as: :string, label: 'Nom', placeholder: 'Nom' %>
-                      <%= c.input :address, as: :string, label: "Indiquer l'adresse du client", placeholder: 'Adresse' %>
+                      <%= c.input :address, as: :string, input_html: {id: "autocomplete-location-2"}, label: "Indiquer l'adresse du client", placeholder: 'Adresse' %>
                       <%= c.input :phone_number, as: :string, label: 'Téléphone', placeholder: '0625252525' %>
                       <%= c.input :email, as: :string, label: 'Email', placeholder: 'photographe@example.com' %>
                       <%= c.input :partner_name, as: :string, label: 'Nom du partenaire', placeholder: 'Indiquer le prénom et nom du partenaire' %>
