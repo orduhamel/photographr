@@ -24,15 +24,38 @@ justify-content: center;
 }
 
 .calendar{
-  background-color: white;
   text-align: right;
   border-radius: 10px;
   margin-left: 50px;
   margin-top: 40px;
-  position: sticky;
 }
 
 .calendar-title {
-  margin-left: 50px !important;
-  margin-top: 20px !important;
+text-align: center;
+margin-top: 30px !important;
+}
+
+.display-task {
+  background-color: white;
+}
+
+.task-title-calendar {
+text-align: center;
+}
+
+.pickup-day{
+  font-size: 20px !important;
+  text-align: center;
+}
+.title-task {
+  font-size: 22px !important;
+  padding-bottom: 30px !important;
+  padding-top: 15px !important;
+}
+.picto-task-calendar {
+  padding-right: 10px;
+  padding-top: 20px;
+}
+.task-prestation-title-calendar{
+  padding-top: 15px !important;
 }

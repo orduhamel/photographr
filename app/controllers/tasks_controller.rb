@@ -28,14 +28,14 @@ class TasksController < ApplicationController
 
   def calendar
     # Build all displayed dates range
-    today = Date.today
+    @today = Date.today
 
-    month_start_date          = today.beginning_of_month
+    month_start_date          = @today.beginning_of_month
     month_start_date_week_day = month_start_date.wday
     month_starts_on_sunday    = month_start_date_week_day == 0
     start_offset = month_starts_on_sunday ? 6 : month_start_date_week_day - 1
     calendar_start_day = month_start_date - start_offset.day
-    month_end_date          = today.end_of_month
+    month_end_date          = @today.end_of_month
     month_end_date_week_day = month_end_date.wday
     month_ends_on_sunday    = month_end_date_week_day == 0
     end_offset = month_ends_on_sunday ? 0 : 7 - month_end_date_week_day
