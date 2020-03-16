@@ -1,93 +1,80 @@
-<div class="principale-show-prestation w-100">
+<div class="d-flex w-100">
+  <div class="show-presta-client">
 
-  <!-- Titre et boutons -->
-  <div class="title-button d-flex bd-highlight">
-    <div class="title-button-show-prestation col-md-8 flex-grow-1 bd-highlight">
-      <h1 class="mt-5 ml-5 mb-4"> <%= @prestation.title %><span class="green-point">.</span></h1>
+    <div class="d-flex align-items-baseline justify-content-between">
+      <h1 class="mt-5 ml-5 mb-4"> <%= @prestation.category %><span class="green-point">.</span></h1>
+      <div class="d-flex flex-end">
+        <p class="pho-btn px-2 mr-4">Modifier</p>
+      </div>
     </div>
-    <div class="button-modifier-show-prestation col-md-2 d-flex flex-grow-1 bd-highlight">
-     <p class="button-modifier">Modifier</p>
+
+    <div class="show-prestation-place-date mb-5">
+      <% if @prestation.start_date != @prestation.end_date %>
+          <p class="event-date-show-prestation show-presta-color  ml-5 mb-2"><i class="far fa-calendar-alt"></i> <%= l(@prestation.start_date, format: '%d') %> - <%= l(@prestation.end_date, format: '%d %B') %></p>
+      <% else %>
+          <p class="event-date-show-prestation show-presta-color ml-5 mb-2"><i class="far fa-calendar-alt"></i> <%= l(@prestation.start_date, format: '%d %B') %></p>
+      <% end %>
+      <div class="px-5">
+        <p class="border-bottom-light-gray"><i class="fas fa-map-marker-alt mb-5"></i> <%= @prestation.location %></p>
+      </div>
     </div>
-    <div class="prestation-status-show-prestation col-md-2 d-flex flex-grow-1 bd-highlight">
-      <% if @prestation.status == "progress" %>
-        <%= link_to finish_prestation_path(@prestation), method: :patch, class: "presta-status"  do %>
-         <p class="pho-btn d-flex px-2">Passer en terminé</p>
-         <% end %>
-        <% else %>
-          <p class="d-flex align-tiems-center px-2 ">Terminé</p><i class="far fa-calendar-check"></i>
-        <% end %>
+
+    <div>
+      <h2 class="mx-5 mb-4"><%= @prestation.client.first_name %> <%= @prestation.client.last_name %></h2>
+      <div class="d-flex ml-5 align-items-center">
+        <div>
+          <%= cl_image_tag @prestation.client.photo.key, crop: :fill, width: 250, height: 250, class: "photo-client" %>
+        </div>
+        <div class="ml-5">
+          <p class="pb-3 p-gray"><i class="fas fa-envelope"></i> <%= @prestation.client.email %></p>
+          <p class="pb-3 p-gray"> <i class="fas fa-phone"></i> <%= @prestation.client.phone_number %> </p>
+          <p class="pb-3 p-gray"> <i class="fas fa-home"></i> <%= @prestation.client.address  %> </p>
+          <% if @prestation.client.partner_name.nil? == false %>
+            <p class="pb-3 p-gray"> <i class="fas fa-plus-circle"></i> <%= @prestation.client.partner_name %> </p>
+          <% end %>
+          <%if @prestation.client.tutoiement == true %>
+            <p class="pb-3 p-gray"><i class="fas fa-comment"></i> On se tutoie </i></p>
+          <% else %>
+            <p class="pb-3 p-gray"><i class="fas fa-comment"></i> On se vouvoie </i></p>
+          <% end %>
+        </div>
+      </div>
     </div>
+    <div class="px-5">
+      <p class="border-bottom-light-gray mt-5"></p>
+    </div>
+
+    <div class="mx-5 mb-5 mt-5">
+      <h2>Notes</h2>
+         <p class="mt-2 pb-5"><%= @prestation.notes %></p>
+    </div>
+
   </div>
 
-  <!-- Card Taches -->
-  <div class="contenu-show-prestation row d-flex pl-5 pt-2 w-100 mb-3">
-    <div class="task-show-prestation col-md-5 bg-white">
-      <h2 class="task-title-show-prestation pl-3 pt-4 mt-2 ml-4 mb-2 pb-2"> Tâches </h2>
-      <% @prestation.tasks.each do |task| %>
-        <div class="task-details-show-prestation row d-flex pl-4 ml-4 pb-4">
-          <% if task.end_date < Date.today %>
-             <p class="task-date-show-prestation past-date text-muted col-md-3 text-left"> <%= l(task.start_date, format: '%d %b') %></p>
-             <p class="task-name-show-prestation past-date col-md-9 text-left"> <%= task.name %></p>
-          <% elsif task.kind =='évènement' %>
-            <p class="task-date-show-prestation date-event-task-show col-md-3 text-left"> <%= l(task.start_date, format: '%d %b') %></p>
-            <p class="task-name-show-prestation date-event-task-show col-md-9 text-left"> <i class="fas fa-camera"></i> <%= task.name %></p>
-          <% else %>
-            <p class="task-date-show-prestation col-md-3 text-left"> <%= l(task.start_date, format: '%d %b') %></p>
-            <p class="task-name-show-prestation col-md-9 text-left"> <%= task.name %></p>
-          <% end %>
 
-        </div>
-      <% end %>
+  <div class="show-presta-taches">
+    <h2 class="ml-5 mb-4">Tâches</h2>
+    <div class="px-5 w-100">
+      <p class="border-bottom-medium-gray mt-5"></p>
     </div>
 
-    <!-- Cards evenement, client et notes -->
-    <div class="evenement-client-notes-show-prestation col-md-7 d-flex flex-column justify-content-between">
-      <div class="evenement-show-prestation bg-white d-flex mb-3">
-        <div class="event-title-date-show-prestation col-md-6">
-          <h2 class="event-title-show-prestation pl-3 pt-4 mt-2 ml-4 mb-2"> Évènement </h2>
-          <% if @prestation.start_date != @prestation.end_date %>
-            <p class="event-date-show-prestation pl-3 ml-4 pb-4"> <%= l(@prestation.start_date, format: '%d') %> - <%= l(@prestation.end_date, format: '%d %B') %> </p>
-          <% else %>
-            <p class="event-date-show-prestation pl-3 ml-4 pb-4"> <%= l(@prestation.start_date, format: '%d %B') %> </p>
-          <% end %>
-        </div>
-        <div class="event-location-show-prestation col-md-6 d-flex">
-          <p class="text-envent-location-show-prestation"><%= @prestation.location %></p>
-        </div>
-      </div>
-
-      <div class="client-show-prestation bg-white d-flex mb-3">
-        <div class="info-client-show-prestation col-md-6">
-          <div class="name-email-client-show-prestation">
-            <h2 class="client-name-title-show-prestation pl-3 pt-4 mt-2 ml-4 mb-2"> <%= @prestation.client.first_name %> <%= @prestation.client.last_name %> </h2>
-            <p class="email-client-show-prestation pl-3 ml-4 pb-3"> <%= @prestation.client.email %></p>
-          </div>
-          <div class="contact-info-client-show-prestation pl-5">
-            <p class="pb-2 pt-4 phone-number-client-show-prestation p-gray"> <i class="fas fa-phone"></i> <%= @prestation.client.phone_number %> </p>
-            <p class="py-2 p-gray"> <i class="fas fa-home"></i> <%= @prestation.client.address  %> </p>
-            <% if @prestation.client.partner_name.nil? == false %>
-              <p class="py-2 partner-name p-gray"> <i class="fas fa-plus-circle"></i> <%= @prestation.client.partner_name %> </p>
-            <% end %>
-            <%if @prestation.client.tutoiement == true %>
-              <p class="py-2 pb-4 tutoiement-square p-gray"><i class="fas fa-comment"></i> On se tutoie </i></p>
+    <div class="d-flex w-100 ml-5 mt-5">
+      <div>
+        <% @prestation.tasks.each do |task| %>
+          <div class="d-flex">
+            <% if task.end_date < Date.today %>
+               <p class="p-gray text-left mr-5 mb-3"> <%= l(task.start_date, format: '%d %b') %></p>
+               <p class="show-presta-task-name p-gray text-left mr-5 mb-2"> <%= task.name %></p>
+            <% elsif task.kind =='évènement' %>
+              <p class="show-presta-color text-left mr-5 mb-3"> <%= l(task.start_date, format: '%d %b') %></p>
+              <p class="show-presta-task-name show-presta-color text-left mr-5 mb-2"> <i class="fas fa-camera"></i> <%= task.name %></p>
             <% else %>
-              <p class="py-2 pb-4 tutoiement-square p-gray"><i class="fas fa-comment"></i> On se vouvoie </i></p>
+              <p class="show-presta-color text-left mr-5 mb-3"> <%= l(task.start_date, format: '%d %b') %></p>
+              <p class="show-presta-task-name text-left mr-5 mb-2"> <%= task.name %></p>
             <% end %>
           </div>
-        </div>
-        <div class="photo-client-show-prestation d-flex col-md-6">
-          <%= cl_image_tag @prestation.client.photo.key, crop: :fill, width: 270, height: 270, class: "photo-client" %>
-        </div>
+        <% end %>
       </div>
 
-      <div class="notes-show-prestation bg-white flex-grow-1">
-        <h2 class="notes-title-show-prestation pl-3 pt-4 mt-4 ml-4 mb-2 pb-2"> Notes </h2>
-        <div class="notes-show-prestation d-flex pl-5">
-          <p class="pb-5"><%= @prestation.notes %></p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
-
-
