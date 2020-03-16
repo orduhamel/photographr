@@ -4,13 +4,23 @@
 
 .card-task:hover {
   background-color: $light-gray;
-  * {
-    color: $pink;
-  }
+}
+
+.card-task .task-name:hover {
+  color: $pink;
+}
+
+.card-task .task-prestation-client:hover {
+  color: $pink;
+}
+
+.card-task-link {
+  text-decoration: none;
 }
 
 .card-task-link:hover {
   text-decoration: none;
+  color: $pink;
 }
 
 .card-date-task:hover {
