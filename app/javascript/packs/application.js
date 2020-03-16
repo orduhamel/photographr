@@ -9,5 +9,6 @@ import { initAutocomplete2 } from "../plugins/init_autocomplete";
 initAutocomplete();
 initAutocomplete2();
 
+
 import { initSelect2 } from '../components/init_select2';
 initSelect2();
