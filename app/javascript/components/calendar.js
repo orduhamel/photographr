@@ -1,5 +1,5 @@
 
-const calendar = document.getElementById("all-calendar")
+const calendar = document.getElementById("all-calendar");
 
 if (calendar) {
   const calendarDays = document.querySelectorAll(".calendar-day-view");
@@ -31,13 +31,11 @@ if (calendar) {
   taskTitles.forEach((taskTitle)=> {
     taskTitle.addEventListener("click", (event) => {
     descriptionTaskCalendar.forEach(description => {
-      description.forEach(d => {
-        d.classList.toggle("d-none");
-      })
+        description.classList.toggle("d-none");
     }
   )});
   });
-}
+};
 
 
 
