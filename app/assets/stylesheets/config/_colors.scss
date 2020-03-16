@@ -13,7 +13,8 @@ $green: #5ABCB9;
 $red: #52050A;
 $light-gray: #F4F4F4;
 $lm-gray: #DADADA;
-$medium-gray: #6D676E;
+$m-gray: rgba(109,103,110,0.7);
+$medium-gray: rgb(109,103,110);
 $dark-gray: #5A5A5A;
 $black: #1B1B1E;
 
@@ -24,3 +25,41 @@ $dark-pink: #97266D;
 //tag termine:
 $light-purple: #E9D8FD;
 $dark-purple: #44337A;
+
+
+.pink {
+  color: $pink;
+}
+
+.green {
+  color: $green;
+}
+
+.red {
+  color: $red;
+}
+
+.light-gray {
+  color: $light-gray;
+}
+
+.lm-gray {
+  color: $lm-gray;
+}
+
+.m-gray {
+  color: $m-gray;
+}
+
+.medium-gray {
+  color: $medium-gray;
+}
+
+.dark-gray {
+  color: $dark-gray;
+}
+
+.black {
+  color: $black;
+}
+

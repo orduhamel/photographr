@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # POST "prestations/51/finish"
   # post "prestations/finish", to: 'prestations#finish', as: :finish_prestation
 
-  resources :tasks, only: :index do
+  resources :tasks, only: [:index, :show] do
     collection do
       get :calendar
     end
