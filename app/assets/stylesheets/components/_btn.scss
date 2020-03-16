@@ -1,22 +1,22 @@
 .pho-btn {
   background-color: $pink;
-  border: 2px solid $pink;
+  border: 1px solid $pink;
   border-radius: 20px;
-  padding: 8px 20px;
+  padding: 5px 15px;
   color: white !important;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .pho-btn:hover {
   text-decoration: none;
   background-color: transparent;
-  border: 2px solid $pink;
+  border: 1px solid $pink;
   border-radius: 20px;
-  padding: 8px 20px;
+  padding: 5px 15px;
   color: $pink !important;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .urgent {
