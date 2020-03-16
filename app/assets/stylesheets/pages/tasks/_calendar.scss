@@ -37,6 +37,8 @@ margin-top: 50px !important;
 
 .display-task {
   background-color: white;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 .task-title-calendar {
@@ -48,7 +50,6 @@ text-align: center;
   text-align: center;
 }
 .title-task {
-  font-size: 22px !important;
   padding-bottom: 30px !important;
   padding-top: 15px !important;
 }
@@ -58,4 +59,16 @@ text-align: center;
 }
 .task-prestation-title-calendar{
   padding-top: 15px !important;
+
 }
+
+.task-per-day {
+  border-bottom: 1px solid $light-gray;
+}
+
+.task-per-day:hover {
+  background-color: #fafaf6 !important;
+  color: $pink !important;
+}
+
+
