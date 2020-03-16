@@ -4,6 +4,7 @@ import "../plugins/flatpickr";
 import 'select2/dist/css/select2.css';
 import "../components/nouveau_client";
 import "../components/calendar";
+import "../components/show"
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initAutocomplete2 } from "../plugins/init_autocomplete";
 initAutocomplete();
