@@ -7,18 +7,18 @@
         <div class="menu-item-box">
           <a href='/tasks' id="logo-link"><li id="logo">P<span id="logo-point">.</span></li></a>
         </div>
-        <div class="menu-item-box">
+       <!--  <div class="menu-item-box">
           <li><i class="fas fa-search"></i></li>
-        </div>
+        </div> -->
         <div class="menu-item-box">
-         <li><%= link_to(new_prestation_path, class: 'i-links') do %>
+          <li><%= link_to(new_prestation_path, class: 'i-links') do %>
             <i class="fas fa-plus-circle"></i>
             <% end %>
-        </li>
+          </li>
         </div>
         <div class="menu-item-box">
           <li><%= link_to(calendar_tasks_path, class: 'i-links') do %>
-            <i class="fas fa-clipboard-list"></i>
+            <i class="fas fa-calendar-alt"></i>
             <% end %>
           </li>
         </div>
@@ -61,7 +61,7 @@
             <li><p><%= link_to 'Ajouter', new_prestation_path, class: 'text-links' %></p></li>
           </div>
           <div class="menu-item-box">
-            <li><p>Tâches</p></li>
+            <li><p><%= link_to 'Tâches', calendar_tasks_path, class: 'text-links' %></p></li>
           </div>
           <div class="menu-item-box">
             <li><p>Clients</p></li>
