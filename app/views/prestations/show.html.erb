@@ -1,4 +1,4 @@
-<div class="d-flex w-100">
+<div class="d-flex w-100" id="show-prestation">
   <div class="show-presta-client">
 
       <h1 class="mt-5 ml-5"> <%= @prestation.category %><span class="green-point">.</span></h1>
@@ -103,6 +103,9 @@
               <% else %>
                 <p class="text-truncate col-7"><%= task.name %></p>
                 <p class="task-prestation-client text-right p-gray pr-5"><%= l(task.start_date, format: '%d %b') %></p>
+              <% end %>
+              <% if task.description %>
+                <p class="task-description-show d-none"><%= task.description %></p>
               <% end %>
             </li>
           <% end %>
