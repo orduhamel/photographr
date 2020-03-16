@@ -1,9 +1,9 @@
-
 const calendar = document.getElementById("all-calendar");
 
 if (calendar) {
   const calendarDays = document.querySelectorAll(".calendar-day-view");
   const taskDays = Array.from(document.querySelectorAll(".details-day-calendar"));
+  const todayMessage = document.getElementById("today-message");
 
   calendarDays.forEach((calendarDay) => {
     calendarDay.addEventListener("click", (event) => {
@@ -15,29 +15,30 @@ if (calendar) {
         const displayTasks = taskDays.filter(taskDay => !taskDay.classList.contains("d-none"));
 
         // On les cache
-        displayTasks.forEach(task => task.classList.add("d-none"))
+        displayTasks.forEach(task => task.classList.add("d-none"));
 
-        // On affiche la matchin task
         matchingTask.classList.remove("d-none");
+
+        todayMessage.classList.add("d-none");
+
+
+        // ----------- SUB TASKS ---------
+
+        const matchingSubTasks = matchingTask.querySelectorAll(".task-per-day");
+
+        matchingSubTasks.forEach((matchingSubTask) => {
+          const title = matchingSubTask.querySelector(".title-task");
+          const description = matchingSubTask.querySelector(".description-task-calendar");
+
+          title.addEventListener("click", (event) => {
+            description.classList.toggle("d-none");
+          })
+        })
       } else {
         matchingTask.classList.add("d-none");
+
+        todayMessage.classList.remove("d-none");
       }
-    })
-  })
-
-  const descriptionTaskCalendar = document.querySelectorAll(".description-task-calendar");
-  const taskTitles = document.querySelectorAll(".title-task");
-
-  taskTitles.forEach((taskTitle)=> {
-    taskTitle.addEventListener("click", (event) => {
-    descriptionTaskCalendar.forEach(description => {
-        description.classList.toggle("d-none");
-    }
-  )});
+    });
   });
-};
-
-
-
-
-
+}
