@@ -26,6 +26,11 @@ class TasksController < ApplicationController
       first(3)
   end
 
+  def show
+    task = Task.joins(prestation: :client).where(clients: { user_id: current_user.id })
+    @task = task.find(params[:id])
+  end
+
   def calendar
     # Build all displayed dates range
     @today = Date.today
