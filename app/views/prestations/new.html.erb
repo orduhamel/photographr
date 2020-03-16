@@ -52,8 +52,9 @@
                         label: 'Notes',
                         placeholder: "Ajouter des informations sur la prestation" %>
 
-            <label>Nouveau client ?</label>
-              <input type="checkbox" id="check-new-client">
+            <%= f.input :new_client,
+                        label: "nouveau client ?",
+                        as: :boolean %>
 
             <div class="existing-client">
               <%= f.association :client,

@@ -1,4 +1,4 @@
-const checkNewClient = document.getElementById("check-new-client");
+const checkNewClient = document.getElementById("prestation_new_client");
 // console.log(checkNewClient)
 
 const existingClient = document.querySelector(".existing-client");
