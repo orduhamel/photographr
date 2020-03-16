@@ -3,6 +3,9 @@ import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 require("flatpickr/dist/themes/material_green.css");
 
+const newPrestation = document.getElementById("new-prestation");
+
+if (newPrestation) {
 
 flatpickr("#datepicker", {
   // altInput: true,
@@ -27,3 +30,4 @@ startDate.addEventListener('input', (event) => {
     rangeDates.value = 'Du '+ startDate.value + ' au ' + endDate.value;
   }
 });
+};

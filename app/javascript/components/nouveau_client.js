@@ -1,3 +1,7 @@
+const newPrestation = document.getElementById("new-prestation");
+
+if (newPrestation) {
+
 const checkNewClient = document.getElementById("prestation_new_client");
 // console.log(checkNewClient)
 
@@ -8,4 +12,4 @@ checkNewClient.addEventListener("click", (event) => {
   existingClient.classList.toggle("d-none");
   newClient.classList.toggle("d-none");
 });
-
+};
