@@ -1,171 +1,30 @@
-.task-title-show-prestation {
+.show-presta-client {
+  width: 45%;
+  background-color: white;
+}
+
+.show-presta-client {
+  width: 55%;
+}
+
+.border-bottom-light-gray {
   border-bottom: 1px solid $light-gray;
 }
 
-.task-date-show-prestation {
-  color: $green;
-  font-family: "Montserrat";
-  font-size: 18px !important;
-  font-weight: 400;
-  padding-left: 30px;
-  font-weight: 400;
+.border-bottom-medium-gray {
+  border-bottom: 1px solid rgba(0,0,0,.1);
 }
-
-.task-name-show-prestation {
-  font-family: "Open Sans";
-  font-size: 16px !important;
-  font-weight: 600;
-
-}
-
-.button-modifier{
-  background-color: $pink;
-  border: 2px solid $pink;
-  border-radius: 20px;
-  padding: 8px 20px;
-  color: white !important;
-  font-size: 18px;
-  font-weight: 700;
-  height: 30px;
-  width: 90px;
-  text-align: center;
-}
-
-.button-modifier:hover {
-  text-decoration: none;
-  background-color: transparent;
-  border: 2px solid $pink;
-  border-radius: 20px;
-  padding: 8px 20px;
-  color: $pink !important;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.button-modifier-show-prestation {
-  margin-top: 50px;
-  align-items: center;
-  justify-content: right;
-  padding-left: 120px;
-}
-.task-details-show-prestation {
-  border-radius: 10px;
-}
-
-.task-show-prestation {
-  border-radius: 10px;
-}
-
-.evenement-show-prestation {
-  border-radius: 10px;
-}
-
-.client-show-prestation {
-  border-radius: 10px;
-}
-
-.notes-show-prestation {
-  border-radius: 10px;
-}
-
-.event-date-show-prestation {
-  color: $green;
-  font-weight: bold;
-  font-size: 20px !important;
-}
-
-.event-location-show-prestation {
-  align-items: center;
-  justify-content: center !important;
-  border-left: 1px solid $light-gray;
-}
-
-.email-client-show-prestation {
-  color: $green;
-  font-size: 20px !important;
-  font-weight: bolder !important;
-}
-
-.name-email-client-show-prestation {
-  border-bottom: 1px solid $light-gray;
-}
-
 .photo-client {
-border-radius: 50%;
-object-fit: cover;
-
+  border-radius: 50%;
 }
-
-.photo-client-show-prestation {
-  align-items: center;
-  justify-content: center !important;
-  border-left: 1px solid $light-gray;
+.show-presta-taches {
+  margin-top: 60px;
+  position: sticky;
+  top: 0;
 }
-
-.partner-name {
-font-weight: bold;
-font-size: 18px !important;
+.show-presta-task-name {
+  font-size: 16px;
 }
-
-.tutoiement-square {
-  font-size: 16px !important;
-  font-family: "Open sans";
-}
-
-.phone-number-client-show-prestation {
-  font-size: 18px !important;
-}
-
-.notes-show-prestation {
-  align-items: center;
-  border-radius: 10px;
-  // border: 1px solid $medium-gray;
-}
-
-.notes-title-show-prestation {
-  border-bottom: 1px solid $light-gray;
-}
-
-.past-date {
-  color: #BDBDBD;
-  font-weight: lighter !important;
-}
-
-.date-event-task-show {
+.show-presta-color {
   color: $green;
-}
-
-.prestation-status-show-prestation {
-  align-items: center;
-  justify-content: right !important;
-  margin-top: 50px;
-}
-
-#edit_prestation_51 {
-  width: 150px !important;
-  text-decoration: none !important;
-  border: 1px solid $light-gray;
-  border-decoration: none !important;
-}
-
-.button-finish-show-prestation {
-  height: 30px;
-  width: 150px;
-  border-radius: 50px;
-  background-color: #fafaf6;
-  color: $medium-gray;
-  align-items: center;
-  justify-content: center;
-  padding-right: 100px;
-}
-
-.button-finish-show-prestation:hover {
-  height: 30px;
-  width: 150px;
-  border-radius: 50px;
-  background-color: $light-purple;
-  color: $dark-purple;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none !important;
 }
