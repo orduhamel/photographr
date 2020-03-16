@@ -1,10 +1,10 @@
 .show-presta-client {
-  width: 45%;
+  width: 55%;
   background-color: white;
 }
 
-.show-presta-client {
-  width: 55%;
+.show-presta-border-taches {
+  margin-top: 30px;
 }
 
 .border-bottom-light-gray {
@@ -18,7 +18,10 @@
   border-radius: 50%;
 }
 .show-presta-taches {
-  margin-top: 60px;
+  padding-top: 60px;
+  margin-left: 60px;
+  width: 45%;
+  height: 100vh;
   position: sticky;
   top: 0;
 }
@@ -27,4 +30,12 @@
 }
 .show-presta-color {
   color: $green;
+}
+.div1 {
+  height: 100px;
+  padding-top: 15px;
+}
+
+.white-hover:hover {
+  background-color: white;
 }
