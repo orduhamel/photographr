@@ -1,12 +1,11 @@
 class PrestationsController < ApplicationController
+  before_action :set_prestation, only: %i[show edit update finish]
 
   def index
     @prestations = Prestation.joins(:client).where(clients: { user_id: current_user.id }).order(status: :desc).order(:start_date)
   end
 
-  def show
-    @prestation = current_user.prestations.find(params[:id])
-  end
+  def show; end
 
   def new
     @prestation = Prestation.new
@@ -46,12 +45,22 @@ class PrestationsController < ApplicationController
   end
 
   def finish
-    @prestation = current_user.prestations.find(params[:id])
     @prestation.update(status: "finish")
     redirect_to prestation_path
   end
 
+  def edit; end
+
+  def update
+    @prestation.update(prestation_params)
+    redirect_to prestation_path(@prestation)
+  end
+
   private
+
+  def set_prestation
+    @prestation = current_user.prestations.find(params[:id])
+  end
 
   def prestation_params
     params.require(:prestation).permit(:category, :location, :notes, :start_date, :end_date, :client_id, client_attributes: [:id, :first_name, :last_name, :address, :phone_number, :email, :tutoiement, :partner_name, :notes, :photo])
