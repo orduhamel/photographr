@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: %i[show edit update]
+
   def index
     tasks = Task.joins(prestation: :client).where(clients: { user_id: current_user.id })
     today = Date.today
@@ -26,10 +28,9 @@ class TasksController < ApplicationController
       first(3)
   end
 
-  def show
-    task = Task.joins(prestation: :client).where(clients: { user_id: current_user.id })
-    @task = task.find(params[:id])
-  end
+  def show; end
+
+  def edit; end
 
   def calendar
     # Build all displayed dates range
@@ -58,6 +59,13 @@ class TasksController < ApplicationController
       order("tasks.start_date ASC")
 
     @tasks_by_day = @day_tasks.group_by(&:start_date)
+  end
+
+  private
+
+  def set_task
+    tasks = Task.joins(prestation: :client).where(clients: { user_id: current_user.id })
+    @task = tasks.find(params[:id])
   end
 end
 
