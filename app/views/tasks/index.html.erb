@@ -46,14 +46,12 @@
                         <%= link_to prestation_path(task.prestation), class: "card-task-link col-4 px-0" do %>
                           <p class="task-prestation-client text-right p-gray"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
                         <% end %>
-
                         <!-- Slide-in : Task #Show -->
-                        <div class="cd-panel cd-panel--from-right js-cd-panel-main">
+                        <div class=" container cd-panel cd-panel--from-right js-cd-panel-main">
                           <div class="cd-panel__container">
                             <%= render 'show', task: task %>
                           </div>
                         </div>
-
                       </li>
                     <% end %>
                   </ul>

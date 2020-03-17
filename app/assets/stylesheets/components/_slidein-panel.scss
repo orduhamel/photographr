@@ -2,6 +2,8 @@
   /*...*/
   visibility: collapse;
   transition: visibility 0s 0.6s;
+  width: 90%;
+  height: 100%;
 }
 
 .cd-panel.cd-panel--is-visible {
@@ -11,11 +13,13 @@
 
 .cd-panel__container {
   /*...*/
+  z-index: 1;
   position: fixed;
-  width: 90%;
-  height: 100%;
   top: 0;
+  bottom: 0;
   transition: transform 0.3s 0.3s;
+  width: 41%;
+  border-left: solid 1px $lm-gray;
 }
 
 .cd-panel--from-right .cd-panel__container {
