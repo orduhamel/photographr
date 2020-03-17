@@ -29,9 +29,13 @@ if (calendar) {
         matchingSubTasks.forEach((matchingSubTask) => {
           const title = matchingSubTask.querySelector(".title-task");
           const description = matchingSubTask.querySelector(".description-task-calendar");
+          const titlePrestation = matchingSubTask.querySelector(".task-prestation-title-calendar")
 
           title.addEventListener("click", (event) => {
             description.classList.toggle("d-none");
+            title.classList.toggle("pink-actif");
+            titlePrestation.classList.toggle("pink-actif");
+            matchingSubTask.classList.toggle("gray-actif");
           })
         })
       } else {
