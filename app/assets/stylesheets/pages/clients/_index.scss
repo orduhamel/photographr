@@ -52,16 +52,19 @@
   color: $pink !important;
 }
 .card-client {
-  height: 350px !important;
-  width: 400px !important;
-
+  position: relative;
+  background-color: $light-gray;
+  border-radius: 10px !important;
 }
 
-.client-photo-card {
-  height: 220px;
-  width: 400px;
-
+.photo-client-index {
+  height: 200px;
+  width: 100%;
 }
-.index-title-client {
- border-bottom: 1px solid $light-gray;
+.e-mail-client {
+ border-bottom: 1px solid $lm-gray;
+}
+
+.point-rose {
+  font-size: 25px;
 }
