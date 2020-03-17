@@ -53,7 +53,22 @@ class PrestationsController < ApplicationController
 
   def update
     @prestation.update(prestation_params)
+    @prestation.tasks.destroy_all
+
+    if @prestation.category == 'Mariage'
+      create_mariage_tasks(@prestation, @prestation.start_date, @prestation.end_date)
+    elsif @prestation.category == 'Entreprise'
+      create_entreprise_tasks(@prestation, @prestation.start_date, @prestation.end_date)
+    elsif @prestation.category == 'Famille'
+      create_famille_tasks(@prestation, @prestation.start_date, @prestation.end_date)
+    end
+
+    if @prestation.save
     redirect_to prestation_path(@prestation)
+
+    else
+      render :edit
+    end
   end
 
   private

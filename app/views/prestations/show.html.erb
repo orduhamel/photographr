@@ -6,9 +6,9 @@
     <div class="show-prestation-place-date d-flex align-items-center justify-content-between">
       <div class="div1">
         <% if @prestation.start_date != @prestation.end_date %>
-            <p class="event-date-show-prestation show-presta-color font-weight-bold ml-5 mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(@prestation.start_date, format: '%d') %> - <%= l(@prestation.end_date, format: '%d %B') %></p>
+            <p class="event-date-show-prestation show-presta-color font-weight-bold ml-5 mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(@prestation.start_date, format: '%d') %> - <%= l(@prestation.end_date, format: '%d %B %Y') %></p>
         <% else %>
-            <p class="event-date-show-prestation show-presta-color font-weight-bold ml-5 mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(@prestation.start_date, format: '%d %B') %></p>
+            <p class="event-date-show-prestation show-presta-color font-weight-bold ml-5 mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(@prestation.start_date, format: '%d %B %Y') %></p>
         <% end %>
         <p><i class="fas fa-map-marker-alt ml-5 mb-5 icon-gray mr-2"></i><%= @prestation.location %></p>
       </div>
