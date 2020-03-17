@@ -1,0 +1,10 @@
+<%= mail_to task.prestation.client.email, subject:"Contrat & Facture 1er acompte", body: "Bonjour #{task.prestation.client.first_name} #{task.prestation.client.last_name},
+
+Suite à notre entretien, vous trouverez ci-joint le contrat ainsi que la facture correspondant au 1er acompte.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>

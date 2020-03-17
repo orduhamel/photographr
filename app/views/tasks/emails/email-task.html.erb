@@ -1,0 +1,156 @@
+<!-- Mariage -->
+
+<%= mail_to @prestation.client.email, subject:"Contrat & Facture 1er acompte", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Suite à notre entretien, vous trouverez ci-joint le contrat ainsi que la facture correspondant au 1er acompte.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Réception du contrat & du 1er acompte", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Je vous confirme la bonne réception du contrat signé ainsi que des fonds correspondant au 1er acompte.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Facture 2e acompte", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Vous trouverez ci-joint la facture correspondant au 2e acompte.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Réception 2e acompte", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Je vous confirme la bonne réception des fonds correspondant au 2e acompte.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Facture du solde", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Vous trouverez ci-joint la facture correspondant au solde.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Réception facture solde", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Je vous confirme la bonne réception des fonds correspondant au solde de la facture.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Galerie photos", body: "test envoie email" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+
+<!-- Famille -->
+
+<%= mail_to @prestation.client.email, subject:"Contrat & Facture", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Suite à notre entretien, vous trouverez ci-joint le contrat ainsi que la facture.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Confirmation date et lieu de la prestation", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}
+" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Réception contrat signé", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Je vous confirme la bonne réception du contrat signé.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+
+<%= mail_to @prestation.client.email, subject:"Galerie photos", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<!-- Entreprise -->
+
+<%= mail_to @prestation.client.email, subject:"Contrat", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Suite à notre entretien, vous trouverez ci-joint le contrat.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Galerie photo & Facture", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Facture 1ere relance", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
+
+<%= mail_to @prestation.client.email, subject:"Réception facture solde", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <p>test envoie email</p>
+<% end %>

@@ -1,0 +1,10 @@
+<%= mail_to @prestation.client.email, subject:"Réception contrat signé", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Je vous confirme la bonne réception du contrat signé.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
