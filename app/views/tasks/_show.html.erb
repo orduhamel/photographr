@@ -1,9 +1,9 @@
-<div class="container-fluid px-5 task-show">
+<div class="task-show container-fluid px-5 h-100">
 
   <!-- Close button -->
   <div class="row">
     <div class="col px-0">
-      <button type="button" class="close pt-5" aria-label="Close">
+      <button type="button" class="close mt-5" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
@@ -12,13 +12,13 @@
   <!-- Infos Prestation & Client -->
   <div class="row my-4 justify-content-between align-items-center">
     <div class="col-6 px-0">
-      <p class="px-0 m-gray"><%= @task.prestation.category.upcase %> - <%= @task.prestation.client.last_name %></p>
+      <p class="px-0 m-gray"><%= task.prestation.category.upcase %> - <%= task.prestation.client.last_name %></p>
     </div>
     <div class="col-6 px-0">
-      <% if @task.prestation.start_date != @task.prestation.end_date %>
-        <p class="text-right m-gray"><%= l(@task.prestation.start_date, format: '%d') %> - <%= l(@task.prestation.end_date, format: '%d %B %Y') %></p>
+      <% if task.prestation.start_date != task.prestation.end_date %>
+        <p class="text-right m-gray"><%= l(task.prestation.start_date, format: '%d') %> - <%= l(task.prestation.end_date, format: '%d %B %Y') %></p>
       <% else %>
-        <p class="text-right m-gray"><%= l(@task.prestation.start_date, format: '%d %B %Y') %></p>
+        <p class="text-right m-gray"><%= l(task.prestation.start_date, format: '%d %B %Y') %></p>
       <% end %>
     </div>
   </div>
@@ -26,14 +26,14 @@
   <!-- Task name -->
   <div class="row justify-content-between align-items-center">
     <div class="task-name">
-      <h2><%= @task.name %></h2>
+      <h2><%= task.name %></h2>
     </div>
   </div>
 
   <!-- Task dates -->
   <div class="row mt-1 justify-content-between">
     <div class="col px-0">
-      <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(@task.start_date, format: '%d %B') %></p>
+      <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%d %B') %></p>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
 
   <!-- Task description -->
   <div class="row my-3 task-description">
-    <p class="text-justify medium-gray"><%= @task.description %></p>
+    <p class="text-justify medium-gray"><%= task.description %></p>
   </div>
 
     <div class="col px-0 d-flex justify-content-end align-items-center">
@@ -58,7 +58,7 @@
 
   <!-- Modify button -->
   <div class="row justify-content-end">
-    <%= link_to 'Modifier', prestation_path(@task.prestation), class: "pho-btn" %>
+    <%= link_to 'Modifier', prestation_path(task.prestation), class: "pho-btn" %>
   </div>
 </div>
 

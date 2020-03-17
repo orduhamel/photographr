@@ -1,0 +1,28 @@
+.cd-panel {
+  visibility: collapse;
+  transition: visibility 0s 0.6s;
+  width: 90%;
+  height: 100%;
+}
+
+.cd-panel.cd-panel--is-visible {
+  visibility: visible;
+  transition: visibility 0s 0s;
+}
+
+.cd-panel__container {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 41%;
+  border-left: solid 1px $lm-gray;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.3s 0.3s;
+}
+
+.cd-panel--is-visible .cd-panel__container {
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0s;
+}
