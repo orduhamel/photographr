@@ -47,7 +47,7 @@
                           <p class="task-prestation-client text-right p-gray"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
                         <% end %>
                         <!-- Slide-in : Task #Show -->
-                        <div class=" container cd-panel cd-panel--from-right js-cd-panel-main">
+                        <div class="cd-panel js-cd-panel-main">
                           <div class="cd-panel__container">
                             <%= render 'show', task: task %>
                           </div>
