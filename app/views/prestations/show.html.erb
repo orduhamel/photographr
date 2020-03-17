@@ -79,13 +79,22 @@
               <% end %>
               <% if task.end_date < Date.today %>
                 <p class="text-truncate col-7 p-gray"><%= task.name %></p>
-                <p class="task-prestation-client text-right p-gray pr-2"><%= l(task.start_date, format: '%d %b') %></p>
+                <div class="e-mail col-1">
+                  <%= render "tasks/emails/#{mailto_partial_for_task(task)}", task: task %>
+                </div>
+                <p class="task-prestation-client text-right p-gray pr-2 col-2"><%= l(task.start_date, format: '%d %b') %></p>
               <% elsif task.kind =='évènement' %>
                 <p class="text-truncate col-7 green font-weight-bold"><%= task.name %></p>
-                <p class="task-prestation-client text-right p-gray pr-2 green font-weight-bold"><%= l(task.start_date, format: '%d %b') %></p>
+                <div class="e-mail col-1">
+                  <%= render "tasks/emails/#{mailto_partial_for_task(task)}", task: task %>
+                </div>
+                <p class="task-prestation-client text-right col-2 p-gray pr-2 green font-weight-bold"><%= l(task.start_date, format: '%d %b') %></p>
               <% else %>
                 <p class="text-truncate col-7"><%= task.name %></p>
-                <p class="task-prestation-client text-right p-gray pr-2"><%= l(task.start_date, format: '%d %b') %></p>
+                <div class="e-mail col-1">
+                  <%= render "tasks/emails/#{mailto_partial_for_task(task)}", task: task %>
+                </div>
+                <p class="task-prestation-client text-right col-2 p-gray pr-2"><%= l(task.start_date, format: '%d %b') %></p>
               <% end %>
               <% if task.description %>
                 <div class="task-description-show d-none">

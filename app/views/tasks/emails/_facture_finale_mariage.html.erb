@@ -1,0 +1,10 @@
+<%= mail_to @prestation.client.email, subject:"Facture du solde", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+
+Vous trouverez ci-joint la facture correspondant au solde.
+
+Si vous avez des questions, n'hésitez pas à revenir vers moi.
+
+Cordialement
+#{current_user.first_name} #{current_user.last_name}" do %>
+  <i class="fas fa-envelope"></i>
+<% end %>
