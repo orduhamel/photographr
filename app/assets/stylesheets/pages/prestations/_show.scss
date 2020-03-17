@@ -38,6 +38,10 @@
   padding-top: 20px;
 }
 
+.white-hover:hover > p {
+  color: $pink !important;
+}
+
 .white-actif {
   margin-top: 30px;
   margin-bottom: 30px;
