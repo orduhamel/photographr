@@ -1,8 +1,25 @@
-<div class="principale-index-prestation w-100 bg-white">
+<div class="principale-index-client bg-white w-100">
 <h1 class="mt-5 ml-5">Liste des clients<span class="green-point">.</span></h1>
 
-  <div class="container-index-prestation m-5">
+  <div class="container-index-client d-flex row">
     <% @clients.each do |client| %>
-       <p class="index-title-prestation"><%= client.first_name %><%= client.last_name %></p>
+    <div class="card-client col m-5">
+        <%= link_to client_path(client), class: "link-text-index" do  %>
+        <div class="photo-client-index text-center">
+          <%= cl_image_tag client.photo.key, crop: :fill, width: 200, height: 200, class: "photo-client" %>
+        </div>
+        <div class="info-card-client">
+          <p class="index-title-client mt-2 text-center"><%= client.first_name %> <%= client.last_name %></p>
+          <div class="phone-client mt-2 d-flex">
+            <i class="fas fa-phone lm-gray mr-2"></i>
+            <p class="m-gray"><%= client.phone_number %></p>
+          </div>
+          <div class="e-mail-client d-flex">
+            <i class="fas fa-envelope lm-gray mr-2"></i>
+            <p class="m-gray"><%= client.email %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
     <% end %>
-  </div>
+</div>
