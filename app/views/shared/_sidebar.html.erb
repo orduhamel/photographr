@@ -23,7 +23,9 @@
           </li>
         </div>
         <div class="menu-item-box">
-          <li><i class="fas fa-users"></i></li>
+          <li><%= link_to(clients_path, class: 'i-links') do %>
+            <i class="fas fa-users"></i></li>
+            <% end %>
         </div>
         <div class="menu-item-box">
           <li><%= link_to(prestations_path, class: 'i-links') do %>
