@@ -1,0 +1,8 @@
+<div class="principale-index-prestation w-100 bg-white">
+<h1 class="mt-5 ml-5">Liste des clients<span class="green-point">.</span></h1>
+
+  <div class="container-index-prestation m-5">
+    <% @clients.each do |client| %>
+       <p class="index-title-prestation"><%= client.first_name %><%= client.last_name %></p>
+    <% end %>
+  </div>

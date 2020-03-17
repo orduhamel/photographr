@@ -16,4 +16,6 @@ Rails.application.routes.draw do
       get :calendar
     end
   end
+
+  resources :clients, except: :destroy
 end

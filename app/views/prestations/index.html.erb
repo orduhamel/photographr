@@ -10,7 +10,7 @@
           <%= link_to prestation_path(prestation), class: "link-text-index" do  %>
             <div class="row list-index-prestation d-flex py-4 align-items-center">
               <div class="col-xl-4 index-prestations my-2">
-                <p class="index-title-prestation"><%= prestation.title %></p>
+                <p class="index-title-prestation"><%= prestation.category.upcase %> - <%= prestation.client.last_name %></p>
               </div>
               <div class="col-xl-3 index-prestations my-2">
                 <% if prestation.start_date != prestation.end_date %>
