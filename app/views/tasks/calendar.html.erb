@@ -1,5 +1,5 @@
 <div class="d-flex w-100" id="all-calendar">
-<div class="principale-calendar-task col-md-6">
+<div class="principale-calendar-task col-md-6 bg-white">
   <h3 class="calendar-title"> <%= l(@today, format: '%B %Y') %></h3>
   <div class="calendar">
 
@@ -20,7 +20,7 @@
     <% end %>
   </div>
 </div>
-<div class="display-task ml-5 w-100">
+<div class="display-task w-100">
   <h1 class="task-title-calendar pb-2 mt-4">Tâches<span class="green-point">.</span></h1>
 
   <div id="today-message">
@@ -36,7 +36,7 @@
       <h4 class="pickup-day pb-4"><%= l(day, format: '%d %B') %></h4>
       <!-- Sub Task -->
       <% tasks.each do |task| %>
-        <div class="task-per-day">
+        <div class="task-per-day mx-4">
           <div class="d-flex">
             <% if task.kind == 'admin' %>
               <% if task.urgent == true %>

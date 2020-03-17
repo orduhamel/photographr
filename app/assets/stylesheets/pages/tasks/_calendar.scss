@@ -26,7 +26,7 @@ justify-content: center;
 
 .day-task:hover {
   border: 1px solid $pink;
-  background-color: $light-gray !important;
+  background-color: white !important;
   color: $pink;
 }
 
@@ -43,7 +43,7 @@ margin-top: 50px !important;
 }
 
 .display-task {
-  background-color: white;
+
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
@@ -74,7 +74,7 @@ text-align: center;
 }
 
 .task-per-day:hover {
-  background-color: #fafaf6 !important;
+  background-color: white !important;
 }
 
 .gray-actif {
