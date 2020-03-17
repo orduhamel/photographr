@@ -18,9 +18,16 @@ justify-content: center;
 .day-task {
   background-color: $pink;
   border-radius: 50px;
+  border: 1px solid $pink;
   padding: 10px 12px !important;
   color: black;
   font-weight: 600;
+}
+
+.day-task:hover {
+  border: 1px solid $pink;
+  background-color: $light-gray !important;
+  color: $pink;
 }
 
 .calendar{
