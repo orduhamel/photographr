@@ -24,7 +24,7 @@ module TaskMailtoHelper
     when "Envoyer facture 2e acompte"
       'facture_2_mariage'
     when "Valider réception 2e acompte"
-      'reception_fature_2_mariage'
+      'reception_facture_2_mariage'
     when "Envoyer facture solde"
       'facture_finale_mariage'
     when "Valider réception solde"
