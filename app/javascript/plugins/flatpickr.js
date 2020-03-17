@@ -41,3 +41,18 @@ datesDiv.addEventListener('click', (event) => {
 });
 
 };
+
+const editTask = document.querySelector(".task-form");
+
+if (editTask) {
+  flatpickr(".datepicker", {});
+
+  // const startDate = document.getElementById("start_date");
+  // const endDate = document.getElementById("end_date");
+
+  // startDate.addEventListener('input', (event) => {
+  //   if (endDate.value <= startDate.value) {
+  //     endDate.value === startDate.value;
+  //   }
+  // });
+}
