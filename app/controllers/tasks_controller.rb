@@ -36,10 +36,22 @@ class TasksController < ApplicationController
     @task.update(task_params)
 
     if @task.save
-      redirect_to task_path(@task)
+      respond_to do |format|
+        format.html { redirect_to task_path(@task) }
+        format.js  # <-- will render `app/views/tasks/update.js.erb`
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+        format.js  # <-- idem
+      end
     end
+
+    # if @task.save
+    #   redirect_to task_path(@task)
+    # else
+    #   render :edit
+    # end
   end
 
   def calendar
