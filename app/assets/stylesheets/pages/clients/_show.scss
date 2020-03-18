@@ -1,7 +1,7 @@
 .show-client-left {
   width: 50%;
+  height: 100vh;
   background-color: white;
-  margin-bottom: 30px;
 }
 
 
@@ -20,3 +20,7 @@
   font-size: 20px !important;
 }
 
+.show-border-produits {
+  margin-top: 100px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
