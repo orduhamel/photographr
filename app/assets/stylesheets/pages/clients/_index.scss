@@ -2,48 +2,6 @@
   text-align: left;
 }
 
-.list-index-clients {
-  border-radius: 10px;
-}
-
-.list-index-client {
-  border-bottom: 1px solid $light-gray;
-
-}
-
-.list-index-client:hover {
-  background-color: $light-gray;
-}
-
-.index-title-client {
-  color: $medium-gray ;
-  font-size: 20px !important;
-  font-weight: bold;
-  font-family: "Montserrat";
-}
-
-.link-text-index:hover{
-  text-decoration: none !important;
-}
-
-.index-location-client {
-  color: $medium-gray;
-  font-size: 16px !important;
-  font-family: "Montserrat";
-  text-decoration: none;
-}
-
-.index-date-client {
-  font-size: 16px !important;
-  font-family: "Montserrat";
-  color: #767676;
-  text-decoration: none;
-}
-
-.list-index-client {
-  align-items: left;
-}
-
 .list-index-client:hover p{
   color: $pink !important;
 }
@@ -60,11 +18,13 @@
 .photo-client-index {
   height: 200px;
   width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .e-mail-client {
  border-bottom: 1px solid $lm-gray;
 }
 
-.point-rose {
-  font-size: 25px;
+.size-progress {
+  font-size: 13px !important;
 }

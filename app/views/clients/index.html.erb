@@ -3,46 +3,36 @@
 
   <div class="container-index-client d-flex row m-3">
     <% @clients.each do |client| %>
-    <div class="card-client col m-4 px-0">
-        <%= link_to client_path(client), class: "link-text-index" do  %>
-          <%= cl_image_tag client.photo.key, crop: :fill, width: 400, height: 220, class: "photo-client-index"%>
-        <div class="info-card-client">
-          <p class="index-title-client mt-2 text-center"><%= client.first_name %> <%= client.last_name %></p>
-          <div class="phone-client mt-2 d-flex px-3 pb-3">
-            <i class="fas fa-phone lm-gray mr-2 mt-1"></i>
-            <p class="m-gray"><%= client.phone_number %></p>
-          </div>
-          <div class="e-mail-client d-flex px-3 pb-3">
-            <i class="fas fa-envelope lm-gray mr-2 mt-1"></i>
-            <p class="m-gray"><%= client.email %></p>
-          </div>
-          <div class="count-status-client row d-flex">
-            <% if client.prestations.count == 1 %>
-              <div class="prestation-client-index d-flex col p-3">
-                <p class= "green col-md-9"><i class="fas fa-camera green col-md-1 px-4"></i><%= client.prestations.count %> prestation</p>
-                <% client.prestations.each do |prestation|%>
-                  <% if prestation.status == "progress" %>
-                    <p class="light-pink col-md-2 text-right"><i class="point-rose fas fa-circle"></i></p>
-                  <% end %>
-                <% end %>
+      <div class="col-md-3 px-0">
+        <div class="card-client m-4">
+          <%= link_to client_path(client), class: "link-text-index" do  %>
+            <%= cl_image_tag client.photo.key, crop: :scale, width: 400, height: 220, class: "photo-client-index"%>
+            <div class="info-card-client">
+              <p class="index-title-client mt-2 text-center"><%= client.first_name %> <%= client.last_name %></p>
+              <div class="phone-client mt-2 d-flex px-3 pb-3">
+                <i class="fas fa-phone lm-gray mr-2 mt-1"></i>
+                <p class="m-gray"><%= client.phone_number %></p>
               </div>
-            <% else %>
-              <div class="prestation-client-index d-flex col p-3">
-               <p class="green col-md-9">
-                <i class="fas fa-camera green px-4 col-md-1"></i>
-                <%= client.prestations.count %> prestations</p>
-                <% client.prestations.each do |prestation|%>
-                  <% if prestation.status == "progress" %>
-                    <p class="light-pink col-md-2 text-right"><i class="point-rose fas fa-circle"></i></p>
-                  <% end %>
-                <% end %>
+              <div class="e-mail-client d-flex px-3 pb-3">
+                <i class="fas fa-envelope lm-gray mr-2 mt-1"></i>
+                <p class="m-gray"><%= client.email %></p>
               </div>
-            <% end %>
-
-          </div>
+              <div class="count-status-client row d-flex">
+                <div class="prestation-client-index d-flex col-md-6 p-3">
+                  <p class= "green text-right"><%= client.prestations.count %><i class="fas fa-camera green col-md-1 px-2"></i></p>
+                </div>
+                <div class="prestation-client-index d-flex col-md-6 justify-content-center align-items-center">
+                  <% if client.prestations.count >= 1 %>
+                    <% if client.prestations.any? { |prestation| prestation.status == "progress"} %>
+                       <p class="light-pink progress size-progress">En cours</p>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
     <% end %>
+  </div>
 </div>
-
