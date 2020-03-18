@@ -17,5 +17,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :clients, except: :destroy
+  resources :clients, only: [:index, :show]
 end
