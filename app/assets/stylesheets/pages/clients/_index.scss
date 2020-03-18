@@ -60,11 +60,10 @@
 .photo-client-index {
   height: 200px;
   width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .e-mail-client {
  border-bottom: 1px solid $lm-gray;
 }
 
-.point-rose {
-  font-size: 25px;
-}

@@ -1,65 +1,69 @@
-<div class="d-flex w-100" id="all-calendar">
-<div class="principale-calendar-task col-md-6 bg-white">
-  <h3 class="calendar-title"> <%= l(@today, format: '%B %Y') %></h3>
-  <div class="calendar">
+<div class="d-flex w-100 justify-content-center" id="all-calendar">
+  <div class="calendar-col bg-white">
+    <div class="principale-calendar-task">
+      <h3 class="calendar-title"> <%= l(@today, format: '%B %Y') %></h3>
+      <div class="calendar">
 
-    <% @all_days.in_groups_of(7) do |week| %>
-      <div class="calendar-week-view d-flex">
-        <% week.each do |day| %>
-          <div class="calendar-day-view d-flex" date="<%= day %>">
-            <% if @days_current_month.find {|d| day == d } %>
-              <% if @tasks_by_day.keys.find {|td| day == td } %>
-                <p class="day-task"><%= l(day, format: '%d') %></p>
-                <% else %>
-                <p class="day"><%= l(day, format: '%d') %></p>
-              <% end %>
+        <% @all_days.in_groups_of(7) do |week| %>
+          <div class="calendar-week-view d-flex justify-content-center">
+            <% week.each do |day| %>
+              <div class="calendar-day-view d-flex" date="<%= day %>">
+                <% if @days_current_month.find {|d| day == d } %>
+                  <% if @tasks_by_day.keys.find {|td| day == td } %>
+                    <p class="day-task"><%= l(day, format: '%d') %></p>
+                    <% else %>
+                    <p class="day"><%= l(day, format: '%d') %></p>
+                  <% end %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
-<div class="display-task w-100">
-  <h1 class="task-title-calendar pb-2 mt-4">Tâches<span class="green-point">.</span></h1>
+  <div class="tasks-col">
+    <div class="display-task">
+      <h1 class="task-title-calendar pb-2 mt-4">Tâches<span class="green-point">.</span></h1>
 
-  <div id="today-message">
-    <% unless @tasks_by_day.keys.find {|td| @today == td }%>
-      <h4 class="text-center pb-4"><%= l(@today, format: '%d %B') %></h4>
-      <p class="text-center no-task mt-3">Vous n'avez pas de tâche pour aujourd'hui.</p>
-    <% end %>
-  </div>
+      <div id="today-message">
+        <% unless @tasks_by_day.keys.find {|td| @today == td }%>
+          <h4 class="text-center pb-4"><%= l(@today, format: '%d %B') %></h4>
+          <p class="text-center no-task mt-3">Vous n'avez pas de tâche pour aujourd'hui.</p>
+        <% end %>
+      </div>
 
-  <!-- TASK -->
-  <% @tasks_by_day.each do |day, tasks| %>
-    <div class="details-day-calendar <%= "d-none" unless day == @today %>" date="<%= day %>">
-      <h4 class="pickup-day pb-4"><%= l(day, format: '%d %B') %></h4>
-      <!-- Sub Task -->
-      <% tasks.each do |task| %>
-        <div class="task-per-day mx-4">
-          <div class="d-flex">
-            <% if task.kind == 'admin' %>
-              <% if task.urgent == true %>
-                <div class="urgent pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
-              <% else %>
-                <div class="p-gray pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
+      <!-- TASK -->
+      <% @tasks_by_day.each do |day, tasks| %>
+        <div class="details-day-calendar <%= "d-none" unless day == @today %>" date="<%= day %>">
+          <h4 class="pickup-day pb-4"><%= l(day, format: '%d %B') %></h4>
+          <!-- Sub Task -->
+          <% tasks.each do |task| %>
+            <div class="task-per-day mx-4">
+              <div class="d-flex">
+                <% if task.kind == 'admin' %>
+                  <% if task.urgent == true %>
+                    <div class="urgent pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
+                  <% else %>
+                    <div class="p-gray pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
+                  <% end %>
+                <% else %>
+                  <% if task.urgent == true %>
+                    <div class="urgent pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
+                  <% else %>
+                    <div class="p-gray pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
+                  <% end %>
+                <% end %>
+                <p class="col-6 px-1 font-weight-bold title-task"><%= task.name %></p>
+                <p class="p-gray col-5 px-0 task-prestation-title-calendar"><%= task.prestation.title %></p>
+              </div>
+              <% if task.description %>
+                <p class="description-task-calendar text-center pb-3 d-none"><%= task.description %></p>
               <% end %>
-            <% else %>
-              <% if task.urgent == true %>
-                <div class="urgent pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
-              <% else %>
-                <div class="p-gray pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
-              <% end %>
-            <% end %>
-            <p class="col-7 px-1 font-weight-bold title-task"><%= task.name %></p>
-            <p class="p-gray col-4 px-0 task-prestation-title-calendar"><%= task.prestation.title %></p>
-          </div>
-          <% if task.description %>
-            <p class="description-task-calendar text-center pb-3 d-none"><%= task.description %></p>
+            </div>
           <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
 </div>

@@ -28,12 +28,12 @@ justify-content: center;
   border: 1px solid $pink;
   background-color: white !important;
   color: $pink;
+  cursor: pointer;
 }
 
 .calendar{
   text-align: right;
   border-radius: 10px;
-  margin-left: 50px;
   margin-top: 20px;
 }
 
@@ -80,6 +80,24 @@ text-align: center;
 .gray-actif {
   margin-top: 30px;
   margin-bottom: 30px;
-  background-color: #light-gray !important;
+  background-color: white !important;
 }
+
+.calendar-col {
+ width: 50%;
+}
+
+.tasks-col {
+  width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
 
