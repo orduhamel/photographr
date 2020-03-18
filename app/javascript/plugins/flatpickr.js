@@ -45,14 +45,14 @@ datesDiv.addEventListener('click', (event) => {
 const editTask = document.querySelector(".task-form");
 
 if (editTask) {
-  flatpickr(".datepicker", {});
 
-  // const startDate = document.getElementById("start_date");
-  // const endDate = document.getElementById("end_date");
+  const startDate = flatpickr(".datepicker", {
+    dateFormat: "d-m-Y"
+  });
 
-  // startDate.addEventListener('input', (event) => {
-  //   if (endDate.value <= startDate.value) {
-  //     endDate.value === startDate.value;
-  //   }
-  // });
+  const endDate = flatpickr(".end_date", {
+    dateFormat: "d-m-Y",
+    minDate: startDate.selectedDates[0]
+  });
+
 }
