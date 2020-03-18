@@ -69,3 +69,10 @@
   visibility: hidden;
 }
 
+.link-to-client {
+  text-decoration: none !important;
+}
+
+.link-to-client:hover h2 {
+  color: $pink !important;
+}
