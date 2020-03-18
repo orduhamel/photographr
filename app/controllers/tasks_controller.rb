@@ -32,6 +32,16 @@ class TasksController < ApplicationController
 
   def edit; end
 
+  def update
+    @task.update(task_params)
+
+    if @task.save
+      redirect_to task_path(@task)
+    else
+      render :edit
+    end
+  end
+
   def calendar
     # Build all displayed dates range
     @today = Date.today
@@ -66,6 +76,10 @@ class TasksController < ApplicationController
   def set_task
     tasks = Task.joins(prestation: :client).where(clients: { user_id: current_user.id })
     @task = tasks.find(params[:id])
+  end
+
+  def task_params
+    params.require(:task).permit(:name, :description, :kind, :start_date, :end_date, :urgent, :done)
   end
 end
 
