@@ -29,3 +29,27 @@
   transform: translate3d(0, 0, 0);
   transition-delay: 0s;
 }
+
+.task-show {
+  background-color: white;
+}
+
+.task-name {
+  h2 {
+    font-size: 1.3rem !important;
+  }
+}
+
+.task-show {
+  p {
+    font-size: 0.9rem !important;
+  }
+}
+
+.task-form .form-post {
+  padding: 0;
+  * {
+    font-size: 0.9rem !important;
+    color: $dark-gray;
+  }
+}

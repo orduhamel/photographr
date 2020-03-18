@@ -25,11 +25,25 @@ if (dashboard) {
       taskShow.classList.add("cd-panel--is-visible");
     })
 
+    // Au click sur le bouton 'Modifier'
+    // Afficher le formulaire pour éditer la tâche
+    const modifyTask = cardTask.querySelector(".modify");
+    const editTask = cardTask.querySelector(".task-form");
+    modifyTask.addEventListener("click", (event) => {
+      editTask.classList.remove("d-none");
+      modifyTask.classList.add("d-none");
+    })
+
     // Au click sur taskClose, cacher la tache
     taskClose.addEventListener("click", (event) => {
       taskShow.classList.remove("cd-panel--is-visible");
     })
   })
+
+  // const slidein = document.querySelector(".cd-panel__container");
+
+  // if (slidein) {
+  // }
 };
 
 // 1) Si aucune tache n'est visible :
