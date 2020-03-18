@@ -36,24 +36,38 @@
          <p class="mt-2 pb-5"><%= @client.notes %></p>
     </div>
      <div class="px-5">
-      <p class="border-bottom-light-gray mt-5"></p>
+      <p class="border-bottom-light-gray mt-3"></p>
     </div>
 
-    <div class="mx-5 mb-5 mt-3">
+    <div class="mx-5 mb-1 mt-3">
       <h2>Rendez-vous</h2>
       <% @client.prestations.each do |prestation| %>
         <% prestation.tasks.each do |task| %>
           <% if task.kind == "rendez-vous"  %>
             <div class="row">
               <% if task.start_date != task.end_date %>
-                <div class="col-4 mt-2"><%= l(task.start_date, format: '%d %Y') %> - <%= l(task.end_date, format: '%d %b %Y') %></div><div class="col-4"><%= task.name %></div><div class="col-4"><%= task.prestation.category.upcase %></div>
+                <div class="col-4 mt-2"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b %Y') %></div><div class="col-4 mt-2"><%= task.name %></div><div class="col-4 mt-2"><%= task.prestation.category.upcase %></div>
               <% else %>
-                <div class="col-4 mt-2"><%= l(task.start_date, format: '%d %b %Y') %></div><div class="col-4"><%= task.name %></div><div class="col-4"><%= task.prestation.category.upcase %></div>
+                <div class="col-4 mt-2"><%= l(task.start_date, format: '%d %b %Y') %></div><div class="col-4 mt-2"><%= task.name %></div><div class="col-4 mt-2"><%= task.prestation.category.upcase %></div>
               <% end %>
             </div>
           <% end  %>
         <% end  %>
       <% end  %>
+    </div>
+
+    <div class="px-5 show-client-produits">
+      <p class="border-bottom-light-gray mt-3"></p>
+    </div>
+    <div class="mx-5 mb-1 mt-3">
+      <h2>Produits</h2>
+      <div class="mt-2">
+        <% if @client.products != nil %>
+          <p class="pb-5"><%= @client.products %></p>
+        <% else %>
+          <p><%= @client.first_name %> <%= @client.last_name %> n'a pas encore commandé de produits.</p>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -62,25 +76,23 @@
     <h2>Prestations</h2>
     <div class="show-client-border-presta mb-5"></div>
 
-    <div class="d-flex justify-content-around align-items-center">
+    <div class="d-flex flex-wrap justify-content-around align-items-center">
       <% @client.prestations.each do |prestation|  %>
         <div class="gallery-card">
-          <%= image_tag "default-presta", crop: :fill, height: 250, width: 248, class: "photo-presta" %>
+          <% if prestation.photo.attached?  %>
+            <%= cl_image_tag prestation.photo.key, crop: :fill, width: 250, height: 248, class: "photo-presta" %>
+          <% else %>
+            <%= image_tag "default-presta", crop: :fill, height: 250, width: 248, class: "photo-presta" %>
+          <% end %>
           <p class="mt-3 text-center p-gray font-weight-bold"><%= prestation.category.upcase %></p>
             <% if prestation.start_date != prestation.end_date %>
-                <p class="event-date-show-prestation show-presta-color font-weight-bold ml-5 mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(prestation.start_date, format: '%d') %> - <%= l(prestation.end_date, format: '%d %B %Y') %></p>
+                <p class="client-presta-dates text-center green font-weight-bold mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(prestation.start_date, format: '%d') %> - <%= l(prestation.end_date, format: '%d %B %Y') %></p>
             <% else %>
-                <p class="event-date-show-prestation show-presta-color font-weight-bold ml-5 mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(prestation.start_date, format: '%d %B %Y') %></p>
+                <p class="client-presta-dates text-center green font-weight-bold mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(prestation.start_date, format: '%d %B %Y') %></p>
             <% end %>
         </div>
       <% end  %>
     </div>
 
-
-    <div class="show-border-produits mb-2"></div>
-    <div class="pr-5 mt-5">
-      <h2>Produits</h2>
-         <p class="mt-2 pb-5"><%= @client.products %></p>
-    </div>
   </div>
 </div>
