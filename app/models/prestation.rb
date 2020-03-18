@@ -6,6 +6,7 @@ class Prestation < ApplicationRecord
 
   belongs_to :client
   has_many :tasks
+  has_one_attached :photo
 
   accepts_nested_attributes_for :client, reject_if: proc { |attributes| attributes[:first_name].blank? }
 

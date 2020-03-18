@@ -1,0 +1,80 @@
+<div class="d-flex w-100" id="show-client">
+
+  <div class="show-client-left">
+
+    <h1 class="mt-5 ml-5"> <%= @client.first_name %> <%= @client.last_name %><span class="green-point">.</span></h1>
+    <div class="px-5">
+      <p class="mb-5"></p>
+    </div>
+
+    <div>
+      <div class="d-flex ml-5 align-items-center">
+        <div>
+          <%= cl_image_tag @client.photo.key, crop: :fill, width: 250, height: 250, class: "photo-client" %>
+        </div>
+        <div class="ml-5">
+          <% if @client.partner_name.nil? == false %>
+            <p class="pb-3 green font-weight-bold client-partner-name"> <i class="fas fa-plus-circle icon mr-2"></i>  <%= @client.partner_name %> </p>
+          <% end %>
+          <p class="pb-3 p-gray"><i class="fas fa-envelope icon-gray mr-2"></i><%= @client.email %></p>
+          <p class="pb-3 p-gray"> <i class="fas fa-phone icon-gray mr-2"></i><%= @client.phone_number %> </p>
+          <p class="pb-3 p-gray"> <i class="fas fa-home icon-gray mr-2"></i><%= @client.address  %> </p>
+          <%if @client.tutoiement == true %>
+            <p class="pb-3 p-gray"><i class="fas fa-comment icon-gray mr-2"></i>  On se tutoie </i></p>
+          <% else %>
+            <p class="pb-3 p-gray"><i class="fas fa-comment icon-gray mr-2"></i>  On se vouvoie </i></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="px-5">
+      <p class="border-bottom-light-gray mt-5"></p>
+    </div>
+
+    <div class="mx-5 mb-5 mt-4">
+      <h2>Notes</h2>
+         <p class="mt-2 pb-5"><%= @client.notes %></p>
+    </div>
+     <div class="px-5">
+      <p class="border-bottom-light-gray mt-5"></p>
+    </div>
+
+    <div class="mx-5 mb-5 mt-4">
+      <h2>Rendez-vous</h2>
+      <% @client.prestations.each do |prestation| %>
+        <% prestation.tasks.each do |task| %>
+          <% if task.kind == "rendez-vous"  %>
+          <div class="row">
+            <% if task.start_date != task.end_date %>
+              <div class="col-4"><%= l(task.start_date, format: '%d %Y') %> - <%= l(task.end_date, format: '%d %b %Y') %></div><div class="col-4"><%= task.name %></div><div class="col-4"><%= task.prestation.category.upcase %></div>
+            <% else %>
+              <div class="col-4"><%= l(task.start_date, format: '%d %b %Y') %></div><div class="col-4"><%= task.name %></div><div class="col-4"><%= task.prestation.category.upcase %></div>
+            <% end %>
+          </div>
+          <% end  %>
+        <% end  %>
+      <% end  %>
+    </div>
+  </div>
+
+
+  <div class="show-client-right pr-5">
+    <h2>Prestations</h2>
+    <div class="show-client-border-presta mb-5">
+    </div>
+
+    <div class="d-flex justify-content-around align-items-center">
+      <% @client.prestations.each do |prestation|  %>
+        <div class="gallery-card">
+          <%= image_tag "default-presta", crop: :fill, height: 250, width: 248, class: "photo-presta" %>
+          <p class="mt-3 text-center p-gray font-weight-bold"><%= prestation.category.upcase %></p>
+            <% if prestation.start_date != prestation.end_date %>
+                <p class="event-date-show-prestation show-presta-color font-weight-bold ml-5 mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(prestation.start_date, format: '%d') %> - <%= l(prestation.end_date, format: '%d %B %Y') %></p>
+            <% else %>
+                <p class="event-date-show-prestation show-presta-color font-weight-bold ml-5 mb-2"><i class="far fa-calendar-alt icon mr-2"></i><%= l(prestation.start_date, format: '%d %B %Y') %></p>
+            <% end %>
+        </div>
+      <% end  %>
+    </div>
+  </div>
+</div>
