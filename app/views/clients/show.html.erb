@@ -82,7 +82,7 @@
           <% if prestation.photo.attached?  %>
             <%= cl_image_tag prestation.photo.key, crop: :fill, width: 250, height: 248, class: "photo-presta" %>
           <% else %>
-            <%= image_tag "default-presta", crop: :fill, height: 250, width: 248, class: "photo-presta" %>
+            <%= image_tag "default-presta.jpg", crop: :fill, height: 250, width: 248, class: "photo-presta" %>
           <% end %>
           <p class="mt-3 text-center p-gray font-weight-bold"><%= prestation.category.upcase %></p>
             <% if prestation.start_date != prestation.end_date %>
