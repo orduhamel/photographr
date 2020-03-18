@@ -51,8 +51,8 @@ if (editTask) {
   });
 
   const endDate = flatpickr(".end_date", {
-    dateFormat: "d-m-Y",
-    minDate: startDate.selectedDates[0]
+    dateFormat: "d-m-Y"
+    // minDate: startDate.selectedDates[0]
   });
 
 }

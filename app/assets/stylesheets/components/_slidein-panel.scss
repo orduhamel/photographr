@@ -17,9 +17,12 @@
   bottom: 0;
   right: 0;
   width: 41%;
+  background-color: white;
   border-left: solid 1px $lm-gray;
   transform: translate3d(100%, 0, 0);
   transition: transform 0.3s 0.3s;
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 
 .cd-panel--is-visible .cd-panel__container {
