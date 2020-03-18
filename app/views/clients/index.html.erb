@@ -21,10 +21,10 @@
                 <div class="prestation-client-index d-flex col-md-6 p-3">
                   <p class= "green text-right"><%= client.prestations.count %><i class="fas fa-camera green col-md-1 px-2"></i></p>
                 </div>
-                <div class="prestation-client-index d-flex col-md-6 p-3">
+                <div class="prestation-client-index d-flex col-md-6 justify-content-center align-items-center">
                   <% if client.prestations.count >= 1 %>
                     <% if client.prestations.any? { |prestation| prestation.status == "progress"} %>
-                       <p class="light-pink progress">En cours</p>
+                       <p class="light-pink progress size-progress">En cours</p>
                     <% end %>
                   <% end %>
                 </div>
@@ -36,9 +36,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-<!-- && prestation.where(status: "progress").count >= 1 -->
