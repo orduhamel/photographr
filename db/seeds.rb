@@ -143,8 +143,8 @@ task5_mariage_mingant = Task.create!(
                         kind: "admin",
                         description: "Si l'acompte n'a pas été reçu : relancer le client",
                         urgent: false,
-                        start_date: Date.new(2020,3,20),
-                        end_date: Date.new(2020,3,20))
+                        start_date: Date.new(2020,3,19),
+                        end_date: Date.new(2020,3,19))
 
 task6_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
@@ -152,8 +152,8 @@ task6_mariage_mingant = Task.create!(
                         kind: "rendez-vous",
                         description: "Définition des attentes du client + apprendre à les connaître. A faire si je n'ai pas déjà rencontré les clients. Définir si c'est un RDV physique ou un appel téléphone.",
                         urgent: false,
-                        start_date: Date.new(2020,3,20),
-                        end_date: Date.new(2020,3,20))
+                        start_date: Date.new(2020,3,19),
+                        end_date: Date.new(2020,3,19))
 
 task7_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
@@ -820,8 +820,8 @@ task2_entreprise_lecamion2 = Task.create!(
 
 task3_entreprise_lecamion2 = Task.create!(
                     prestation: prestation_entreprise_lecamion2,
-                    name: 'RDV brief',
-                    kind: 'admin',
+                    name: 'Brief',
+                    kind: 'rendez-vous',
                     description: "Discussion avec le client sur le brief de la prestation",
                     urgent: false,
                     start_date: Date.new(2020,3,26),
@@ -949,17 +949,17 @@ task1_entreprise_thetribe = Task.create!(
                     name: 'Envoyer contrat',
                     kind: 'admin',
                     urgent: false,
-                    start_date: Date.today,
-                    end_date: Date.today)
+                    start_date: Date.new(2020,3,18),
+                    end_date: Date.new(2020,3,18))
 
 task2_entreprise_thetribe = Task.create!(
                     prestation: prestation_entreprise_thetribe,
                     name: 'Valider réception contrat signé',
                     kind: 'admin',
-                    description: "Si le document n'a pas été reçu : relancer le client",
+                    description: "Si le document n'a pas été reçu : relancer le client lors du RDV (1ère rencontre)",
                     urgent: false,
-                    start_date: Date.today + 3.days,
-                    end_date: Date.today + 3.days)
+                    start_date: Date.new(2020,3,18) + 3.days,
+                    end_date: Date.new(2020,3,18) + 3.days)
 
 task3_entreprise_thetribe = Task.create!(
                     prestation: prestation_entreprise_thetribe,

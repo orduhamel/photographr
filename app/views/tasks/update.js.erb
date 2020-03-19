@@ -23,6 +23,11 @@ function refreshInfoTask(innerHTML) {
   infoTask.innerHTML = innerHTML;
 }
 
+function refreshCardTask(innerHTML) {
+  const cardTask = document.getElementById("card-task-<%= @task.id %>");
+  cardTask.innerHTML = innerHTML;
+}
+
 
 <% if @task.errors.any? %>
   refreshForm('<%= j render "tasks/editform", task: @task %>');
@@ -30,5 +35,6 @@ function refreshInfoTask(innerHTML) {
   refreshInfoTask('<%= j render "tasks/infotask", task: @task %>');
   refreshForm('<%= j render "tasks/editform", task: @task %>');
   hideForm();
+  refreshCardTask('<%= j render "tasks/cardtask", task: @task %>');
 <% end %>
 

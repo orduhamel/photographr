@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     collection do
       get :calendar
     end
+
+    member do
+      get :index
+    end
   end
 
   resources :clients, only: [:index, :show]
