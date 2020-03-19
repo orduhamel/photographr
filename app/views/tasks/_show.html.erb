@@ -10,11 +10,14 @@
         </div>
       </div>
       <!-- TASK SHOW -->
-      <%= render 'infotask', task: task %>
+      <div id="info-task-<%= task.id %>">
+        <%= render 'infotask', task: task %>
+      </div>
     </div>
   </div>
   <div class="task-form row d-none">
     <div class="col px-5">
+      <!-- TASK EDIT FORM -->
       <%= render 'editform', task: task %>
     </div>
   </div>
