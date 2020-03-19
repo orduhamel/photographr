@@ -26,7 +26,18 @@
   <!-- Task dates -->
   <div class="row mt-1 justify-content-between">
     <div class="col px-0">
-      <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%d %B') %></p>
+      <!-- <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%d %B') %></p> -->
+      <% if task.start_date == Date.today %>
+        <p class="medium-gray"><i class="far fa-calendar mr-2"></i> Aujourd'hui</p>
+      <% elsif task.start_date == Date.tomorrow %>
+        <p class="medium-gray"><i class="far fa-calendar mr-2"></i> Demain</p>
+      <% else %>
+        <% if task.start_date.cweek == Date.today.cweek %>
+          <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%A') %></p>
+        <% else %>
+          <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%d %B') %></p>
+        <% end %>
+      <% end %>
     </div>
   </div>
 

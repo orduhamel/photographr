@@ -23,36 +23,17 @@
                   <% end %>
                   <ul class="container-fluid">
                     <% tasks.each do |task| %>
-                      <li class="card-task row align-items-center justify-content-between py-2 px-2">
-                        <% if task.kind == 'admin' %>
-                          <% if task.urgent == true %>
-                            <div class="urgent col-1 px-0"><i class="fas fa-thumbtack"></i></div>
-                          <% else %>
-                            <div class="p-gray col-1 px-0"><i class="fas fa-thumbtack"></i></div>
-                          <% end %>
-                        <% else %>
-                          <% if task.urgent == true %>
-                            <div class="urgent col-1 px-0"><i class="fas fa-palette"></i></i></div>
-                          <% else %>
-                            <div class="p-gray col-1 px-0"><i class="fas fa-palette"></i></i></div>
-                          <% end %>
-                        <% end %>
-
-                        <!-- Rajouter le lien vers la show de la Tâche -->
-                        <div class="col-7">
-                          <p class="task-name"><%= task.name %></p>
+                    <li class="card-task row align-items-center justify-content-between py-2 px-2">
+                      <div id="card-task-<%= task.id %>" class="col d-flex">
+                        <%= render 'cardtask', task: task %>
+                      </div>
+                      <!-- Slide-in : Task #Show -->
+                      <div class="cd-panel js-cd-panel-main">
+                        <div class="cd-panel__container">
+                          <%= render 'show', task: task %>
                         </div>
-
-                        <%= link_to prestation_path(task.prestation), class: "card-task-link col-4 px-0" do %>
-                          <p class="task-prestation-client text-right p-gray"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
-                        <% end %>
-                        <!-- Slide-in : Task #Show -->
-                        <div class="cd-panel js-cd-panel-main">
-                          <div class="cd-panel__container">
-                            <%= render 'show', task: task %>
-                          </div>
-                        </div>
-                      </li>
+                      </div>
+                    </li>
                     <% end %>
                   </ul>
                 </div>

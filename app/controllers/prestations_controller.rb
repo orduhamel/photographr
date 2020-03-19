@@ -254,7 +254,7 @@ class PrestationsController < ApplicationController
                         prestation: prestation,
                         name: "Valider réception 2e acompte",
                         kind: "admin",
-                        description: "Si l'acompte n'a pas été reçu : relancer le client",
+                        description: "Si l'acompte n'a pas été reçu : relancer le client lors du RDV (1ère rencontre)",
                         urgent: false,
                         start_date: event_start_date - 170.days,
                         end_date: event_start_date - 170.days)
