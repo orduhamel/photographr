@@ -10,6 +10,7 @@ $orange: #E67E22;
 //custom colors:
 $pink: #EF767A;
 $green: #5ABCB9;
+$bright-red: #FD1015;
 $red: #52050A;
 $light-gray: #F4F4F4;
 $lm-gray: #DADADA;
@@ -40,6 +41,10 @@ $dark-purple: #44337A;
 
 .red {
   color: $red;
+}
+
+.bright-red {
+  color: $bright-red;
 }
 
 .light-gray {
