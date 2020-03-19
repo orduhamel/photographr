@@ -80,7 +80,7 @@ puts "Finished seeding 8 clients..."
 puts "Seeding 10 prestations..."
 
 
-prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", start_date: '2020-03-20', end_date: '2020-03-20', location: "12 rue commandant Groix Nantes", notes: "Shooting photo des parents et de leurs 2 enfants chez eux, le temps d'un goûter. Faire attention aux détails de décoration. Les grands-parents seront peut-être présents.", status: 'progress')
+prestation_famille_leon = Prestation.create!(client: marine, title: "Famille Leon", category: "Famille", start_date: '2020-03-19', end_date: '2020-03-19', location: "12 rue commandant Groix Nantes", notes: "Shooting photo des parents et de leurs 2 enfants chez eux, le temps d'un goûter. Faire attention aux détails de décoration. Les grands-parents seront peut-être présents.", status: 'progress')
 prestation_famille_facq = Prestation.create!(client: alexandre, title: "Famille Facq", category: "Famille", start_date: '2020-04-15', end_date: '2020-04-15', location: "265 rue des mouettes Nantes", notes: "Shooting photo des parents et de leur nouveau-né, dans leur jardin et dans la chambre de l'enfant (pièce assez sombre).", status: 'progress')
 
 # prestation_entreprise_lecamion1 = Prestation.create!(client: camille, title: "Entreprise Le Camion", category: "Entreprise", start_date: '2020-01-22', end_date: '2020-01-22', location: "1 Rue Bayard, 44100 Nantes", notes: "Shooting photo des salariés dans le jardin des bureaux de l'entreprise", status: 'finish')
