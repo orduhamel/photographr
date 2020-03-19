@@ -10,9 +10,11 @@
   color: $pink !important;
 }
 .card-client {
-  position: relative;
+  // position: relative;
   background-color: $light-gray;
   border-radius: 10px !important;
+  width: 300px;
+  padding-right: 10px;
 }
 
 .card-client:hover {
@@ -21,9 +23,10 @@
 
 .photo-client-index {
   height: 200px;
-  width: 100%;
+  width: 300px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  object-fit: cover;
 }
 .e-mail-client {
  border-bottom: 1px solid $lm-gray;

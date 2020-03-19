@@ -6,7 +6,7 @@ class ClientsController < ApplicationController
 
   def show
     @client = current_user.clients.find(params[:id])
-    # prestations = @client.prestations.order("prestation.start_date")
+    @client.prestations = @client.prestations.order(start_date: :desc)
   end
 
 end
