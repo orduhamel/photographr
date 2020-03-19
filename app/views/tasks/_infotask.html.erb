@@ -32,15 +32,29 @@
   <div class="row mt-1 justify-content-between">
     <div class="col px-0">
       <!-- <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%d %B') %></p> -->
-      <% if task.start_date == Date.today %>
-        <p class="medium-gray"><i class="far fa-calendar mr-2"></i> Aujourd'hui</p>
-      <% elsif task.start_date == Date.tomorrow %>
-        <p class="medium-gray"><i class="far fa-calendar mr-2"></i> Demain</p>
-      <% else %>
-        <% if task.start_date.cweek == Date.today.cweek %>
-          <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%A') %></p>
+      <% if task.urgent %>
+        <% if task.start_date == Date.today %>
+          <p class="medium-gray"><i class="far fa-calendar mr-2"></i> Aujourd'hui - <span class="bright-red">urgent</span></p>
+        <% elsif task.start_date == Date.tomorrow %>
+          <p class="medium-gray"><i class="far fa-calendar mr-2"></i> Demain - <span class="bright-red">urgent</span></p>
         <% else %>
-          <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%d %B') %></p>
+          <% if task.start_date.cweek == Date.today.cweek %>
+            <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%A') %> - <span class="bright-red">urgent</span></p>
+          <% else %>
+            <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%d %B') %> - <span class="bright-red">urgent</span></p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% if task.start_date == Date.today %>
+          <p class="medium-gray"><i class="far fa-calendar mr-2"></i> Aujourd'hui</p>
+        <% elsif task.start_date == Date.tomorrow %>
+          <p class="medium-gray"><i class="far fa-calendar mr-2"></i> Demain</p>
+        <% else %>
+          <% if task.start_date.cweek == Date.today.cweek %>
+            <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%A') %></p>
+          <% else %>
+            <p class="medium-gray"><i class="far fa-calendar mr-2"></i> <%= l(task.start_date, format: '%d %B') %></p>
+          <% end %>
         <% end %>
       <% end %>
     </div>
