@@ -3,10 +3,79 @@
     <h1 class="home-h1 mb-5">Photograph<span class="green-point">R.</span></h1>
   </div>
   <div id="home-content">
-    <h2 class="home-h2">Et si vous aviez plus de temps<br>pour photographier ?</h2>
+    <h2 class="home-h2">Libérez votre temps,<br>photographier plus !</h2>
     <div id="home-links">
       <%= link_to 'Se Connecter', user_session_path, class: 'btn-connect' %>
       <%= link_to 'Faire un essai', new_user_registration_path, class: 'btn-tester' %>
     </div>
   </div>
+  <div class="icon-scroll-down pulsate-fwd">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+
+  <div class="home-section mt-5 d-flex justify-content-center align-items-center">
+    <div class="example-text p-5">
+      <i class="fas fa-thumbtack m-3 icon-gray-home"></i>
+      <h3>Une vue globale de toutes vos tâches<span class="green-point">.</span></h3>
+    </div>
+    <div class="example-image-shadow">
+      <%= image_tag 'example-photographr-02.png', width: 800 %>
+    </div>
+  </div>
+
+  <div class="home-section home-section-white d-flex justify-content-center align-items-center pt-5 pb-5">
+    <div class="example-image-shadow">
+      <%= image_tag 'example-photographr-05.png', width: 800 %>
+    </div>
+    <div class="example-text p-5">
+      <i class="fas fa-magic m-3 icon-gray-home"></i>
+      <h3>Un worflow automatisé<span class="green-point">.</span></h3>
+    </div>
+  </div>
+
+  <div class="home-section d-flex justify-content-center align-items-center">
+    <div class="example-text p-5">
+      <i class="fas fa-users m-3 icon-gray-home"></i>
+      <h3>Toutes les informations clients centralisées<span class="green-point">.</span></h3>
+    </div>
+    <div class="example-image-shadow">
+      <%= image_tag 'example-photographr-04.png', width: 800 %>
+    </div>
+  </div>
+
+
+  <div class="home-section home-section-white d-flex justify-content-center align-items-start">
+    <div class="box-testimonial d-flex flex-column align-items-center pl-3 pr-3 ml-5 mr-5">
+      <%= image_tag 'photographe-1.jpg', class: "avatar-home" %>
+      <h4 class='text-center mb-2 mt-2'>Juliette Ménard</h4>
+      <p><i class="fas fa-quote-left pr-2"></i>Outil utile, pratique, simple d’utilisation et très complet pour mon utilisation quotidienne. Je ne saurai déjà plus m’en passer ! Et surtout, quel gain de temps !</p>
+    </div>
+    <div class="box-testimonial d-flex flex-column align-items-center pl-3 pr-3 ml-5 mr-5">
+      <%= image_tag 'photographe-2.jpg', class: "avatar-home" %>
+      <h4 class='text-center mb-2 mt-2'>Erwan Girard</h4>
+      <p><i class="fas fa-quote-left pr-2"></i>La solution que l’on attendait pour la gestion client, outil pratique et indispensable au photographe. J’apprécie le temps gagné, dans la mise en place de workflow et planning. Merci Photographr !</p>
+    </div>
+    <div class="box-testimonial d-flex flex-column align-items-center pl-3 pr-3 ml-5 mr-5">
+      <%= image_tag 'photographe-6.jpg', class: "avatar-home" %>
+      <h4 class='text-center mb-2 mt-2'>Luce Riou</h4>
+      <p><i class="fas fa-quote-left pr-2"></i>Ce site est très bien conçu et réalisé, il permet une gestion efficace et conviviale de son activité de photographe. L’essayer c’est l’adopter.</p>
+    </div>
+  </div>
+
+  <div class="home-end-container">
+    <div class="home-h2-container ml-5">
+      <h2 class="home-h2 ml-5">A votre tour !</h2>
+    </div>
+    <div class="home-link-end ml-5 mt-5">
+      <%= link_to 'Faire un essai', new_user_registration_path, class: 'btn-tester ml-5' %>
+    </div>
+  </div>
+
+  <div class="footer d-flex justify-content-around align-items-center">
+    <div class="icone-white">
+      <i class="fab fa-facebook mr-4"></i><i class="fab fa-instagram mr-4"></i><i class="fab fa-twitter"></i>
+    </div>
+    <p>Made with<i class="fas fa-heart ml-1 mr-1"></i>by the photographR team.</p>
+  </div>
+
 </div>
