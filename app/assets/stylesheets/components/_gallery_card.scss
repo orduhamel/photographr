@@ -16,3 +16,57 @@
   font-size: 16px !important;
   text-align: left;
 }
+.photo-presta-container {
+  background-image: asset-url('default-presta.jpg');
+  width: 248px;
+  height: 250px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.photo-presta-container:hover {
+  background-image: linear-gradient(rgba(250,250,250,.9), rgba(250,250,250,.9)), asset-url('default-presta.jpg');
+  transition: 1s ease;
+}
+
+.overlay-presta {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.overlay-presta:hover {
+  opacity: 1;
+  transition: .5s ease;
+}
+
+.overlay-presta-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.overlay-presta-link:hover a {
+  color: $pink;
+}
+
+.overlay-presta-cloudinary {
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.overlay-presta-cloudinary:hover {
+  opacity: 1;
+  transition: .5s ease;
+
+}
+.photo-presta-cloudinary-container {
+  position: relative;
+}
+
+.photo-presta-cloudinary-container:hover .white-overlay {
+   opacity: .2;
+}
