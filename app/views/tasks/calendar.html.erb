@@ -74,12 +74,12 @@
                 <% if task.kind == 'évènement'  %>
                   <p class="col-6 px-1 font-weight-bold title-task green"><%= task.name %></p>
                   <%= link_to prestation_path(task.prestation), class: "link-text-index" do %>
-                    <p class="p-gray px-0 task-prestation-title-calendar green"><%= task.prestation.title %></p>
+                    <p class="p-gray px-0 task-prestation-title-calendar green"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
                   <% end %>
                 <% else %>
                   <p class="col-6 px-1 font-weight-bold title-task"><%= task.name %></p>
                   <%= link_to prestation_path(task.prestation), class: "link-text-index" do %>
-                    <p class="p-gray px-0 task-prestation-title-calendar"><%= task.prestation.title %></p>
+                    <p class="p-gray px-0 task-prestation-title-calendar"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
                   <% end %>
                 <% end %>
               </div>
