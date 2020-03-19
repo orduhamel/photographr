@@ -53,3 +53,10 @@
     color: $dark-gray;
   }
 }
+  .e-mail-task i {
+    text-decoration: none !important;
+    color: $medium-gray !important;
+  }
+.e-mail-task:hover i {
+  color: $pink !important;
+}

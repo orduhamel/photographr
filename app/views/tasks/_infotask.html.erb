@@ -21,6 +21,11 @@
     <div class="task-name">
       <h2><%= task.name %></h2>
     </div>
+    <div class="col">
+      <div class="e-mail-task">
+      <%= render "tasks/emails/#{mailto_partial_for_task(task)}", task: task, :@prestation => task.prestation, class: "e-mail-task" %>
+      </div>
+    </div>
   </div>
 
   <!-- Task dates -->
