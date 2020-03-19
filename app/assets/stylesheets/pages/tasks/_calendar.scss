@@ -118,11 +118,28 @@ text-align: center;
 }
 
 .day-task-past {
-  background-color: #FFCCC9;
+  background-color: white;
   border-radius: 50px;
-  border: 1px solid #FFCCC9;
+  border: 1px solid $m-gray;
   padding: 10px 12px !important;
-  color: black;
+  color: $m-gray;
   font-weight: 600;
 }
-// #FFCAB1
+
+.day-past {
+  color: $m-gray !important;
+}
+
+.green-actif-calendar {
+  border: 1px solid $green;
+  background-color: white !important;
+  color: $green;
+  cursor: pointer;
+}
+
+.pink-actif-calendar {
+  border: 1px solid $pink;
+  background-color: white !important;
+  color: $pink;
+  cursor: pointer;
+}
