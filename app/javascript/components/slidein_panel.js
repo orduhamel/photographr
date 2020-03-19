@@ -34,6 +34,8 @@ if (dashboard) {
       modifyTask.classList.add("d-none");
     })
 
+
+
     // Au click sur taskClose, cacher la tache
     taskClose.addEventListener("click", (event) => {
       taskShow.classList.remove("cd-panel--is-visible");

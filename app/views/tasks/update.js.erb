@@ -1,43 +1,34 @@
+// S'il y a des erreurs :
+// - Rafraichir le formulaire
+
+// S'il n'y a pas d'erreurs :
+// - Cacher le formulaire
+// - Rafraîchir les infos de la tache avec les nouvelles données
+// - Afficher les nouvelles infos de la tache
+// - Rafraichir le formulaire (caché)
+
+
 function refreshForm(innerHTML) {
-  const editTaskForm = document.querySelector('.form-post');
+  const editTaskForm = document.getElementById("edit_task_<%= @task.id %>");
   editTaskForm.innerHTML = innerHTML;
 }
 
-// Au click sur 'valider'
-// Cacher le formulaire
-// Rafraîchir les infos avec les nouvelles données
-// Display les infos
-
 function hideForm() {
-  const dashboard = document.getElementById("dashboard");
-
-  if (dashboard) {
-    // Selectionner toutes les taches
-    const cardsTask = document.querySelectorAll(".card-task");
-
-    cardsTask.forEach((cardTask) => {
-      const validateForm = cardTask.querySelector(".validate");
-      console.log(validateForm);
-      const taskEditForm = cardTask.querySelector(".task-form");
-      console.log(taskEditForm);
-      // Au click sur le bouton 'Valider'
-      // Masquer le formulaire
-      // Rafraichir les infos Display les infos
-      validateForm.addEventListener("click", (event) => {
-        taskEditForm.classList.add("d-none");
-      })
-    }
-  }
+  const editTaskForm = document.getElementById("edit_task_<%= @task.id %>");
+  editTaskForm.classList.add("d-none");
 }
 
-// function displayUpdatedTask(reviewHTML) {
-//   const reviews = document.getElementById('reviews');
-//   reviews.insertAdjacentHTML('beforeend', reviewHTML);
-// }
+function refreshInfoTask(innerHTML) {
+  const infoTask = document.getElementById("info-task-<%= @task.id %>");
+  infoTask.innerHTML = innerHTML;
+}
 
-// <% if @task.errors.any? %>
-//   refreshForm('<%= j render "editform", task: task %>');
-// <% else %>
-//   addReview('<%= j render "reviews/show", review: @review %>');
-//   refreshForm('<%= j render "reviews/form", restaurant: @restaurant, review: Review.new %>');
-// <% end %>
+
+<% if @task.errors.any? %>
+  refreshForm('<%= j render "tasks/editform", task: @task %>');
+<% else %>
+  refreshInfoTask('<%= j render "tasks/infotask", task: @task %>');
+  refreshForm('<%= j render "tasks/editform", task: @task %>');
+  hideForm();
+<% end %>
+

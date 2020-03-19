@@ -47,11 +47,11 @@ const editTask = document.querySelector(".task-form");
 if (editTask) {
 
   const startDate = flatpickr(".datepicker", {
-    dateFormat: "d-m-Y"
+    // dateFormat: "d-m-Y"
   });
 
   const endDate = flatpickr(".end_date", {
-    dateFormat: "d-m-Y"
+    // dateFormat: "d-m-Y"
     // minDate: startDate.selectedDates[0]
   });
 
