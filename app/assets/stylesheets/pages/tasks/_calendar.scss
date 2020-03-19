@@ -76,6 +76,15 @@ text-align: center;
 .task-per-day:hover {
   background-color: white !important;
   cursor: pointer;
+
+}
+
+.task-per-day:hover p {
+  color: $pink !important;
+}
+
+.task-per-day:hover i {
+  color: $pink !important;
 }
 
 .gray-actif {
@@ -90,4 +99,47 @@ text-align: center;
 
 .tasks-col {
   width: 50%;
+}
+
+.today {
+  background-color: $green;
+  border-radius: 50px;
+  border: 1px solid $green;
+  padding: 10px 12px !important;
+  color: black;
+  font-weight: 600;
+}
+
+.today:hover {
+  border: 1px solid $green;
+  background-color: white !important;
+  color: $green;
+  cursor: pointer;
+}
+
+.day-task-past {
+  background-color: white;
+  border-radius: 50px;
+  border: 1px solid $m-gray;
+  padding: 10px 12px !important;
+  color: $m-gray;
+  font-weight: 600;
+}
+
+.day-past {
+  color: $m-gray !important;
+}
+
+.green-actif-calendar {
+  border: 1px solid $green;
+  background-color: white !important;
+  color: $green;
+  cursor: pointer;
+}
+
+.pink-actif-calendar {
+  border: 1px solid $pink;
+  background-color: white !important;
+  color: $pink;
+  cursor: pointer;
 }

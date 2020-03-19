@@ -90,12 +90,10 @@
             </div>
           </div>
           <% else %>
-            <div class='photo-presta-container'>
-              <div class="overlay-presta d-flex flex-column justify-content-center align-items-center">
-                <div class="overlay-presta-link pho-btn mb-3 ml-5 mr-5"><%= link_to 'Voir la prestation', prestation_path(prestation) %></div>
-                <div class='overlay-presta-link pho-btn ml-5 mr-5'><a href="">Voir la galerie</a></div>
-              </div>
-            </div>
+            
+
+            <%= image_tag "default-presta.jpg", crop: :fill, height: 250, width: 248, class: "photo-presta" %>
+
           <% end %>
           <p class="mt-3 text-center p-gray font-weight-bold"><%= prestation.category.upcase %></p>
             <% if prestation.start_date != prestation.end_date %>
