@@ -820,8 +820,8 @@ task2_entreprise_lecamion2 = Task.create!(
 
 task3_entreprise_lecamion2 = Task.create!(
                     prestation: prestation_entreprise_lecamion2,
-                    name: 'RDV brief',
-                    kind: 'admin',
+                    name: 'Brief',
+                    kind: 'rendez-vous',
                     description: "Discussion avec le client sur le brief de la prestation",
                     urgent: false,
                     start_date: Date.new(2020,3,26),

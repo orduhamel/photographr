@@ -73,7 +73,17 @@
                     <% if task.start_date != task.end_date %>
                       <p class="col-3 green-point font-weight-bold"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b') %></p>
                     <% else %>
-                      <p class="col-3 green-point font-weight-bold">Aujourd'hui</p>
+                      <% if task.start_date == Date.today %>
+                        <p class="col-3 green-point font-weight-bold">Aujourd'hui</p>
+                      <% elsif task.start_date == Date.tomorrow %>
+                        <p class="col-3 green-point font-weight-bold">Demain</p>
+                      <% else %>
+                        <% if task.start_date.cweek == Date.today.cweek %>
+                          <p class="col-3 green-point font-weight-bold"><%= l(task.start_date, format: '%A') %></p>
+                        <% else %>
+                          <p class="col-3 green-point font-weight-bold"><%= l(task.start_date, format: '%d %B') %></p>
+                        <% end %>
+                      <% end %>
                     <% end %>
                     <p class="col-9 pl-3 font-weight-bold"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
                   </li>
@@ -84,12 +94,14 @@
                     <% if task.start_date != task.end_date %>
                       <p class="col-3 green-point"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b') %></p>
                     <% else %>
-                      <% if task.start_date == Date.today %>
-                        <p class="col-3 green-point">Aujourd'hui</p>
-                      <% elsif task.start_date == Date.tomorrow %>
+                      <% if task.start_date == Date.tomorrow %>
                         <p class="col-3 green-point">Demain</p>
                       <% else %>
-                        <p class="col-3 green-point"><%= l(task.start_date, format: '%d %b') %></p>
+                        <% if task.start_date.cweek == Date.today.cweek %>
+                          <p class="col-3 green-point"><%= l(task.start_date, format: '%A') %></p>
+                        <% else %>
+                          <p class="col-3 green-point"><%= l(task.start_date, format: '%d %B') %></p>
+                        <% end %>
                       <% end %>
                     <% end %>
                     <p class="col-9 pl-3"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
@@ -108,12 +120,8 @@
                   <li class="card-date-task row align-items-top mb-2">
                     <% if task.start_date != task.end_date %>
                       <p class="col-3 green-point font-weight-bold"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b') %></p>
-                    <% elsif task.start_date == Date.tomorrow %>
-                      <p class="col-3 green-point font-weight-bold">Demain</p>
-                    <% elsif task.start_date == Date.today %>
-                      <p class="col-3 green-point font-weight-bold">Aujourd'hui</p>
                     <% else %>
-                      <p class="col-3 green-point font-weight-bold"><%= l(task.start_date, format: '%d %b') %></p>
+                      <p class="col-3 green-point font-weight-bold">Aujourd'hui</p>
                     <% end %>
                     <div class="col-9 pl-3">
                       <p class="font-weight-bold"><%= task.name %></p>
@@ -127,7 +135,15 @@
                     <% if task.start_date != task.end_date %>
                       <p class="col-3 green-point"><%= l(task.start_date, format: '%d') %> - <%= l(task.end_date, format: '%d %b') %></p>
                     <% else %>
-                      <p class="col-3 green-point"><%= l(task.start_date, format: '%d %b') %></p>
+                      <% if task.start_date == Date.tomorrow %>
+                        <p class="col-3 green-point">Demain</p>
+                      <% else %>
+                        <% if task.start_date.cweek == Date.today.cweek %>
+                          <p class="col-3 green-point"><%= l(task.start_date, format: '%A') %></p>
+                        <% else %>
+                          <p class="col-3 green-point"><%= l(task.start_date, format: '%d %B') %></p>
+                        <% end %>
+                      <% end %>
                     <% end %>
                     <div class="col-9 pl-3">
                       <p><%= task.name %></p>
