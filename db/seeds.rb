@@ -625,16 +625,16 @@ task4_famille_leon = Task.create!(
                     name: "Évènement",
                     kind: 'évènement',
                     urgent: false,
-                    start_date: Date.new(2020,3,20),
-                    end_date: Date.new(2020,3,20))
+                    start_date: Date.new(2020,3,19),
+                    end_date: Date.new(2020,3,19))
 task5_famille_leon = Task.create!(
                     prestation: prestation_famille_leon,
                     name: "Recevoir solde total",
                     kind: 'admin',
                     description: "A recevoir au moment de la prestation",
                     urgent: false,
-                    start_date: Date.new(2020,3,20),
-                    end_date: Date.new(2020,3,20))
+                    start_date: Date.new(2020,3,19),
+                    end_date: Date.new(2020,3,19))
 task6_famille_leon = Task.create!(
                     prestation: prestation_famille_leon,
                     name: "Post-traitement",
