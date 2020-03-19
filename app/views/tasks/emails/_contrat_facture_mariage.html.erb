@@ -1,4 +1,4 @@
-<%= mail_to prestation.client.email, subject:"Contrat & Facture 1er acompte", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
+<%= mail_to @prestation.client.email, subject:"Contrat & Facture 1er acompte", body: "Bonjour #{@prestation.client.first_name} #{@prestation.client.last_name},
 
 Suite à notre entretien, vous trouverez ci-joint le contrat ainsi que la facture correspondant au 1er acompte.
 
