@@ -8,8 +8,27 @@ if (calendar) {
   calendarDays.forEach((calendarDay) => {
     calendarDay.addEventListener("click", (event) => {
       const matchingTask = taskDays.find(taskDay => calendarDay.getAttribute("date") === taskDay.getAttribute("date"));
-
       // On regarde les classes et en fonction on display ou non
+      console.log(matchingTask);
+      const dayTasks = document.querySelectorAll(".pink-actif-calendar");
+      const dayTasksToday = document.querySelectorAll(".green-actif-calendar");
+
+      dayTasksToday.forEach((today)=> {
+        today.classList.remove("green-actif-calendar");
+      })
+
+      dayTasks.forEach((dayTask)=>{
+        dayTask.classList.remove("pink-actif-calendar");
+      })
+
+      const today = document.querySelector(".today")
+      const dayTask = calendarDay.querySelector(".day-task");
+      if (dayTask) {
+        dayTask.classList.add("pink-actif-calendar");
+      } else {
+        today.classList.add("green-actif-calendar");
+      }
+
       if (matchingTask.classList.contains("d-none")) {
         // Toutes les daskDay qui sont affichées
         const displayTasks = taskDays.filter(taskDay => !taskDay.classList.contains("d-none"));
@@ -19,7 +38,7 @@ if (calendar) {
 
         matchingTask.classList.remove("d-none");
 
-        todayMessage.classList.add("d-none");
+        // todayMessage.classList.add("d-none");
 
 
         // ----------- SUB TASKS ---------
@@ -41,8 +60,9 @@ if (calendar) {
       } else {
         matchingTask.classList.add("d-none");
 
-        todayMessage.classList.remove("d-none");
+        // todayMessage.classList.remove("d-none");
       }
     });
   });
 }
+

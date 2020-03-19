@@ -18,7 +18,14 @@
                       <p class="day-task"><%= l(day, format: '%d') %></p>
                     <% end %>
                   <% else %>
+                  <% if day < @today %>
+                    <p class="day-past"><%= l(day, format: '%d') %></p>
+                  <% elsif day == @today %>
+                  <p class="today"><%= l(day, format: '%d') %></p>
+                  <% else %>
                     <p class="day"><%= l(day, format: '%d') %></p>
+                  <% end %>
+
                   <% end %>
                 <% end %>
               </div>
@@ -33,9 +40,11 @@
       <h1 class="task-title-calendar pb-2 mt-4">Tâches<span class="green-point">.</span></h1>
 
       <div id="today-message">
-        <% unless @tasks_by_day.keys.find {|td| @today == td }%>
-          <h4 class="text-center pb-4"><%= l(@today, format: '%d %B') %></h4>
-          <p class="text-center no-task mt-3">Vous n'avez pas de tâche pour aujourd'hui.</p>
+        <% unless @tasks_by_day.key?(@today)%>
+          <div class="details-day-calendar" date="<%= @today %>">
+            <h4 class="text-center pb-4"><%= l(@today, format: '%d %B') %></h4>
+            <p class="text-center no-task mt-3">Vous n'avez pas de tâche pour aujourd'hui.</p>
+          </div>
         <% end %>
       </div>
 
