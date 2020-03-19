@@ -33,13 +33,6 @@
             <label>Dates</label>
               <input type="text" id="range-dates">
           </div>
-            <%= f.input :category,
-                        as: :select,
-                        collection: Prestation::CATEGORIES,
-                        input_html: {class: "select2"},
-                        label: 'Catégorie',
-                        placeholder: 'Sélectionner le type de la prestation' %>
-
 
             <%= f.input :location,
                         as: :string,
