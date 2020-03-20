@@ -64,6 +64,14 @@
 
 .e-mail i {
   visibility: hidden;
+  text-decoration: none !important;
+  color: $pink !important;
+}
+
+.white-hover:hover i {
+  visibility: visible !important;
+  text-decoration: none !important;
+  color: medium-gray !important;
 }
 
 .link-to-client {
