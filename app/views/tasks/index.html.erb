@@ -24,7 +24,7 @@
                   <ul class="container-fluid">
                     <% tasks.each do |task| %>
                     <li class="card-task row align-items-center justify-content-between py-2 px-2">
-                      <div id="card-task-<%= task.id %>" class="col d-flex">
+                      <div id="card-task-<%= task.id %>" class="col d-flex justify-content-between">
                         <%= render 'cardtask', task: task %>
                       </div>
                       <!-- Slide-in : Task #Show -->

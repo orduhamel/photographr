@@ -1,0 +1,12 @@
+function changeUrgentTag() {
+  const tagUrgent = document.querySelector("#tag-urgent-<%= @task.id %>");
+  if (tagUrgent.classList.contains("urgent")) {
+      tagUrgent.classList.remove("urgent");
+      tagUrgent.classList.add("p-gray");
+    } else {
+      tagUrgent.classList.remove("p-gray");
+      tagUrgent.classList.add("urgent");
+  }
+}
+
+changeUrgentTag();

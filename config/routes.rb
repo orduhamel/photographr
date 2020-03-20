@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
     member do
       get :index
+      patch :mark_as_urgent
+      patch :mark_as_done
     end
   end
 
