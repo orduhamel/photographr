@@ -67,39 +67,52 @@
         <ul class="container-fluid mt-5">
           <% @prestation.tasks.each do |task| %>
             <li class="card-task white-hover row align-items-center justify-content-between py-2 px-4 mr-4">
-              <% if task.kind == 'admin' %>
-                <% if task.urgent == true %>
-                  <div class="urgent col-1 px-0"><i class="fas fa-thumbtack"></i></div>
+              <!-- URGENT TAG-->
+              <%= link_to mark_as_urgent_task_path(task), class: "link-mark-as-urgent", method: :patch, remote: true do %>
+                <% if task.kind == 'admin' || task.kind == 'rendez-vous' %>
+                  <% if task.urgent == true %>
+                    <div id="tag-urgent-<%= task.id %>" class="urgent px-0"><i class="fas fa-thumbtack"></i></div>
+                  <% else %>
+                    <div id="tag-urgent-<%= task.id %>" class="p-gray px-0"><i class="fas fa-thumbtack"></i></div>
+                  <% end %>
+                <% elsif task.kind == 'évènement' %>
+                  <% if task.end_date < Date.today  %>
+                    <div id="tag-urgent-<%= task.id %>" class="px-0"><i class="p-gray fas fa-camera"></i></div>
+                  <% else %>
+                    <div id="tag-urgent-<%= task.id %>" class="px-0"><i class="p-gray fas fa-camera"></i></div>
+                  <% end %>
                 <% else %>
-                  <div class="p-gray col-1 px-0"><i class="fas fa-thumbtack"></i></div>
-                <% end %>
-              <% elsif task.kind == 'évènement' %>
-                <% if task.end_date < Date.today  %>
-                  <div class="col-1 px-0"><i class="p-gray fas fa-camera"></i></div>
-                <% else %>
-                  <div class="col-1 px-0"><i class="green fas fa-camera"></i></div>
-                <% end %>
-              <% else %>
-                <% if task.urgent == true %>
-                  <div class="urgent col-1 px-0"><i class="fas fa-palette"></i></div>
-                <% else %>
-                  <div class="p-gray col-1 px-0"><i class="fas fa-palette"></i></div>
+                  <% if task.urgent == true %>
+                    <div id="tag-urgent-<%= task.id %>" class="urgent px-0"><i class="fas fa-palette"></i></div>
+                  <% else %>
+                    <div id="tag-urgent-<%= task.id %>" class="p-gray px-0"><i class="fas fa-palette"></i></div>
+                  <% end %>
                 <% end %>
               <% end %>
+
+              <!-- DONE TAG -->
+              <%= link_to mark_as_done_task_path(task), class: "link-mark-as-done", method: :patch, remote: true do %>
+                <% if task.done %>
+                  <div id="tag-done-<%= task.id %>" class="tag-done green pl-2 pr-0"><i class="fas fa-check"></i></div>
+                <% else %>
+                  <div id="tag-done-<%= task.id %>" class="tag-done p-gray pl-2 pr-0"><i class="fas fa-check"></i></div>
+                <% end %>
+              <% end %>
+
               <% if task.end_date < Date.today %>
-                <p class="text-truncate col-7 p-gray"><%= task.name %></p>
+                <p class="text-truncate col-8 pl-3 p-gray"><%= task.name %></p>
                 <div class="e-mail col-1">
                   <%= render "tasks/emails/#{mailto_partial_for_task(task)}", task: task %>
                 </div>
                 <p class="task-prestation-client text-right p-gray pr-2 col-2"><%= l(task.start_date, format: '%d %b') %></p>
               <% elsif task.kind =='évènement' %>
-                <p class="text-truncate col-7 green font-weight-bold"><%= task.name %></p>
+                <p class="text-truncate col-8 pl-3 green font-weight-bold"><%= task.name %></p>
                 <div class="e-mail col-1">
                   <%= render "tasks/emails/#{mailto_partial_for_task(task)}", task: task %>
                 </div>
                 <p class="task-prestation-client text-right col-2 p-gray pr-2 green font-weight-bold"><%= l(task.start_date, format: '%d %b') %></p>
               <% else %>
-                <p class="text-truncate col-7"><%= task.name %></p>
+                <p class="text-truncate col-8 pl-3"><%= task.name %></p>
                 <div class="e-mail col-1">
                   <%= render "tasks/emails/#{mailto_partial_for_task(task)}", task: task %>
                 </div>
