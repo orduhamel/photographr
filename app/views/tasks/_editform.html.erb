@@ -48,11 +48,13 @@
             <%= f.input :urgent,
                         as: :radio_buttons,
                         wrapper: :vertical_collection_inline,
+                        collection: ['Oui','Non'],
                         label: 'Urgent' %>
 
             <%= f.input :done,
                         as: :radio_buttons,
                         wrapper: :vertical_collection_inline,
+                        collection: ['Oui','Non'],
                         label: 'Terminée' %>
 
             <div class="d-flex flex-row-reverse mt-4">
