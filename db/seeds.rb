@@ -144,8 +144,8 @@ task5_mariage_mingant = Task.create!(
                         kind: "admin",
                         description: "Si l'acompte n'a pas été reçu : relancer le client",
                         urgent: false,
-                        start_date: Date.new(2020,3,20),
-                        end_date: Date.new(2020,3,20))
+                        start_date: Date.new(2020,3,25),
+                        end_date: Date.new(2020,3,25))
 
 task6_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
@@ -153,8 +153,8 @@ task6_mariage_mingant = Task.create!(
                         kind: "rendez-vous",
                         description: "Définition des attentes du client + apprendre à les connaître. A faire si je n'ai pas déjà rencontré les clients. Définir si c'est un RDV physique ou un appel téléphone.",
                         urgent: false,
-                        start_date: Date.new(2020,3,20),
-                        end_date: Date.new(2020,3,20))
+                        start_date: Date.new(2020,3,25),
+                        end_date: Date.new(2020,3,25))
 
 task7_mariage_mingant = Task.create!(
                         prestation: prestation_mariage_mingant,
