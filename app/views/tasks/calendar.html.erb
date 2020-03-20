@@ -55,19 +55,21 @@
           <% tasks.each do |task| %>
             <div class="task-per-day mx-4">
               <div class="d-flex">
-                <% if task.kind == 'admin' %>
-                  <% if task.urgent == true %>
-                    <div class="urgent pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
+                <%= link_to mark_as_urgent_task_path(task), class: "link-mark-as-urgent", method: :patch, remote: true do %>
+                  <% if task.kind == 'admin' %>
+                    <% if task.urgent == true %>
+                      <div id="tag-urgent-<%= task.id %>" class="urgent pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
+                    <% else %>
+                      <div id="tag-urgent-<%= task.id %>" class="p-gray pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
+                    <% end %>
+                    <% elsif task.kind == 'évènement' %>
+                      <div id="tag-urgent-<%= task.id %>" class="pl-5"><i class="green picto-task-calendar fas fa-camera"></i></div>
                   <% else %>
-                    <div class="p-gray pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
-                  <% end %>
-                  <% elsif task.kind == 'évènement' %>
-                    <div class="pl-5"><i class="green picto-task-calendar fas fa-camera"></i></div>
-                <% else %>
-                  <% if task.urgent == true %>
-                    <div class="urgent pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
-                  <% else %>
-                    <div class="p-gray pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
+                    <% if task.urgent == true %>
+                      <div id="tag-urgent-<%= task.id %>" class="urgent pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
+                    <% else %>
+                      <div id="tag-urgent-<%= task.id %>" class="p-gray pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
+                    <% end %>
                   <% end %>
                 <% end %>
                 <% if task.kind == 'évènement'  %>
