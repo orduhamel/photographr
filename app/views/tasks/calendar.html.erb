@@ -10,7 +10,7 @@
               <div class="calendar-day-view d-flex" date="<%= day %>">
                 <% if @days_current_month.find {|d| day == d } %>
                   <% if @tasks_by_day.keys.find {|td| day == td } %>
-                    <% if day == @today %>
+                    <% if day >= @today && @tasks_by_day[day].any? { |task| task.kind == "évènement"} %>
                       <p class="today"><%= l(day, format: '%d') %></p>
                     <% elsif day < @today %>
                       <p class="day-task-past"><%= l(day, format: '%d') %></p>
@@ -47,7 +47,7 @@
           </div>
         <% end %>
       </div>
-
+<p>blablabla</p>
       <!-- TASK -->
       <% @tasks_by_day.each do |day, tasks| %>
         <div class="details-day-calendar <%= "d-none" unless day == @today %>" date="<%= day %>">
