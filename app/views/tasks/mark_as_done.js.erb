@@ -1,0 +1,16 @@
+function changeDoneTag () {
+  const tagDone = document.querySelector("#tag-done-<%= @task.id %>");
+
+  if (tagDone.classList.contains("green")) {
+      tagDone.classList.remove("green");
+      tagDone.classList.add("p-gray");
+    } else {
+      tagDone.classList.remove("p-gray");
+      tagDone.classList.add("green");
+  }
+}
+
+changeDoneTag();
+
+
+

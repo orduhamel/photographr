@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[show edit update]
+  before_action :set_task, only: %i[show edit update mark_as_urgent mark_as_done]
 
   def index
     tasks = Task.joins(prestation: :client).where(clients: { user_id: current_user.id })
@@ -46,12 +46,32 @@ class TasksController < ApplicationController
         format.js  # <-- idem
       end
     end
+  end
 
-    # if @task.save
-    #   redirect_to task_path(@task)
-    # else
-    #   render :edit
-    # end
+  def mark_as_urgent
+    if @task.urgent
+      @task.update(urgent: false)
+    else
+      @task.update(urgent: true)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to tasks_path }
+      format.js  # <-- will render `app/views/tasks/mark_as_done.js.erb`
+    end
+  end
+
+  def mark_as_done
+    if @task.done
+      @task.update(done: false)
+    else
+      @task.update(done: true)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to tasks_path }
+      format.js  # <-- will render `app/views/tasks/mark_as_done.js.erb`
+    end
   end
 
   def calendar
