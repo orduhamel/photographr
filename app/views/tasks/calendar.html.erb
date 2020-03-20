@@ -58,27 +58,34 @@
                 <%= link_to mark_as_urgent_task_path(task), class: "link-mark-as-urgent", method: :patch, remote: true do %>
                   <% if task.kind == 'admin' %>
                     <% if task.urgent == true %>
-                      <div id="tag-urgent-<%= task.id %>" class="urgent pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
+                      <div id="tag-urgent-<%= task.id %>" class="urgent pl-4"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
                     <% else %>
-                      <div id="tag-urgent-<%= task.id %>" class="p-gray pl-5"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
+                      <div id="tag-urgent-<%= task.id %>" class="p-gray pl-4"><i class="fas fa-thumbtack picto-task-calendar"></i></div>
                     <% end %>
                     <% elsif task.kind == 'évènement' %>
-                      <div id="tag-urgent-<%= task.id %>" class="pl-5"><i class="green picto-task-calendar fas fa-camera"></i></div>
+                      <div id="tag-urgent-<%= task.id %>" class="pl-4"><i class="green picto-task-calendar fas fa-camera"></i></div>
                   <% else %>
                     <% if task.urgent == true %>
-                      <div id="tag-urgent-<%= task.id %>" class="urgent pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
+                      <div id="tag-urgent-<%= task.id %>" class="urgent pl-4"><i class="fas fa-palette picto-task-calendar"></i></i></div>
                     <% else %>
-                      <div id="tag-urgent-<%= task.id %>" class="p-gray pl-5"><i class="fas fa-palette picto-task-calendar"></i></i></div>
+                      <div id="tag-urgent-<%= task.id %>" class="p-gray pl-4"><i class="fas fa-palette picto-task-calendar"></i></i></div>
                     <% end %>
                   <% end %>
                 <% end %>
+                <%= link_to mark_as_done_task_path(task), class: "link-mark-as-done", method: :patch, remote: true do %>
+                  <% if task.done %>
+                    <div id="tag-done-<%= task.id %>" class="tag-done green pl-2"><i class="fas picto-task-calendar fa-check"></i></div>
+                  <% else %>
+                    <div id="tag-done-<%= task.id %>" class="tag-done p-gray pl-2"><i class="fas picto-task-calendar fa-check"></i></div>
+                  <% end %>
+                <% end %>
                 <% if task.kind == 'évènement'  %>
-                  <p class="col-6 px-1 font-weight-bold title-task green"><%= task.name %></p>
+                  <p class="col-6 px-4 font-weight-bold title-task green"><%= task.name %></p>
                   <%= link_to prestation_path(task.prestation), class: "link-text-index" do %>
                     <p class="p-gray px-0 task-prestation-title-calendar green"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
                   <% end %>
                 <% else %>
-                  <p class="col-6 px-1 font-weight-bold title-task"><%= task.name %></p>
+                  <p class="col-6 px-4 font-weight-bold title-task"><%= task.name %></p>
                   <%= link_to prestation_path(task.prestation), class: "link-text-index" do %>
                     <p class="p-gray px-0 task-prestation-title-calendar"><%= task.prestation.category.upcase %> - <%=  task.prestation.client.last_name %></p>
                   <% end %>
