@@ -31,8 +31,10 @@
   </head>
   <body>
     <div class="d-flex">
-      <%= render 'shared/sidebar' if current_user %>
+      <% if current_user %>
+      <%= render 'shared/sidebar' unless current_page?(root_path) %>
       <%= render 'shared/flashes' %>
+      <% end  %>
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>
